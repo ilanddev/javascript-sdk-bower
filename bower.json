@@ -1,0 +1,27 @@
+{
+  "name": "iland-sdk",
+  "homepage": "https://github.com/ilanddev/javascript-sdk-bower",
+  "authors": [
+    "Nicolas FRADIN <fradinni@gmail.com>"
+  ],
+  "description": "Javascript SDK for the iland Cloud API to be used with Bower",
+  "main": "build/iland.js",
+  "keywords": [
+    "iland",
+    "sdk",
+    "bower"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "axios": "^0.17.1",
+    "rxjs": "^4.1.0",
+    "keycloak": "git+https://github.com/ilanddev/keycloak-js-bower#^1.9.8"
+  }
+}

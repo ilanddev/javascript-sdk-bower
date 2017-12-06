@@ -1,0 +1,32 @@
+{
+  "name": "iland-sdk",
+  "version": "1.0.0",
+  "description": "Javascript SDK for the iland Cloud API to be used with Bower",
+  "main": "index.js",
+  "typings": "build/iland.d.ts",
+  "scripts": {
+    "postinstall": "bower install && npm run build",
+    "build": "cp -r ./node_modules/iland-sdk/build ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilanddev/javascript-sdk-bower.git"
+  },
+  "keywords": [
+    "iland",
+    "sdk",
+    "bower"
+  ],
+  "author": "Nicolas FRADIN (fradinni@gmail.com)",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/ilanddev/javascript-sdk-bower/issues"
+  },
+  "homepage": "https://github.com/ilanddev/javascript-sdk-bower#readme",
+  "dependencies": {
+    "iland-sdk": "github:ilanddev/javascript-sdk"
+  },
+  "devDependencies": {
+    "bower": "^1.8.2"
+  }
+}
