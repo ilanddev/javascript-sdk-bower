@@ -1,12 +1,12 @@
 {
   "name": "iland-sdk",
-  "version": "1.0.0",
+  "version": "0.8.2",
   "description": "Javascript SDK for the iland Cloud API to be used with Bower",
   "main": "index.js",
   "typings": "build/iland.d.ts",
   "scripts": {
     "postinstall": "bower install && npm run build",
-    "build": "cp -r ./node_modules/iland-sdk/build ./"
+    "build": "cp -r ./node_modules/iland-sdk/build ./ && cp ./build/src/index.d.ts ./build && rm -r ./build/src"
   },
   "repository": {
     "type": "git",
