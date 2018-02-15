@@ -75,27 +75,6 @@ export class Http {
 }
 
 /**
-    * Authorization Provider interface.
-    */
-export interface AuthProvider {
-        /**
-            * Retrieve a token for authenticating with the iland APIs.
-            */
-        getToken(): Promise<string>;
-        /**
-            * Log out the current authentication session.
-            */
-        logout(): Promise<null>;
-        /**
-            * Gets the username of the currently authenticated user.
-            * @returns {Promise<string>} username
-            */
-        getAuthenticatedUsername(): Promise<string>;
-}
-export const DEFAULT_AUTH_URL = "https://console.ilandcloud.com/auth";
-export const DEFAULT_REALM = "iland-core";
-
-/**
     * Entity.
     */
 export abstract class Entity {
@@ -732,6 +711,7 @@ export class User {
             * Gets the user's inventory within the specified company..
             * @param {string} companyId the ID of the company to retrieve inventory for
             * @returns {Promise<CompanyInventory>}  entity inventory
+            * @throws Error
             */
         getInventoryInCompany(companyId: string): Promise<CompanyInventory>;
         /**
@@ -2374,6 +2354,12 @@ export class Role {
             */
         toString(): string;
         /**
+            * Return the policy for the specified uuid.
+            * @param {string} entityUuid
+            * @returns {Policy | null}
+            */
+        getPolicy(entityUuid: string): Policy | null;
+        /**
             * Gets the raw JSON object from the API.
             * @returns {RoleJson} the JSON representation
             */
@@ -2392,9 +2378,9 @@ export class Policy {
         readonly entityUuid: string;
         /**
             * Gets the entity domain of the policy.
-            * @returns {EntityDomain} the entity domain
+            * @returns {EntityDomainType} the entity domain
             */
-        readonly entityDomain: EntityDomain;
+        readonly entityDomain: EntityDomainType;
         /**
             * Gets the policy type.
             * @returns {PolicyType} the policy type
@@ -2402,9 +2388,9 @@ export class Policy {
         readonly type: PolicyType;
         /**
             * Gets the permissions assigned to the policy.
-            * @returns {Array<Permission>} the policy permissions
+            * @returns {Array<PermissionType>} the policy permissions
             */
-        readonly permissions: Array<Permission>;
+        readonly permissions: Array<PermissionType>;
         /**
             * JSON format.
             * @returns {string}
@@ -2423,22 +2409,22 @@ export class PolicyBuilder {
         /**
             * Creates a new PolicyBuilder.
             * @param {string} _entityUuid the UUID of the entity that the policy will apply to
-            * @param {EntityDomain} _entityDomain the EntityDomain of the entity that the policy will apply to
+            * @param {EntityDomainType} _entityDomain the EntityDomain of the entity that the policy will apply to
             * @param {PolicyType} _type the policy type
             */
-        constructor(_entityUuid: string, _entityDomain: EntityDomain, _type: PolicyType);
+        constructor(_entityUuid: string, _entityDomain: EntityDomainType, _type: PolicyType);
         /**
             * Adds a permission.
-            * @param {Permission} permission the permission to add
+            * @param {PermissionType} permission the permission to add
             * @returns {PolicyBuilder} the builder
             */
-        addPermission(permission: Permission): PolicyBuilder;
+        addPermission(permission: PermissionType): PolicyBuilder;
         /**
             * Removes a permission.
-            * @param {Permission} permission the permission to remove
+            * @param {PermissionType} permission the permission to remove
             * @returns {PolicyBuilder} the builder
             */
-        removePermission(permission: Permission): PolicyBuilder;
+        removePermission(permission: PermissionType): PolicyBuilder;
         /**
             * Builds the policy.
             * @returns {Policy} the new policy
@@ -2461,9 +2447,9 @@ export class InventoryEntity {
         readonly uuid: string;
         /**
             * Gets the type of the entity.
-            * @returns {EntityDomain} entity type
+            * @returns {EntityDomainType} entity type
             */
-        readonly type: EntityDomain;
+        readonly type: EntityDomainType;
         /**
             * Gets the name of the entity.
             * @returns {string} entity name
@@ -2476,33 +2462,487 @@ export class InventoryEntity {
         readonly parentUuid: string | null;
         /**
             * Gets the type of the parent entity.
-            * @returns {EntityDomain} the parent entity type
+            * @returns {EntityDomainType} the parent entity type
             */
-        readonly parentType: EntityDomain | null;
+        readonly parentType: EntityDomainType | null;
 }
 export class CompanyInventory {
         constructor(_inventory: UserCompanyInventoryJson);
+        readonly companyId: string;
         /**
             * Get an inventory entity by UUID.
             * @param uuid {string} UUID of the entity
-            * @returns {undefined|InventoryEntity}
+            * @returns {InventoryEntity|undefined}
             */
         getEntityByUuid(uuid: string): InventoryEntity | undefined;
         /**
-            * Get an array of inventory entities of the specified type.
-            * @param type {EntityType} the type to retrieve
-            * @returns {undefined|InventoryEntity}
+            * Get all entities mapped by their types.
+            * @returns {{[p: string]: Array<InventoryEntity>}}
             */
-        getEntitiesByType(type: EntityDomain): Array<InventoryEntity> | undefined;
+        getAllEntitiesByType(): {
+                [type: string]: Array<InventoryEntity>;
+        };
+        /**
+            * Get an array of inventory entities of the specified type.
+            * @param {EntityDomainType} type
+            * @returns {Array<InventoryEntity> | undefined}
+            */
+        getEntitiesByType(type: EntityDomainType): Array<InventoryEntity> | undefined;
         /**
             * Gets the map of children belonging to an entity.
-            * @param {string} uuid the uuid of the entity
-            * @returns {[type: string]: Array<InventoryEntity>} the map of children by type
+            * @param {string} uuid
+            * @returns {{[type: string]: Array<InventoryEntity>} | undefined}
             */
         getChildrenForEntity(uuid: string): {
                 [type: string]: Array<InventoryEntity>;
         } | undefined;
 }
+
+/**
+    * Media.
+    */
+export class Media extends Entity {
+        constructor(_json: MediaJson);
+        /**
+            * Get the Media from API.
+            * @param {string} uuid
+            * @returns {Promise<Media>} promise that resolves with the Media
+            */
+        static getMedia(uuid: string): Promise<Media>;
+        /**
+            * Get entity type for Media
+            * @returns {EntityType}
+            */
+        readonly entityType: EntityType;
+        /**
+            * Refreshes the Media data by retrieving it from the API again.
+            * @returns {Promise<Media>} promise that resolves with the Media
+            */
+        refresh(): Promise<Media>;
+        /**
+            * Get Media status.
+            * @returns {number}
+            */
+        readonly status: number;
+        /**
+            * Get Media size.
+            * @returns {number}
+            */
+        readonly size: number;
+        /**
+            * Indicate whether the Media is public or not.
+            * @returns {boolean}
+            */
+        readonly isPublic: boolean;
+        /**
+            * Get Media location ID
+            * @returns {string}
+            */
+        readonly locationId: string;
+        /**
+            * Get Media org uuid.
+            * @returns {string}
+            */
+        readonly orgUuid: string;
+        /**
+            * Get Media catalog uuid.
+            * @returns {string}
+            */
+        readonly catalogUuid: string;
+        /**
+            * Get Media storageProfile uuid.
+            * @returns {string}
+            */
+        readonly storageProfileUuid: string;
+        /**
+            * Get Media vDc uuid.
+            * @returns {string}
+            */
+        readonly vdcUuid: string;
+        /**
+            * Get Media description
+            * @returns {string}
+            */
+        readonly description: string;
+        /**
+            * Get Media vCloudHref.
+            * @returns {string}
+            */
+        readonly vcloudHref: string;
+        /**
+            * Get Media creation date.
+            * @returns {Date}
+            */
+        readonly createdDate: Date;
+        /**
+            * Gets the raw JSON object from the API.
+            * @returns {MediaJson} the JSON representation
+            */
+        readonly json: MediaJson;
+        /**
+            * JSON format.
+            * @returns {string}
+            */
+        toString(): string;
+}
+
+/**
+    * VappTemplate
+    */
+export class VappTemplate extends Entity {
+        constructor(_json: VappTemplateJson);
+        /**
+            * Get the VappTemplate from API.
+            * @param {string} uuid
+            * @returns {Promise<VappTemplate>} promise that resolves with the VappTemplate.
+            */
+        static getVappTemplate(uuid: string): Promise<VappTemplate>;
+        /**
+            * Get VappTemplate entity type.
+            * @returns {EntityType}
+            */
+        readonly entityType: EntityType;
+        /**
+            * Get VappTemplate description
+            * @returns {string}
+            */
+        readonly description: string;
+        /**
+            * Get VappTemplate vCloudHref.
+            * @returns {string}
+            */
+        readonly vcloudHref: string;
+        /**
+            * Get VappTemplate status
+            * @returns {number}
+            */
+        readonly status: number;
+        /**
+            * Get VappTemplate size.
+            * @returns {number}
+            */
+        readonly size: number;
+        /**
+            * Indicate whether the VappTemplate is customisable or not.
+            * @returns {boolean}
+            */
+        readonly isCustomisable: boolean;
+        /**
+            * Indicate whether the VappTemplate customization is required or not.
+            * @returns {boolean}
+            */
+        readonly isCustomizationRequired: boolean;
+        /**
+            * Indicate whether the VappTemplate is gold master or not.
+            * @returns {boolean}
+            */
+        readonly isGoldMaster: boolean;
+        /**
+            * Indicate whether the VappTemplate is public or not.
+            * @returns {boolean}
+            */
+        readonly isPublic: boolean;
+        /**
+            * Get VappTemplate storage profile uuid.
+            * @returns {string}
+            */
+        readonly storageProfileUuid: string;
+        /**
+            * Get VappTemplate vDc uuid
+            * @returns {string}
+            */
+        readonly vdcUuid: string;
+        /**
+            * Get VappTemplate location ID
+            * @returns {string}
+            */
+        readonly locationId: string;
+        /**
+            * Get VappTemplate org uuid
+            * @returns {string}
+            */
+        readonly orgUuid: string;
+        /**
+            * Get VappTemplate catalog uuid
+            * @returns {string}
+            */
+        readonly catalogUuid: string;
+        /**
+            * Get VappTemplate creation date
+            * @returns {Date}
+            */
+        readonly createdDate: Date;
+        /**
+            * Indicate whether the VappTemplate is expired or not.
+            * @returns {boolean}
+            */
+        readonly isExpired: boolean;
+        /**
+            * Gets the raw JSON object from the API.
+            * @returns {VappTemplateJson} the API json object
+            */
+        readonly json: VappTemplateJson;
+        /**
+            * JSON format.
+            * @returns {string}
+            */
+        toString(): string;
+        /**
+            * Refreshes the VappTemplate data by retrieving it from the API again.
+            * @returns {Promise<VappTemplate>} promise that resolves with this object
+            */
+        refresh(): Promise<VappTemplate>;
+}
+
+/**
+    * Catalog.
+    */
+export class Catalog extends Entity {
+        constructor(_json: CatalogJson);
+        /**
+            * Get the Catalog from API.
+            * @param {string} uuid
+            * @returns {Promise<Catalog>} promise that resolves with the Catalog
+            */
+        static getCatalog(uuid: string): Promise<Catalog>;
+        readonly originalUuid: string;
+        readonly uuid: string;
+        /**
+            * Get entity type for catalog.
+            * @returns {EntityType}
+            */
+        readonly entityType: EntityType;
+        /**
+            * Get location ID
+            * @returns {string}
+            */
+        readonly locationId: string;
+        /**
+            * Indicate whether the catalog is shared or not.
+            * @returns {boolean}
+            */
+        readonly isShared: boolean;
+        /**
+            * Indicate whether the catalog is public or not.
+            * @returns {boolean}
+            */
+        readonly isPublic: boolean;
+        /**
+            * Get the catalog version
+            * @returns {number}
+            */
+        readonly version: number;
+        /**
+            * Get org uuid for catalog.
+            * @returns {string}
+            */
+        readonly orgUuid: string;
+        /**
+            * Get description for catalog
+            * @returns {string}
+            */
+        readonly description: string;
+        /**
+            * Get vCloudHref for catalog
+            * @returns {string}
+            */
+        readonly vcloudHref: string;
+        /**
+            * Get the creation date
+            * @returns {Date}
+            */
+        readonly createdDate: Date;
+        /**
+            * Gets the raw JSON object from the API.
+            * @returns {CatalogJson} the JSON representation
+            */
+        readonly json: CatalogJson;
+        /**
+            * JSON format.
+            * @returns {string}
+            */
+        toString(): string;
+        /**
+            * Refreshes the Catalog data by retrieving it from the API again.
+            * @returns {Promise<Catalog>} promise that resolves with the Catalog
+            */
+        refresh(): Promise<Catalog>;
+}
+
+/**
+    * Permission
+    */
+export class Permission {
+        constructor(_permissionType: PermissionType, _domain: EntityDomainType, _accessType: AccessType, _availableToCustomPolicy: boolean, _requiredForCustomPolicy: boolean, _impliedPermissions: Array<PermissionType> | null);
+        /**
+            * Get the EntityDomainType for a permission.
+            * @returns {EntityDomainType}
+            */
+        readonly domain: EntityDomainType;
+        /**
+            * Get the PermissionType for a permission.
+            * @returns {PermissionType}
+            */
+        readonly permissionType: PermissionType;
+        /**
+            * Get the AccessType for a permission.
+            * @returns {AccessType}
+            */
+        readonly accessType: AccessType;
+        /**
+            * Check whether or not this permission is available to custom policy.
+            * @returns {boolean}
+            */
+        readonly availableToCustomPolicy: boolean;
+        /**
+            * Check whether or not a permission is required for custom policy.
+            * @returns {boolean}
+            */
+        readonly requiredForCustomPolicy: boolean;
+        /**
+            * Get the implied permissions.
+            * @returns {Array<PermissionType> | null}
+            */
+        readonly impliedPermissions: Array<PermissionType> | null;
+        /**
+            * Get the string representation of a permission. Which is the PermissionType.
+            * @returns {string}
+            */
+        toString(): string;
+        /**
+            * Get the entity domain class for this permission.
+            * @returns {EntityDomain}
+            */
+        getDomain(): EntityDomain;
+}
+
+/**
+    * PermissionsMap
+    */
+export class PermissionsMap {
+        /**
+            * Get an instance of PermissionMap. Singleton implementation.
+            * @returns {PermissionsMap}
+            */
+        static getInstance(): PermissionsMap;
+        /**
+            * Get the permissions map.
+            * @returns {Map<PermissionType, Permission>}
+            */
+        readonly permissions: Map<PermissionType, Permission>;
+}
+
+/**
+    * DomainPermissionsMap
+    */
+export class DomainPermissionsMap {
+        /**
+            * Get an instance of DomainPermissionsMap. Singleton implementation.
+            * @returns {DomainPermissionsMap}
+            */
+        static getInstance(): DomainPermissionsMap;
+        /**
+            * Get the domains permissions map.
+            * @returns {Map<EntityDomainType, Array<Permission>>}
+            */
+        readonly domainPermissions: Map<EntityDomainType, Array<Permission>>;
+}
+
+/**
+    * EntityDomain
+    */
+export class EntityDomain {
+        constructor(entityDomainType: EntityDomainType);
+        /**
+            * Return the string representation of this class. Which is an EntityDomainType
+            * @returns {string}
+            */
+        toString(): string;
+        /**
+            * Get the parent entityDomain.
+            * @returns {EntityDomain | null}
+            */
+        readonly parent: EntityDomain | null;
+}
+
+/**
+    * UserWithSecurity
+    */
+export class UserWithSecurity extends User {
+        constructor(_apiUser: UserJson);
+        /**
+            * Set the inventory for user.
+            * @param {Array<CompanyInventory> | undefined} value
+            */
+        inventory: Array<CompanyInventory>;
+        /**
+            * Set the roles for user.
+            * @param {Map<string, Role>} value
+            */
+        rolesCompanyMap: Map<string, Role>;
+        /**
+            * Gets a user by username.
+            * @param username the user's username
+            * @returns {Promise<User>}
+            */
+        static getUser(username: string): Promise<UserWithSecurity>;
+        /**
+            * Gets the currently authenticated user.
+            * @returns {Promise<User>}
+            */
+        static getCurrentUser(): Promise<UserWithSecurity>;
+        /**
+            * Get user with security from an existing user.
+            * @param {User} user
+            * @returns {Promise<UserWithSecurity>}
+            */
+        static getUserWithSecurity(user: User): Promise<UserWithSecurity>;
+        /**
+            * Setup the userWithSecurity class. That will add the needed inventory and roles to the UserWithSecurity class.
+            * @param {UserWithSecurity} userWithSecurity
+            * @returns {Promise<UserWithSecurity>}
+            */
+        static setup(userWithSecurity: UserWithSecurity): Promise<UserWithSecurity>;
+        /**
+            * Gets the user's role for a company
+            * @param {string} companyUuid
+            * @returns {Promise<Role>}
+            */
+        getRoleFor(companyUuid: string): Promise<Role>;
+        /**
+            * Get a list of all user's roles.
+            * @returns {Promise<Array<Role>>}
+            */
+        getRoles(): Promise<Array<Role>>;
+        /**
+            * Check whether or not a user is allowed to perform an action or not.
+            * @param {PermissionType} permissionType
+            * @param {string} entityUuid
+            * @returns {boolean}
+            */
+        isPermittedTo(permissionType: PermissionType, entityUuid: string): boolean;
+}
+
+/**
+    * Authorization Provider interface.
+    */
+export interface AuthProvider {
+        /**
+            * Retrieve a token for authenticating with the iland APIs.
+            */
+        getToken(): Promise<string>;
+        /**
+            * Log out the current authentication session.
+            */
+        logout(): Promise<null>;
+        /**
+            * Gets the username of the currently authenticated user.
+            * @returns {Promise<string>} username
+            */
+        getAuthenticatedUsername(): Promise<string>;
+}
+export const DEFAULT_AUTH_URL: string;
+export const DEFAULT_REALM = "iland-core";
 
 export class IlandBrowserAuthProvider implements AuthProvider {
         constructor(config: IlandBrowserAuthConfig);
@@ -3093,16 +3533,16 @@ export interface CompanyJson extends EntityJson {
 /**
   * Enumeration of iland Permission keys.
   */
-export type Permission = 'VIEW_ILAND_BACKUP_TENANT' | 'MANAGE_ILAND_BACKUP_TENANT_STORAGE' | 'VIEW_ILAND_BACKUP_LOCATION' | 'VIEW_ILAND_BACKUP_LOCATION_BILLING' | 'MANAGE_ILAND_BACKUP_DATA_CENTER_STORAGE' | 'VIEW_ILAND_CLOUD_VM' | 'VIEW_ILAND_CLOUD_VM_BILLING' | 'ACCESS_ILAND_CLOUD_VM_CONSOLE' | 'MANAGE_ILAND_CLOUD_VM_POWER_STATE' | 'MANAGE_ILAND_CLOUD_VM_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_VM_SNAPSHOTS' | 'COPY_MOVE_RESTORE_ILAND_CLOUD_VM' | 'DELETE_ILAND_CLOUD_VM' | 'VIEW_ILAND_CLOUD_VAPP_NETWORK' | 'MANAGE_ILAND_CLOUD_VAPP_NETWORK_CONFIGURATION' | 'DELETE_ILAND_CLOUD_VAPP_NETWORK' | 'VIEW_ILAND_CLOUD_VAPP' | 'VIEW_ILAND_CLOUD_VAPP_BILLING' | 'MANAGE_ILAND_CLOUD_VAPP_POWER_STATE' | 'MANAGE_ILAND_CLOUD_VAPP_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_VAPP_SNAPSHOTS' | 'MANAGE_ILAND_CLOUD_VAPP_LEASES' | 'COPY_MOVE_DOWNLOAD_ILAND_CLOUD_VAPP' | 'DELETE_ILAND_CLOUD_VAPP' | 'CREATE_ILAND_CLOUD_VAPP_VMS' | 'CREATE_ILAND_CLOUD_VAPP_NETWORKS' | 'VIEW_ILAND_CLOUD_INTERNAL_NETWORK' | 'MANAGE_ILAND_CLOUD_INTERNAL_NETWORK_CONFIGURATION' | 'DELETE_ILAND_CLOUD_INTERNAL_NETWORK' | 'VIEW_ILAND_CLOUD_EDGE' | 'MANAGE_ILAND_CLOUD_EDGE_DHCP_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_LOAD_BALANCER_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_STATIC_ROUTING_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_RATE_LIMIT_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_IPSEC_VPN_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_SSL_VPN_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_FIREWALL_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_NAT_CONFIGURATION' | 'VIEW_ILAND_CLOUD_VDC' | 'VIEW_ILAND_CLOUD_VDC_BILLING' | 'MANAGE_ILAND_CLOUD_VDC_CONFIGURATION' | 'CREATE_ILAND_CLOUD_VDC_VAPPS' | 'CREATE_ILAND_CLOUD_VDC_CATALOG_ITEMS' | 'CREATE_ILAND_CLOUD_VDC_INTERNAL_NETWORKS' | 'VIEW_ILAND_CLOUD_VAPP_TEMPLATE' | 'MANAGE_ILAND_CLOUD_VAPP_TEMPLATE_CONFIGURATION' | 'DOWNLOAD_ILAND_CLOUD_VAPP_TEMPLATE' | 'DELETE_ILAND_CLOUD_VAPP_TEMPLATE' | 'VIEW_ILAND_CLOUD_MEDIA' | 'MANAGE_ILAND_CLOUD_MEDIA_CONFIGURATION' | 'CLONE_DOWNLOAD_ILAND_CLOUD_MEDIA' | 'DELETE_ILAND_CLOUD_MEDIA' | 'VIEW_ILAND_CLOUD_CATALOG' | 'MANAGE_ILAND_CLOUD_CATALOG_CONFIGURATION' | 'DELETE_ILAND_CLOUD_CATALOG' | 'CREATE_ILAND_CLOUD_CATALOG_VAPP_TEMPLATES' | 'CREATE_ILAND_CLOUD_CATALOG_MEDIA' | 'VIEW_ILAND_CLOUD_VPG' | 'MANAGE_ILAND_CLOUD_VPG_CONFIGURATION' | 'INITIATE_ILAND_CLOUD_VPG_TEST_FAILOVER' | 'INITIATE_ILAND_CLOUD_VPG_LIVE_FAILOVER' | 'VIEW_ILAND_CLOUD_ORG' | 'VIEW_ILAND_CLOUD_ORG_SECURITY' | 'VIEW_ILAND_CLOUD_ORG_BILLING' | 'MANAGE_ILAND_CLOUD_ORG_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_ORG_DNS' | 'CREATE_ILAND_CLOUD_ORG_CATALOGS' | 'MANAGE_ILAND_CLOUD_ORG_SECURITY' | 'VIEW_ILAND_CLOUD_LOCATION' | 'VIEW_ILAND_CLOUD_LOCATION_BILLING' | 'VIEW_ILAND_BACKUP' | 'VIEW_ILAND_BACKUP_BILLING' | 'VIEW_ILAND_CLOUD' | 'VIEW_ILAND_CLOUD_BILLING' | 'VIEW_COMPANY' | 'VIEW_COMPANY_SUPPORT_TICKETS' | 'VIEW_COMPANY_IAM' | 'MANAGE_COMPANY_IAM' | 'MANAGE_COMPANY_SUPPORT_TICKETS';
+export type PermissionType = 'VIEW_ILAND_BACKUP_TENANT' | 'MANAGE_ILAND_BACKUP_TENANT_STORAGE' | 'VIEW_ILAND_BACKUP_LOCATION' | 'VIEW_ILAND_BACKUP_LOCATION_BILLING' | 'MANAGE_ILAND_BACKUP_DATA_CENTER_STORAGE' | 'VIEW_ILAND_CLOUD_VM' | 'VIEW_ILAND_CLOUD_VM_BILLING' | 'ACCESS_ILAND_CLOUD_VM_CONSOLE' | 'MANAGE_ILAND_CLOUD_VM_POWER_STATE' | 'MANAGE_ILAND_CLOUD_VM_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_VM_SNAPSHOTS' | 'COPY_MOVE_RESTORE_ILAND_CLOUD_VM' | 'DELETE_ILAND_CLOUD_VM' | 'VIEW_ILAND_CLOUD_VAPP_NETWORK' | 'MANAGE_ILAND_CLOUD_VAPP_NETWORK_CONFIGURATION' | 'DELETE_ILAND_CLOUD_VAPP_NETWORK' | 'VIEW_ILAND_CLOUD_VAPP' | 'VIEW_ILAND_CLOUD_VAPP_BILLING' | 'MANAGE_ILAND_CLOUD_VAPP_POWER_STATE' | 'MANAGE_ILAND_CLOUD_VAPP_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_VAPP_SNAPSHOTS' | 'MANAGE_ILAND_CLOUD_VAPP_LEASES' | 'COPY_MOVE_DOWNLOAD_ILAND_CLOUD_VAPP' | 'DELETE_ILAND_CLOUD_VAPP' | 'CREATE_ILAND_CLOUD_VAPP_VMS' | 'CREATE_ILAND_CLOUD_VAPP_NETWORKS' | 'VIEW_ILAND_CLOUD_INTERNAL_NETWORK' | 'MANAGE_ILAND_CLOUD_INTERNAL_NETWORK_CONFIGURATION' | 'DELETE_ILAND_CLOUD_INTERNAL_NETWORK' | 'VIEW_ILAND_CLOUD_EDGE' | 'MANAGE_ILAND_CLOUD_EDGE_DHCP_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_LOAD_BALANCER_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_STATIC_ROUTING_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_RATE_LIMIT_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_IPSEC_VPN_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_SSL_VPN_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_FIREWALL_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_EDGE_NAT_CONFIGURATION' | 'VIEW_ILAND_CLOUD_VDC' | 'VIEW_ILAND_CLOUD_VDC_BILLING' | 'MANAGE_ILAND_CLOUD_VDC_CONFIGURATION' | 'CREATE_ILAND_CLOUD_VDC_VAPPS' | 'CREATE_ILAND_CLOUD_VDC_CATALOG_ITEMS' | 'CREATE_ILAND_CLOUD_VDC_INTERNAL_NETWORKS' | 'VIEW_ILAND_CLOUD_VAPP_TEMPLATE' | 'MANAGE_ILAND_CLOUD_VAPP_TEMPLATE_CONFIGURATION' | 'DOWNLOAD_ILAND_CLOUD_VAPP_TEMPLATE' | 'DELETE_ILAND_CLOUD_VAPP_TEMPLATE' | 'VIEW_ILAND_CLOUD_MEDIA' | 'MANAGE_ILAND_CLOUD_MEDIA_CONFIGURATION' | 'CLONE_DOWNLOAD_ILAND_CLOUD_MEDIA' | 'DELETE_ILAND_CLOUD_MEDIA' | 'VIEW_ILAND_CLOUD_CATALOG' | 'MANAGE_ILAND_CLOUD_CATALOG_CONFIGURATION' | 'DELETE_ILAND_CLOUD_CATALOG' | 'CREATE_ILAND_CLOUD_CATALOG_VAPP_TEMPLATES' | 'CREATE_ILAND_CLOUD_CATALOG_MEDIA' | 'VIEW_ILAND_CLOUD_VPG' | 'MANAGE_ILAND_CLOUD_VPG_CONFIGURATION' | 'INITIATE_ILAND_CLOUD_VPG_TEST_FAILOVER' | 'INITIATE_ILAND_CLOUD_VPG_LIVE_FAILOVER' | 'VIEW_ILAND_CLOUD_ORG' | 'VIEW_ILAND_CLOUD_ORG_SECURITY' | 'VIEW_ILAND_CLOUD_ORG_BILLING' | 'MANAGE_ILAND_CLOUD_ORG_CONFIGURATION' | 'MANAGE_ILAND_CLOUD_ORG_DNS' | 'CREATE_ILAND_CLOUD_ORG_CATALOGS' | 'MANAGE_ILAND_CLOUD_ORG_SECURITY' | 'VIEW_ILAND_CLOUD_LOCATION' | 'VIEW_ILAND_CLOUD_LOCATION_BILLING' | 'VIEW_ILAND_BACKUP' | 'VIEW_ILAND_BACKUP_BILLING' | 'VIEW_ILAND_CLOUD' | 'VIEW_ILAND_CLOUD_BILLING' | 'VIEW_COMPANY' | 'VIEW_COMPANY_SUPPORT_TICKETS' | 'VIEW_COMPANY_IAM' | 'MANAGE_COMPANY_IAM' | 'MANAGE_COMPANY_SUPPORT_TICKETS';
 
 /**
   * Interface for Policy JSON properties.
   */
 export interface PolicyJson {
     entity_uuid: string;
-    domain: EntityDomain;
+    domain: EntityDomainType;
     type: PolicyType;
-    permissions: Array<Permission>;
+    permissions: Array<PermissionType>;
 }
 export type PolicyType = 'ADMIN' | 'READ_ONLY' | 'CUSTOM';
 
@@ -3118,7 +3558,6 @@ export interface RoleJson {
     type: RoleType;
 }
 export type RoleType = 'CUSTOM' | 'BUILT_IN';
-export type EntityDomain = 'COMPANY' | 'ILAND_CLOUD_PRODUCT' | 'ILAND_BACKUP_PRODUCT' | 'ILAND_CLOUD_LOCATION' | 'ILAND_CLOUD_ORGANIZATION' | 'ILAND_CLOUD_VPG' | 'ILAND_CLOUD_CATALOG' | 'ILAND_CLOUD_MEDIA' | 'ILAND_CLOUD_VAPP_TEMPLATE' | 'ILAND_CLOUD_VDC' | 'ILAND_CLOUD_EDGE' | 'ILAND_CLOUD_INTERNAL_NETWORK' | 'ILAND_CLOUD_VAPP' | 'ILAND_CLOUD_VAPP_NETWORK' | 'ILAND_CLOUD_VM' | 'ILAND_BACKUP_LOCATION' | 'ILAND_BACKUP_TENANT';
 
 /**
   * Role Creation Request JSON properties.
@@ -3163,9 +3602,65 @@ export interface UserCompanyInventoryJson {
     */
 export interface UserInventoryEntityJson {
         uuid: string;
-        type: EntityDomain;
+        type: EntityDomainType;
         name: string;
         parent_uuid: string | null;
-        parent_type: EntityDomain | null;
+        parent_type: EntityDomainType | null;
 }
+
+/**
+  * Interface for Catalog JSON representation.
+  */
+export interface CatalogJson extends EntityJson {
+    location_id: string;
+    shared: boolean;
+    public: boolean;
+    version: number;
+    org_uuid: string;
+    description: string;
+    vcloud_href: string;
+    created_date: number;
+}
+
+/**
+  * Interface for VappTemplate JSON representation.
+  */
+export interface VappTemplateJson extends EntityJson {
+    description: string;
+    vcloud_href: string;
+    status: number;
+    size: number;
+    customizable: boolean;
+    customization_required: boolean;
+    gold_master: boolean;
+    storage_profile_uuid: string;
+    public: boolean;
+    vdc_uuid: string;
+    location_id: string;
+    org_uuid: string;
+    catalog_uuid: string;
+    created_date: number;
+    is_expired: boolean;
+}
+
+/**
+  * Interface for Media JSON representation.
+  */
+export interface MediaJson extends EntityJson {
+    status: number;
+    size: number;
+    public: boolean;
+    location_id: string;
+    org_uuid: string;
+    catalog_uuid: string;
+    storage_profile_uuid: string;
+    vdc_uuid: string;
+    description: string;
+    vcloud_href: string;
+    created_date: number;
+}
+
+export type AccessType = 'WRITE' | 'READ';
+
+export type EntityDomainType = 'COMPANY' | 'ILAND_CLOUD_PRODUCT' | 'ILAND_BACKUP_PRODUCT' | 'ILAND_CLOUD_LOCATION' | 'ILAND_CLOUD_ORGANIZATION' | 'ILAND_CLOUD_VPG' | 'ILAND_CLOUD_CATALOG' | 'ILAND_CLOUD_MEDIA' | 'ILAND_CLOUD_VAPP_TEMPLATE' | 'ILAND_CLOUD_VDC' | 'ILAND_CLOUD_EDGE' | 'ILAND_CLOUD_INTERNAL_NETWORK' | 'ILAND_CLOUD_VAPP' | 'ILAND_CLOUD_VAPP_NETWORK' | 'ILAND_CLOUD_VM' | 'ILAND_BACKUP_LOCATION' | 'ILAND_BACKUP_TENANT';
 

@@ -7,7 +7,7 @@
 		exports["iland"] = factory(require("axios"), require("rxjs"), require("keycloak-js"));
 	else
 		root["iland"] = factory(root["axios"], root["rxjs"], root["Keycloak"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_11__, __WEBPACK_EXTERNAL_MODULE_35__, __WEBPACK_EXTERNAL_MODULE_43__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_40__, __WEBPACK_EXTERNAL_MODULE_56__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 37);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,8 +264,9 @@ function __asyncValues(o) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var http_1 = __webpack_require__(10);
-var DEFAULT_API_URL = 'https://api.ilandcloud.com/v1';
+var http_1 = __webpack_require__(14);
+var basic_configuration_1 = __webpack_require__(5);
+var DEFAULT_API_URL = basic_configuration_1.BasicConfiguration.getApiUrl() + "/v1";
 var Iland = (function () {
     function Iland() {
     }
@@ -373,18 +374,68 @@ exports.Entity = Entity;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var task_1 = __webpack_require__(12);
+tslib_1.__exportStar(__webpack_require__(2), exports);
+tslib_1.__exportStar(__webpack_require__(16), exports);
+tslib_1.__exportStar(__webpack_require__(4), exports);
+tslib_1.__exportStar(__webpack_require__(7), exports);
+tslib_1.__exportStar(__webpack_require__(17), exports);
+tslib_1.__exportStar(__webpack_require__(20), exports);
+tslib_1.__exportStar(__webpack_require__(6), exports);
+tslib_1.__exportStar(__webpack_require__(25), exports);
+tslib_1.__exportStar(__webpack_require__(24), exports);
+tslib_1.__exportStar(__webpack_require__(29), exports);
+tslib_1.__exportStar(__webpack_require__(30), exports);
+tslib_1.__exportStar(__webpack_require__(31), exports);
+tslib_1.__exportStar(__webpack_require__(32), exports);
+tslib_1.__exportStar(__webpack_require__(9), exports);
+tslib_1.__exportStar(__webpack_require__(19), exports);
+tslib_1.__exportStar(__webpack_require__(23), exports);
+tslib_1.__exportStar(__webpack_require__(41), exports);
+tslib_1.__exportStar(__webpack_require__(22), exports);
+tslib_1.__exportStar(__webpack_require__(21), exports);
+tslib_1.__exportStar(__webpack_require__(11), exports);
+tslib_1.__exportStar(__webpack_require__(33), exports);
+tslib_1.__exportStar(__webpack_require__(18), exports);
+tslib_1.__exportStar(__webpack_require__(12), exports);
+tslib_1.__exportStar(__webpack_require__(10), exports);
+tslib_1.__exportStar(__webpack_require__(42), exports);
+tslib_1.__exportStar(__webpack_require__(43), exports);
+tslib_1.__exportStar(__webpack_require__(27), exports);
+tslib_1.__exportStar(__webpack_require__(44), exports);
+tslib_1.__exportStar(__webpack_require__(45), exports);
+tslib_1.__exportStar(__webpack_require__(8), exports);
+tslib_1.__exportStar(__webpack_require__(28), exports);
+tslib_1.__exportStar(__webpack_require__(26), exports);
+tslib_1.__exportStar(__webpack_require__(46), exports);
+tslib_1.__exportStar(__webpack_require__(47), exports);
+tslib_1.__exportStar(__webpack_require__(48), exports);
+tslib_1.__exportStar(__webpack_require__(34), exports);
+tslib_1.__exportStar(__webpack_require__(49), exports);
+tslib_1.__exportStar(__webpack_require__(50), exports);
+tslib_1.__exportStar(__webpack_require__(35), exports);
+tslib_1.__exportStar(__webpack_require__(51), exports);
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+var task_1 = __webpack_require__(16);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var vnic_1 = __webpack_require__(13);
-var virtual_disk_1 = __webpack_require__(14);
-var metadata_1 = __webpack_require__(15);
-var backup_restore_point_1 = __webpack_require__(16);
-var snapshot_1 = __webpack_require__(17);
-var screen_ticket_1 = __webpack_require__(18);
-var mks_screen_ticket_1 = __webpack_require__(19);
-var bill_1 = __webpack_require__(4);
-var billing_summary_1 = __webpack_require__(21);
+var vnic_1 = __webpack_require__(17);
+var virtual_disk_1 = __webpack_require__(18);
+var metadata_1 = __webpack_require__(19);
+var backup_restore_point_1 = __webpack_require__(20);
+var snapshot_1 = __webpack_require__(21);
+var screen_ticket_1 = __webpack_require__(22);
+var mks_screen_ticket_1 = __webpack_require__(23);
+var bill_1 = __webpack_require__(6);
+var billing_summary_1 = __webpack_require__(25);
 /**
  * Virtual Machine.
  */
@@ -1255,13 +1306,56 @@ exports.Vm = Vm;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Basic configurations for SDK using environment variables.
+ */
+var BasicConfiguration = (function () {
+    function BasicConfiguration() {
+    }
+    /**
+     * Get the default API url.
+     * @returns {string}
+     */
+    BasicConfiguration.getApiUrl = function () {
+        if (process.env.ILAND_API_URL && process.env.ILAND_API_URL !== 'undefined') {
+            return process.env.ILAND_API_URL;
+        }
+        else {
+            return 'https://api.ilandcloud.com';
+        }
+    };
+    /**
+     * Get the default authorisation url.
+     * @returns {string}
+     */
+    BasicConfiguration.getAuthorizationUrl = function () {
+        if (process.env.ILAND_AUTHORIZATION_URL && process.env.ILAND_AUTHORIZATION_URL !== 'undefined') {
+            return process.env.ILAND_AUTHORIZATION_URL;
+        }
+        else {
+            return 'https://console.ilandcloud.com';
+        }
+    };
+    return BasicConfiguration;
+}());
+exports.BasicConfiguration = BasicConfiguration;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(39)))
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var bill_line_item_1 = __webpack_require__(20);
+var bill_line_item_1 = __webpack_require__(24);
 /**
  * Bill Ticket.
  */
@@ -1854,7 +1948,447 @@ exports.Bill = Bill;
 
 
 /***/ }),
-/* 5 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+var iland_1 = __webpack_require__(1);
+var company_inventory_1 = __webpack_require__(26);
+var company_1 = __webpack_require__(27);
+/**
+ * User.
+ */
+var User = (function () {
+    function User(_apiUser) {
+        this._apiUser = _apiUser;
+    }
+    /**
+     * Gets a user by username.
+     * @param username the user's username
+     * @returns {Promise<User>}
+     */
+    User.getUser = function (username) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + username).then(function (response) {
+                        var apiUser = response.data;
+                        return new User(apiUser);
+                    })];
+            });
+        });
+    };
+    /**
+     * Gets the currently authenticated user.
+     * @returns {Promise<User>}
+     */
+    User.getCurrentUser = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getAuthProvider().getAuthenticatedUsername().then(function (username) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+                        return tslib_1.__generator(this, function (_a) {
+                            if (username) {
+                                return [2 /*return*/, User.getUser(username)];
+                            }
+                            else {
+                                return [2 /*return*/, new Promise(function (_, reject) {
+                                        reject();
+                                    })];
+                            }
+                            return [2 /*return*/];
+                        });
+                    }); })];
+            });
+        });
+    };
+    Object.defineProperty(User.prototype, "username", {
+        /**
+         * Gets the user's username.
+         * @returns {string} username
+         */
+        get: function () {
+            return this._apiUser.name;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "address", {
+        /**
+         * Gets the user's address.
+         * @returns {string} address
+         */
+        get: function () {
+            return this._apiUser.address;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "city", {
+        /**
+         * Gets the user's city.
+         * @returns {string} city
+         */
+        get: function () {
+            return this._apiUser.city;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "company", {
+        /**
+         * Gets the user's company.
+         * @returns {string} company
+         */
+        get: function () {
+            return this._apiUser.company;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "country", {
+        /**
+         * Gets the user's country.
+         * @returns {string} country
+         */
+        get: function () {
+            return this._apiUser.country;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "createdDate", {
+        /**
+         * Gets the user's created date.
+         * @returns {Date} created date
+         */
+        get: function () {
+            return new Date(this._apiUser.created_date);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "domain", {
+        /**
+         * Gets the user's domain.
+         * @returns {string} user domain
+         */
+        get: function () {
+            return this._apiUser.domain;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "deleted", {
+        /**
+         * Indicates whether the user is deleted.
+         * @returns {boolean} value
+         */
+        get: function () {
+            return this._apiUser.deleted;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "deletedDate", {
+        /**
+         * Gets the deleted date of the user.
+         * @returns {Date} deleted date or null if the user is not deleted
+         */
+        get: function () {
+            return this._apiUser.deleted_date ? new Date(this._apiUser.deleted_date) : null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "email", {
+        /**
+         * Gets the user's email address.
+         * @returns {string} email address
+         */
+        get: function () {
+            return this._apiUser.email;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "fullName", {
+        /**
+         * Gets the user's full name.
+         * @returns {string} full name
+         */
+        get: function () {
+            return this._apiUser.fullname;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "locked", {
+        /**
+         * Indicates whether the user is locked out of their account.
+         * @returns {boolean} value
+         */
+        get: function () {
+            return this._apiUser.locked;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "phoneNumber", {
+        /**
+         * Gets the phone number of the user.
+         * @returns {string} phone number
+         */
+        get: function () {
+            return this._apiUser.phone;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "state", {
+        /**
+         * Gets the user's state.
+         * @returns {string} state
+         */
+        get: function () {
+            return this._apiUser.state;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "userType", {
+        /**
+         * Gets the user type.
+         * @returns {UserType} user type
+         */
+        get: function () {
+            return this._apiUser.user_type;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(User.prototype, "zip", {
+        /**
+         * Gets the user's zip code.
+         * @returns {string} zip code.
+         */
+        get: function () {
+            return this._apiUser.zip;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * JSON format.
+     * @returns {string}
+     */
+    User.prototype.toString = function () {
+        return JSON.stringify(this._apiUser, undefined, 2);
+    };
+    Object.defineProperty(User.prototype, "json", {
+        /**
+         * Gets the raw JSON object from the API.
+         * @returns {UserJson} the API User object
+         */
+        get: function () {
+            return Object.assign({}, this._apiUser);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Retrieves a new representation of the user from the API.
+     * @returns {Promise<User>} promise that resolves with updated user
+     */
+    User.prototype.refresh = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username).then(function (response) {
+                        _this._apiUser = response.data;
+                        return _this;
+                    })];
+            });
+        });
+    };
+    /**
+     * Gets the user's inventory within the specified company..
+     * @param {string} companyId the ID of the company to retrieve inventory for
+     * @returns {Promise<CompanyInventory>}  entity inventory
+     * @throws Error
+     */
+    User.prototype.getInventoryInCompany = function (companyId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/inventory", {
+                        params: {
+                            company: companyId
+                        }
+                    }).then(function (response) {
+                        var userInventory = response.data;
+                        return new company_inventory_1.CompanyInventory(userInventory.inventory[0]);
+                    }, function () {
+                        throw new Error("No inventory found for company with id=" + companyId + ".");
+                    })];
+            });
+        });
+    };
+    /**
+     * Gets the user's entity inventory.
+     * @returns {Promise<Array<CompanyInventory>>} user's entity inventory
+     */
+    User.prototype.getInventory = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/inventory").then(function (response) {
+                        var userInventory = response.data;
+                        return userInventory.inventory.map(function (it) { return new company_inventory_1.CompanyInventory(it); });
+                    })];
+            });
+        });
+    };
+    /**
+     * Gets the user's list of companies.
+     * @returns {Promise<Array<Company>>} user's list of companies
+     */
+    User.prototype.getCompanies = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/companies").then(function (response) {
+                        var companiesList = response.data;
+                        return companiesList.map(function (it) { return new company_1.Company(it); });
+                    })];
+            });
+        });
+    };
+    return User;
+}());
+exports.User = User;
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var policy_1 = __webpack_require__(28);
+/**
+ * Role.
+ */
+var Role = (function () {
+    function Role(_json) {
+        this._json = _json;
+        this._policies = this._json.policies.map(function (it) { return new policy_1.Policy(it); });
+    }
+    Object.defineProperty(Role.prototype, "uuid", {
+        /**
+         * Gets the UUID of the role.
+         * @returns {string} role UUID
+         */
+        get: function () {
+            return this._json.uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Role.prototype, "companyId", {
+        /**
+         * Gets the ID of the company that the role is associated with.
+         * @returns {string} company ID
+         */
+        get: function () {
+            return this._json.company_id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Role.prototype, "name", {
+        /**
+         * Gets the name of the role.
+         * @returns {string} the role name
+         */
+        get: function () {
+            return this._json.name;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Role.prototype, "description", {
+        /**
+         * Gets the role description.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.description;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Role.prototype, "policies", {
+        /**
+         * Gets the policies that define the role.
+         * @returns {Array<Policy>} the array of role policies
+         */
+        get: function () {
+            return this._policies.slice();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Role.prototype, "type", {
+        /**
+         * Gets the role type.
+         * @returns {RoleType} role type
+         */
+        get: function () {
+            return this._json.type;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * JSON format.
+     * @returns {string}
+     */
+    Role.prototype.toString = function () {
+        return JSON.stringify(this._json, undefined, 2);
+    };
+    /**
+     * Return the policy for the specified uuid.
+     * @param {string} entityUuid
+     * @returns {Policy | null}
+     */
+    Role.prototype.getPolicy = function (entityUuid) {
+        for (var _i = 0, _a = this._policies; _i < _a.length; _i++) {
+            var p = _a[_i];
+            if (p.entityUuid === entityUuid) {
+                return p;
+            }
+        }
+        return null;
+    };
+    Object.defineProperty(Role.prototype, "json", {
+        /**
+         * Gets the raw JSON object from the API.
+         * @returns {RoleJson} the JSON representation
+         */
+        get: function () {
+            return Object.assign({}, this._json);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return Role;
+}());
+exports.Role = Role;
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1913,7 +2447,7 @@ exports.IpRange = IpRange;
 
 
 /***/ }),
-/* 6 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1921,7 +2455,7 @@ exports.IpRange = IpRange;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
-var ip_range_1 = __webpack_require__(5);
+var ip_range_1 = __webpack_require__(9);
 /**
  * Abstract Network.
  */
@@ -2088,7 +2622,7 @@ exports.AbstractNetwork = AbstractNetwork;
 
 
 /***/ }),
-/* 7 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2097,8 +2631,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var vm_1 = __webpack_require__(3);
-var vapp_network_1 = __webpack_require__(8);
+var vm_1 = __webpack_require__(4);
+var vapp_network_1 = __webpack_require__(12);
 /**
  * Virtual Application.
  */
@@ -2357,7 +2891,7 @@ exports.Vapp = Vapp;
 
 
 /***/ }),
-/* 8 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2365,7 +2899,7 @@ exports.Vapp = Vapp;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var iland_1 = __webpack_require__(1);
-var abstract_network_1 = __webpack_require__(6);
+var abstract_network_1 = __webpack_require__(10);
 /**
  * vApp Network.
  */
@@ -2454,27 +2988,28 @@ exports.VappNetwork = VappNetwork;
 
 
 /***/ }),
-/* 9 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DEFAULT_AUTH_URL = 'https://console.ilandcloud.com/auth';
+var basic_configuration_1 = __webpack_require__(5);
+exports.DEFAULT_AUTH_URL = basic_configuration_1.BasicConfiguration.getAuthorizationUrl() + "/auth";
 exports.DEFAULT_REALM = 'iland-core';
 
 
 /***/ }),
-/* 10 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var axios_1 = __webpack_require__(11);
+var axios_1 = __webpack_require__(15);
 var iland_1 = __webpack_require__(1);
-var api_error_1 = __webpack_require__(33);
+var api_error_1 = __webpack_require__(38);
 var DEFAULT_API_VERSION = 1.0;
 var ILAND_MIME_VND_PREFIX = 'vnd.ilandcloud.api';
 /**
@@ -2491,6 +3026,7 @@ var Http = (function () {
         this._ilandAxios = axios_1.default.create({
             baseURL: baseUrl,
             headers: {
+                'x-enable-json-security-chars': 'true',
                 'Accept': defaultMime,
                 'Content-Type': defaultMime
             }
@@ -2498,6 +3034,10 @@ var Http = (function () {
         this._ilandAxios.interceptors.request.use(function (config) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
             return tslib_1.__generator(this, function (_a) {
                 return [2 /*return*/, iland_1.Iland.getAuthProvider().getToken().then(function (token) {
+                        if (config.headers['x-enable-json-security-chars'] === false ||
+                            config.headers['x-enable-json-security-chars'] === 'false') {
+                            delete config.headers['x-enable-json-security-chars'];
+                        }
                         config.headers['Authorization'] = 'Bearer ' + token;
                         return config;
                     })];
@@ -2506,24 +3046,33 @@ var Http = (function () {
         this._ilandAxios.interceptors.response.use(function (response) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
             var str;
             return tslib_1.__generator(this, function (_a) {
-                str = response.data;
-                if (str.indexOf(")]}'\n") === 0) {
-                    response.data = JSON.parse(str.substring(5));
+                if (response.data instanceof Object || response.data instanceof Array) {
+                    return [2 /*return*/, response];
                 }
-                return [2 /*return*/, response];
+                else {
+                    str = response.data;
+                    if (str.indexOf(')]}\'\n') === 0) {
+                        response.data = JSON.parse(str.substring(5));
+                    }
+                    return [2 /*return*/, response];
+                }
+                return [2 /*return*/];
             });
         }); }, function (reason) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-            var str, error;
+            var error, response, str;
             return tslib_1.__generator(this, function (_a) {
-                if (reason.response) {
-                    str = reason.response.data;
-                    if (str.indexOf(")]}'\n") === 0) {
+                response = reason.response;
+                if (response.data instanceof Object || response.data instanceof Array) {
+                    error = response.data;
+                }
+                else {
+                    str = response.data;
+                    if (str.indexOf(')]}\'\n') === 0) {
                         str = str.substring(5);
                     }
                     error = JSON.parse(str);
-                    throw new api_error_1.ApiError(error);
                 }
-                throw new Error(reason.message);
+                throw new api_error_1.ApiError(error);
             });
         }); });
     }
@@ -2539,7 +3088,7 @@ var Http = (function () {
         }
         var versionStr = (version ? version : DEFAULT_API_VERSION).toFixed(1);
         var parts = mime.split('/');
-        if (parts.length === 2) {
+        if (parts.length === 2 && parts[1].includes('json')) {
             var prefix = parts[0];
             var suffix = parts[1];
             return prefix + "/" + ILAND_MIME_VND_PREFIX + ".v" + versionStr + "+" + suffix;
@@ -2623,23 +3172,24 @@ exports.Http = Http;
 
 
 /***/ }),
-/* 11 */
+/* 15 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_11__;
+module.exports = __WEBPACK_EXTERNAL_MODULE_15__;
 
 /***/ }),
-/* 12 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var rxjs_1 = __webpack_require__(35);
+var rxjs_1 = __webpack_require__(40);
 var iland_1 = __webpack_require__(1);
+var basic_configuration_1 = __webpack_require__(5);
 var TASK_CONFIG = {
-    baseURL: 'https://api.ilandcloud.com/ecs',
+    baseURL: basic_configuration_1.BasicConfiguration.getApiUrl() + "/ecs",
     headers: {
         'Accept': 'application/vnd.ilandcloud.api.v0.9+json',
         'Content-Type': 'application/vnd.ilandcloud.api.v0.9+json'
@@ -3006,7 +3556,7 @@ exports.Task = Task;
 
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3142,7 +3692,7 @@ exports.Vnic = Vnic;
 
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3212,7 +3762,7 @@ exports.VirtualDisk = VirtualDisk;
 
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3293,7 +3843,7 @@ exports.Metadata = Metadata;
 
 
 /***/ }),
-/* 16 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3363,7 +3913,7 @@ exports.BackupRestorePoint = BackupRestorePoint;
 
 
 /***/ }),
-/* 17 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3433,7 +3983,7 @@ exports.Snapshot = Snapshot;
 
 
 /***/ }),
-/* 18 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3514,7 +4064,7 @@ exports.ScreenTicket = ScreenTicket;
 
 
 /***/ }),
-/* 19 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3595,7 +4145,7 @@ exports.MksScreenTicket = MksScreenTicket;
 
 
 /***/ }),
-/* 20 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3676,13 +4226,13 @@ exports.BillLineItem = BillLineItem;
 
 
 /***/ }),
-/* 21 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var bill_1 = __webpack_require__(4);
+var bill_1 = __webpack_require__(6);
 /**
  * Billing Summary.
  */
@@ -3769,328 +4319,7 @@ exports.BillingSummary = BillingSummary;
 
 
 /***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(0);
-var iland_1 = __webpack_require__(1);
-var company_inventory_1 = __webpack_require__(23);
-var company_1 = __webpack_require__(24);
-/**
- * User.
- */
-var User = (function () {
-    function User(_apiUser) {
-        this._apiUser = _apiUser;
-    }
-    /**
-     * Gets a user by username.
-     * @param username the user's username
-     * @returns {Promise<User>}
-     */
-    User.getUser = function (username) {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            return tslib_1.__generator(this, function (_a) {
-                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + username).then(function (response) {
-                        var apiUser = response.data;
-                        return new User(apiUser);
-                    })];
-            });
-        });
-    };
-    /**
-     * Gets the currently authenticated user.
-     * @returns {Promise<User>}
-     */
-    User.getCurrentUser = function () {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return tslib_1.__generator(this, function (_a) {
-                return [2 /*return*/, iland_1.Iland.getAuthProvider().getAuthenticatedUsername().then(function (username) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-                        return tslib_1.__generator(this, function (_a) {
-                            if (username) {
-                                return [2 /*return*/, User.getUser(username)];
-                            }
-                            else {
-                                return [2 /*return*/, new Promise(function (_, reject) {
-                                        reject();
-                                    })];
-                            }
-                            return [2 /*return*/];
-                        });
-                    }); })];
-            });
-        });
-    };
-    Object.defineProperty(User.prototype, "username", {
-        /**
-         * Gets the user's username.
-         * @returns {string} username
-         */
-        get: function () {
-            return this._apiUser.name;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "address", {
-        /**
-         * Gets the user's address.
-         * @returns {string} address
-         */
-        get: function () {
-            return this._apiUser.address;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "city", {
-        /**
-         * Gets the user's city.
-         * @returns {string} city
-         */
-        get: function () {
-            return this._apiUser.city;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "company", {
-        /**
-         * Gets the user's company.
-         * @returns {string} company
-         */
-        get: function () {
-            return this._apiUser.company;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "country", {
-        /**
-         * Gets the user's country.
-         * @returns {string} country
-         */
-        get: function () {
-            return this._apiUser.country;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "createdDate", {
-        /**
-         * Gets the user's created date.
-         * @returns {Date} created date
-         */
-        get: function () {
-            return new Date(this._apiUser.created_date);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "domain", {
-        /**
-         * Gets the user's domain.
-         * @returns {string} user domain
-         */
-        get: function () {
-            return this._apiUser.domain;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "deleted", {
-        /**
-         * Indicates whether the user is deleted.
-         * @returns {boolean} value
-         */
-        get: function () {
-            return this._apiUser.deleted;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "deletedDate", {
-        /**
-         * Gets the deleted date of the user.
-         * @returns {Date} deleted date or null if the user is not deleted
-         */
-        get: function () {
-            return this._apiUser.deleted_date ? new Date(this._apiUser.deleted_date) : null;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "email", {
-        /**
-         * Gets the user's email address.
-         * @returns {string} email address
-         */
-        get: function () {
-            return this._apiUser.email;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "fullName", {
-        /**
-         * Gets the user's full name.
-         * @returns {string} full name
-         */
-        get: function () {
-            return this._apiUser.fullname;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "locked", {
-        /**
-         * Indicates whether the user is locked out of their account.
-         * @returns {boolean} value
-         */
-        get: function () {
-            return this._apiUser.locked;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "phoneNumber", {
-        /**
-         * Gets the phone number of the user.
-         * @returns {string} phone number
-         */
-        get: function () {
-            return this._apiUser.phone;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "state", {
-        /**
-         * Gets the user's state.
-         * @returns {string} state
-         */
-        get: function () {
-            return this._apiUser.state;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "userType", {
-        /**
-         * Gets the user type.
-         * @returns {UserType} user type
-         */
-        get: function () {
-            return this._apiUser.user_type;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(User.prototype, "zip", {
-        /**
-         * Gets the user's zip code.
-         * @returns {string} zip code.
-         */
-        get: function () {
-            return this._apiUser.zip;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * JSON format.
-     * @returns {string}
-     */
-    User.prototype.toString = function () {
-        return JSON.stringify(this._apiUser, undefined, 2);
-    };
-    Object.defineProperty(User.prototype, "json", {
-        /**
-         * Gets the raw JSON object from the API.
-         * @returns {UserJson} the API User object
-         */
-        get: function () {
-            return Object.assign({}, this._apiUser);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * Retrieves a new representation of the user from the API.
-     * @returns {Promise<User>} promise that resolves with updated user
-     */
-    User.prototype.refresh = function () {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return tslib_1.__generator(this, function (_a) {
-                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username).then(function (response) {
-                        _this._apiUser = response.data;
-                        return _this;
-                    })];
-            });
-        });
-    };
-    /**
-     * Gets the user's inventory within the specified company..
-     * @param {string} companyId the ID of the company to retrieve inventory for
-     * @returns {Promise<CompanyInventory>}  entity inventory
-     */
-    User.prototype.getInventoryInCompany = function (companyId) {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            return tslib_1.__generator(this, function (_a) {
-                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/inventory", {
-                        params: {
-                            company: companyId
-                        }
-                    }).then(function (response) {
-                        var userInventory = response.data;
-                        if (!userInventory.inventory || userInventory.inventory.length === 0) {
-                            throw new Error("No inventory found for company with id=" + companyId + ".");
-                        }
-                        return new company_inventory_1.CompanyInventory(userInventory.inventory[0]);
-                    })];
-            });
-        });
-    };
-    /**
-     * Gets the user's entity inventory.
-     * @returns {Promise<Array<CompanyInventory>>} user's entity inventory
-     */
-    User.prototype.getInventory = function () {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            return tslib_1.__generator(this, function (_a) {
-                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/inventory").then(function (response) {
-                        var userInventory = response.data;
-                        return userInventory.inventory.map(function (it) { return new company_inventory_1.CompanyInventory(it); });
-                    })];
-            });
-        });
-    };
-    /**
-     * Gets the user's list of companies.
-     * @returns {Promise<Array<Company>>} user's list of companies
-     */
-    User.prototype.getCompanies = function () {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            return tslib_1.__generator(this, function (_a) {
-                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/companies").then(function (response) {
-                        var companiesList = response.data;
-                        return companiesList.map(function (it) { return new company_1.Company(it); });
-                    })];
-            });
-        });
-    };
-    return User;
-}());
-exports.User = User;
-
-
-/***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4117,7 +4346,7 @@ var InventoryEntity = (function () {
     Object.defineProperty(InventoryEntity.prototype, "type", {
         /**
          * Gets the type of the entity.
-         * @returns {EntityDomain} entity type
+         * @returns {EntityDomainType} entity type
          */
         get: function () {
             return this._json.type;
@@ -4150,7 +4379,7 @@ var InventoryEntity = (function () {
     Object.defineProperty(InventoryEntity.prototype, "parentType", {
         /**
          * Gets the type of the parent entity.
-         * @returns {EntityDomain} the parent entity type
+         * @returns {EntityDomainType} the parent entity type
          */
         get: function () {
             return this._json.parent_type;
@@ -4166,6 +4395,7 @@ var CompanyInventory = (function () {
         this._inventory = _inventory;
         this._uuidMap = {};
         this._childrenMap = {};
+        this._companyId = _inventory.company_id;
         for (var type in this._inventory.entities) {
             for (var _i = 0, _a = this._inventory.entities[type]; _i < _a.length; _i++) {
                 var entity = _a[_i];
@@ -4185,18 +4415,40 @@ var CompanyInventory = (function () {
             }
         }
     }
+    Object.defineProperty(CompanyInventory.prototype, "companyId", {
+        get: function () {
+            return this._companyId;
+        },
+        enumerable: true,
+        configurable: true
+    });
     /**
      * Get an inventory entity by UUID.
      * @param uuid {string} UUID of the entity
-     * @returns {undefined|InventoryEntity}
+     * @returns {InventoryEntity|undefined}
      */
     CompanyInventory.prototype.getEntityByUuid = function (uuid) {
         return this._uuidMap[uuid];
     };
     /**
+     * Get all entities mapped by their types.
+     * @returns {{[p: string]: Array<InventoryEntity>}}
+     */
+    CompanyInventory.prototype.getAllEntitiesByType = function () {
+        var entities = {};
+        for (var type in this._inventory.entities) {
+            entities[type] = [];
+            for (var _i = 0, _a = this._inventory.entities[type]; _i < _a.length; _i++) {
+                var entity = _a[_i];
+                entities[type].push(new InventoryEntity(entity));
+            }
+        }
+        return entities;
+    };
+    /**
      * Get an array of inventory entities of the specified type.
-     * @param type {EntityType} the type to retrieve
-     * @returns {undefined|InventoryEntity}
+     * @param {EntityDomainType} type
+     * @returns {Array<InventoryEntity> | undefined}
      */
     CompanyInventory.prototype.getEntitiesByType = function (type) {
         var result = this._inventory.entities[type];
@@ -4204,8 +4456,8 @@ var CompanyInventory = (function () {
     };
     /**
      * Gets the map of children belonging to an entity.
-     * @param {string} uuid the uuid of the entity
-     * @returns {[type: string]: Array<InventoryEntity>} the map of children by type
+     * @param {string} uuid
+     * @returns {{[type: string]: Array<InventoryEntity>} | undefined}
      */
     CompanyInventory.prototype.getChildrenForEntity = function (uuid) {
         return this._childrenMap[uuid];
@@ -4216,7 +4468,7 @@ exports.CompanyInventory = CompanyInventory;
 
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4225,8 +4477,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var role_1 = __webpack_require__(25);
-var user_1 = __webpack_require__(22);
+var role_1 = __webpack_require__(8);
+var user_1 = __webpack_require__(7);
 /**
  * Company.
  */
@@ -4447,112 +4699,7 @@ exports.Company = Company;
 
 
 /***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var policy_1 = __webpack_require__(26);
-/**
- * Role.
- */
-var Role = (function () {
-    function Role(_json) {
-        this._json = _json;
-        this._policies = this._json.policies.map(function (it) { return new policy_1.Policy(it); });
-    }
-    Object.defineProperty(Role.prototype, "uuid", {
-        /**
-         * Gets the UUID of the role.
-         * @returns {string} role UUID
-         */
-        get: function () {
-            return this._json.uuid;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Role.prototype, "companyId", {
-        /**
-         * Gets the ID of the company that the role is associated with.
-         * @returns {string} company ID
-         */
-        get: function () {
-            return this._json.company_id;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Role.prototype, "name", {
-        /**
-         * Gets the name of the role.
-         * @returns {string} the role name
-         */
-        get: function () {
-            return this._json.name;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Role.prototype, "description", {
-        /**
-         * Gets the role description.
-         * @returns {string}
-         */
-        get: function () {
-            return this._json.description;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Role.prototype, "policies", {
-        /**
-         * Gets the policies that define the role.
-         * @returns {Array<Policy>} the array of role policies
-         */
-        get: function () {
-            return this._policies.slice();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Role.prototype, "type", {
-        /**
-         * Gets the role type.
-         * @returns {RoleType} role type
-         */
-        get: function () {
-            return this._json.type;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * JSON format.
-     * @returns {string}
-     */
-    Role.prototype.toString = function () {
-        return JSON.stringify(this._json, undefined, 2);
-    };
-    Object.defineProperty(Role.prototype, "json", {
-        /**
-         * Gets the raw JSON object from the API.
-         * @returns {RoleJson} the JSON representation
-         */
-        get: function () {
-            return Object.assign({}, this._json);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return Role;
-}());
-exports.Role = Role;
-
-
-/***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4579,7 +4726,7 @@ var Policy = (function () {
     Object.defineProperty(Policy.prototype, "entityDomain", {
         /**
          * Gets the entity domain of the policy.
-         * @returns {EntityDomain} the entity domain
+         * @returns {EntityDomainType} the entity domain
          */
         get: function () {
             return this._json.domain;
@@ -4601,7 +4748,7 @@ var Policy = (function () {
     Object.defineProperty(Policy.prototype, "permissions", {
         /**
          * Gets the permissions assigned to the policy.
-         * @returns {Array<Permission>} the policy permissions
+         * @returns {Array<PermissionType>} the policy permissions
          */
         get: function () {
             return this._json.permissions.slice();
@@ -4637,7 +4784,7 @@ var PolicyBuilder = (function () {
     /**
      * Creates a new PolicyBuilder.
      * @param {string} _entityUuid the UUID of the entity that the policy will apply to
-     * @param {EntityDomain} _entityDomain the EntityDomain of the entity that the policy will apply to
+     * @param {EntityDomainType} _entityDomain the EntityDomain of the entity that the policy will apply to
      * @param {PolicyType} _type the policy type
      */
     function PolicyBuilder(_entityUuid, _entityDomain, _type) {
@@ -4648,7 +4795,7 @@ var PolicyBuilder = (function () {
     }
     /**
      * Adds a permission.
-     * @param {Permission} permission the permission to add
+     * @param {PermissionType} permission the permission to add
      * @returns {PolicyBuilder} the builder
      */
     PolicyBuilder.prototype.addPermission = function (permission) {
@@ -4659,7 +4806,7 @@ var PolicyBuilder = (function () {
     };
     /**
      * Removes a permission.
-     * @param {Permission} permission the permission to remove
+     * @param {PermissionType} permission the permission to remove
      * @returns {PolicyBuilder} the builder
      */
     PolicyBuilder.prototype.removePermission = function (permission) {
@@ -4687,7 +4834,7 @@ exports.PolicyBuilder = PolicyBuilder;
 
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4696,7 +4843,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var edge_interface_1 = __webpack_require__(28);
+var edge_interface_1 = __webpack_require__(30);
 /**
  * Edge Gateway.
  */
@@ -4889,13 +5036,13 @@ exports.Edge = Edge;
 
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var edge_subnet_participation_1 = __webpack_require__(29);
+var edge_subnet_participation_1 = __webpack_require__(31);
 /**
  * Edge Gateway Interface.
  */
@@ -5037,13 +5184,13 @@ exports.EdgeInterface = EdgeInterface;
 
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ip_range_1 = __webpack_require__(5);
+var ip_range_1 = __webpack_require__(9);
 /**
  * Edge Gateway Subnet Participation.
  */
@@ -5119,7 +5266,7 @@ exports.EdgeSubnetParticipation = EdgeSubnetParticipation;
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5127,7 +5274,7 @@ exports.EdgeSubnetParticipation = EdgeSubnetParticipation;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var iland_1 = __webpack_require__(1);
-var abstract_network_1 = __webpack_require__(6);
+var abstract_network_1 = __webpack_require__(10);
 /**
  * Internal Network.
  */
@@ -5212,7 +5359,7 @@ exports.InternalNetwork = InternalNetwork;
 
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5221,8 +5368,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var vm_1 = __webpack_require__(3);
-var vapp_1 = __webpack_require__(7);
+var vm_1 = __webpack_require__(4);
+var vapp_1 = __webpack_require__(11);
 /**
  * Virtual Data Center.
  */
@@ -5520,7 +5667,313 @@ exports.Vdc = Vdc;
 
 
 /***/ }),
-/* 32 */
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var entity_domain_1 = __webpack_require__(35);
+/**
+ * Permission
+ */
+var Permission = (function () {
+    function Permission(_permissionType, _domain, _accessType, _availableToCustomPolicy, _requiredForCustomPolicy, _impliedPermissions) {
+        this._permissionType = _permissionType;
+        this._domain = _domain;
+        this._accessType = _accessType;
+        this._availableToCustomPolicy = _availableToCustomPolicy;
+        this._requiredForCustomPolicy = _requiredForCustomPolicy;
+        this._impliedPermissions = _impliedPermissions;
+        this._entityDomain = new entity_domain_1.EntityDomain(_domain);
+    }
+    Object.defineProperty(Permission.prototype, "domain", {
+        /**
+         * Get the EntityDomainType for a permission.
+         * @returns {EntityDomainType}
+         */
+        get: function () {
+            return this._domain;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "permissionType", {
+        /**
+         * Get the PermissionType for a permission.
+         * @returns {PermissionType}
+         */
+        get: function () {
+            return this._permissionType;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "accessType", {
+        /**
+         * Get the AccessType for a permission.
+         * @returns {AccessType}
+         */
+        get: function () {
+            return this._accessType;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "availableToCustomPolicy", {
+        /**
+         * Check whether or not this permission is available to custom policy.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._availableToCustomPolicy;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "requiredForCustomPolicy", {
+        /**
+         * Check whether or not a permission is required for custom policy.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._requiredForCustomPolicy;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "impliedPermissions", {
+        /**
+         * Get the implied permissions.
+         * @returns {Array<PermissionType> | null}
+         */
+        get: function () {
+            return this._impliedPermissions;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Get the string representation of a permission. Which is the PermissionType.
+     * @returns {string}
+     */
+    Permission.prototype.toString = function () {
+        return this._permissionType.toString();
+    };
+    /**
+     * Get the entity domain class for this permission.
+     * @returns {EntityDomain}
+     */
+    Permission.prototype.getDomain = function () {
+        return this._entityDomain;
+    };
+    return Permission;
+}());
+exports.Permission = Permission;
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * EntityDomain
+ */
+var EntityDomain = (function () {
+    function EntityDomain(entityDomainType) {
+        this._entityDomainType = entityDomainType;
+        switch (entityDomainType) {
+            case 'COMPANY':
+                this._parent = null;
+                break;
+            case 'ILAND_CLOUD_PRODUCT':
+                this._parent = 'COMPANY';
+                break;
+            case 'ILAND_BACKUP_PRODUCT':
+                this._parent = 'COMPANY';
+                break;
+            case 'ILAND_CLOUD_LOCATION':
+                this._parent = 'ILAND_BACKUP_PRODUCT';
+                break;
+            case 'ILAND_CLOUD_ORGANIZATION':
+                this._parent = 'ILAND_CLOUD_LOCATION';
+                break;
+            case 'ILAND_CLOUD_VPG':
+                this._parent = 'ILAND_CLOUD_ORGANIZATION';
+                break;
+            case 'ILAND_CLOUD_CATALOG':
+                this._parent = 'ILAND_CLOUD_ORGANIZATION';
+                break;
+            case 'ILAND_CLOUD_MEDIA':
+                this._parent = 'ILAND_CLOUD_CATALOG';
+                break;
+            case 'ILAND_CLOUD_VAPP_TEMPLATE':
+                this._parent = 'ILAND_CLOUD_CATALOG';
+                break;
+            case 'ILAND_CLOUD_VDC':
+                this._parent = 'ILAND_CLOUD_ORGANIZATION';
+                break;
+            case 'ILAND_CLOUD_EDGE':
+                this._parent = 'ILAND_CLOUD_VDC';
+                break;
+            case 'ILAND_CLOUD_INTERNAL_NETWORK':
+                this._parent = 'ILAND_CLOUD_VDC';
+                break;
+            case 'ILAND_CLOUD_VAPP':
+                this._parent = 'ILAND_CLOUD_VDC';
+                break;
+            case 'ILAND_CLOUD_VAPP_NETWORK':
+                this._parent = 'ILAND_CLOUD_VAPP';
+                break;
+            case 'ILAND_CLOUD_VM':
+                this._parent = 'ILAND_CLOUD_VAPP';
+                break;
+            case 'ILAND_BACKUP_LOCATION':
+                this._parent = 'ILAND_BACKUP_PRODUCT';
+                break;
+            case 'ILAND_BACKUP_TENANT':
+                this._parent = 'ILAND_BACKUP_LOCATION';
+                break;
+        }
+    }
+    /**
+     * Return the string representation of this class. Which is an EntityDomainType
+     * @returns {string}
+     */
+    EntityDomain.prototype.toString = function () {
+        return this._entityDomainType.toString();
+    };
+    Object.defineProperty(EntityDomain.prototype, "parent", {
+        /**
+         * Get the parent entityDomain.
+         * @returns {EntityDomain | null}
+         */
+        get: function () {
+            if (this._parent !== null) {
+                return new EntityDomain(this._parent);
+            }
+            return null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return EntityDomain;
+}());
+exports.EntityDomain = EntityDomain;
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(3);
+/**
+ * PermissionService
+ */
+var PermissionService = (function () {
+    function PermissionService() {
+        this.permissions = model_1.PermissionsMap.getInstance().permissions;
+        this.domainPermissions = model_1.DomainPermissionsMap.getInstance().domainPermissions;
+    }
+    /**
+     * Get the instance of PermissionService. Singleton implementation.
+     * @returns {PermissionService}
+     */
+    PermissionService.getInstance = function () {
+        if (!PermissionService.instance) {
+            PermissionService.instance = new PermissionService();
+        }
+        return PermissionService.instance;
+    };
+    /**
+     * Get implied permission for the current permission.
+     * @param {Array<PermissionType> | undefined} _impliedPermissions
+     * @returns {Array<Permission> | null}
+     */
+    PermissionService.prototype.getImpliedPermissions = function (_impliedPermissions) {
+        if (_impliedPermissions === undefined) {
+            return null;
+        }
+        var impliedPermissions = [];
+        var tmp;
+        for (var _i = 0, _impliedPermissions_1 = _impliedPermissions; _i < _impliedPermissions_1.length; _i++) {
+            var permission = _impliedPermissions_1[_i];
+            if (this.permissions) {
+                tmp = this.permissions.get(permission);
+                if (tmp) {
+                    impliedPermissions.push(tmp);
+                }
+            }
+        }
+        return impliedPermissions;
+    };
+    /**
+     * Get all available permissions for an EntityDomainType.
+     * @param {EntityDomainType} domain
+     * @returns {Array<Permission> | undefined}
+     */
+    PermissionService.prototype.getAvailablePermissionsForDomain = function (domain) {
+        return this.domainPermissions.get(domain);
+    };
+    /**
+     * Get all required permissions for an EntityDomainType.
+     * @param {EntityDomainType | undefined} domain
+     * @returns {Array<Permission> | undefined}
+     */
+    PermissionService.prototype.getRequiredPermissionsForDomain = function (domain) {
+        if (domain !== undefined) {
+            var permissionMap = this.domainPermissions.get(domain);
+            if (permissionMap) {
+                return permissionMap.filter(function (item) {
+                    return item.requiredForCustomPolicy;
+                });
+            }
+        }
+        return undefined;
+    };
+    /**
+     * Get all view permissions for an EntityDomainType.
+     * @param {EntityDomainType | undefined} domain
+     * @returns {Permission | undefined}
+     */
+    PermissionService.prototype.getViewPermissionForDomain = function (domain) {
+        if (domain !== undefined) {
+            var domainPermissions = this.getAvailablePermissionsForDomain(domain);
+            var permissions = void 0;
+            var permission = void 0;
+            if (domainPermissions) {
+                permissions = domainPermissions.filter(function (p) {
+                    return (p.permissionType === 'VIEW_COMPANY' || p.permissionType === 'VIEW_ILAND_CLOUD' ||
+                        p.permissionType === 'VIEW_ILAND_BACKUP' || p.permissionType === 'VIEW_ILAND_CLOUD_LOCATION' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_ORG' || p.permissionType === 'VIEW_ILAND_CLOUD_VPG' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_CATALOG' || p.permissionType === 'VIEW_ILAND_CLOUD_MEDIA' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_VAPP_TEMPLATE' || p.permissionType === 'VIEW_ILAND_CLOUD_VDC' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_EDGE' || p.permissionType === 'VIEW_ILAND_CLOUD_INTERNAL_NETWORK' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_VAPP' || p.permissionType === 'VIEW_ILAND_CLOUD_VAPP_NETWORK' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_VM' || p.permissionType === 'VIEW_ILAND_BACKUP_LOCATION' ||
+                        p.permissionType === 'VIEW_ILAND_BACKUP_TENANT');
+                });
+                if (permissions) {
+                    permission = permissions[0];
+                }
+                return permission;
+            }
+        }
+        return undefined;
+    };
+    return PermissionService;
+}());
+exports.PermissionService = PermissionService;
+
+
+/***/ }),
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5528,13 +5981,13 @@ exports.Vdc = Vdc;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 tslib_1.__exportStar(__webpack_require__(1), exports);
-tslib_1.__exportStar(__webpack_require__(10), exports);
-tslib_1.__exportStar(__webpack_require__(34), exports);
-tslib_1.__exportStar(__webpack_require__(41), exports);
+tslib_1.__exportStar(__webpack_require__(14), exports);
+tslib_1.__exportStar(__webpack_require__(3), exports);
+tslib_1.__exportStar(__webpack_require__(54), exports);
 
 
 /***/ }),
-/* 33 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5597,55 +6050,203 @@ exports.ApiError = ApiError;
 
 
 /***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(0);
-tslib_1.__exportStar(__webpack_require__(2), exports);
-tslib_1.__exportStar(__webpack_require__(12), exports);
-tslib_1.__exportStar(__webpack_require__(3), exports);
-tslib_1.__exportStar(__webpack_require__(22), exports);
-tslib_1.__exportStar(__webpack_require__(13), exports);
-tslib_1.__exportStar(__webpack_require__(16), exports);
-tslib_1.__exportStar(__webpack_require__(4), exports);
-tslib_1.__exportStar(__webpack_require__(21), exports);
-tslib_1.__exportStar(__webpack_require__(20), exports);
-tslib_1.__exportStar(__webpack_require__(27), exports);
-tslib_1.__exportStar(__webpack_require__(28), exports);
-tslib_1.__exportStar(__webpack_require__(29), exports);
-tslib_1.__exportStar(__webpack_require__(30), exports);
-tslib_1.__exportStar(__webpack_require__(5), exports);
-tslib_1.__exportStar(__webpack_require__(15), exports);
-tslib_1.__exportStar(__webpack_require__(19), exports);
-tslib_1.__exportStar(__webpack_require__(36), exports);
-tslib_1.__exportStar(__webpack_require__(18), exports);
-tslib_1.__exportStar(__webpack_require__(17), exports);
-tslib_1.__exportStar(__webpack_require__(7), exports);
-tslib_1.__exportStar(__webpack_require__(31), exports);
-tslib_1.__exportStar(__webpack_require__(14), exports);
-tslib_1.__exportStar(__webpack_require__(8), exports);
-tslib_1.__exportStar(__webpack_require__(6), exports);
-tslib_1.__exportStar(__webpack_require__(37), exports);
-tslib_1.__exportStar(__webpack_require__(38), exports);
-tslib_1.__exportStar(__webpack_require__(24), exports);
-tslib_1.__exportStar(__webpack_require__(39), exports);
-tslib_1.__exportStar(__webpack_require__(40), exports);
-tslib_1.__exportStar(__webpack_require__(25), exports);
-tslib_1.__exportStar(__webpack_require__(26), exports);
-tslib_1.__exportStar(__webpack_require__(23), exports);
-
-
-/***/ }),
-/* 35 */
+/* 39 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_35__;
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
 
 /***/ }),
-/* 36 */
+/* 40 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_40__;
+
+/***/ }),
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5654,12 +6255,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var vm_1 = __webpack_require__(3);
-var vapp_1 = __webpack_require__(7);
-var vdc_1 = __webpack_require__(31);
-var edge_1 = __webpack_require__(27);
-var internal_network_1 = __webpack_require__(30);
-var vapp_network_1 = __webpack_require__(8);
+var vm_1 = __webpack_require__(4);
+var vapp_1 = __webpack_require__(11);
+var vdc_1 = __webpack_require__(33);
+var edge_1 = __webpack_require__(29);
+var internal_network_1 = __webpack_require__(32);
+var vapp_network_1 = __webpack_require__(12);
 /**
  * IaaS Organization.
  */
@@ -5949,7 +6550,7 @@ exports.Org = Org;
 
 
 /***/ }),
-/* 37 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5995,7 +6596,7 @@ exports.VmCpuUpdateRequest = VmCpuUpdateRequest;
 
 
 /***/ }),
-/* 38 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6047,7 +6648,7 @@ exports.VmCreateSnapshotRequest = VmCreateSnapshotRequest;
 
 
 /***/ }),
-/* 39 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6102,7 +6703,7 @@ exports.UserCreationRequest = UserCreationRequest;
 
 
 /***/ }),
-/* 40 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6219,28 +6820,1235 @@ exports.RoleCreationRequestBuilder = RoleCreationRequestBuilder;
 
 
 /***/ }),
-/* 41 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-tslib_1.__exportStar(__webpack_require__(9), exports);
-tslib_1.__exportStar(__webpack_require__(42), exports);
-tslib_1.__exportStar(__webpack_require__(44), exports);
+var entity_1 = __webpack_require__(2);
+var iland_1 = __webpack_require__(1);
+/**
+ * Media.
+ */
+var Media = (function (_super) {
+    tslib_1.__extends(Media, _super);
+    function Media(_json) {
+        var _this = _super.call(this, _json) || this;
+        _this._json = _json;
+        return _this;
+    }
+    /**
+     * Get the Media from API.
+     * @param {string} uuid
+     * @returns {Promise<Media>} promise that resolves with the Media
+     */
+    Media.getMedia = function (uuid) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/media/" + uuid).then(function (response) {
+                        var json = response.data;
+                        return new Media(json);
+                    })];
+            });
+        });
+    };
+    Object.defineProperty(Media.prototype, "entityType", {
+        /**
+         * Get entity type for Media
+         * @returns {EntityType}
+         */
+        get: function () {
+            return 'MEDIA';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Refreshes the Media data by retrieving it from the API again.
+     * @returns {Promise<Media>} promise that resolves with the Media
+     */
+    Media.prototype.refresh = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/media/" + this.uuid).then(function (response) {
+                        _this._json = response.data;
+                        return _this;
+                    })];
+            });
+        });
+    };
+    Object.defineProperty(Media.prototype, "status", {
+        /**
+         * Get Media status.
+         * @returns {number}
+         */
+        get: function () {
+            return this._json.status;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "size", {
+        /**
+         * Get Media size.
+         * @returns {number}
+         */
+        get: function () {
+            return this._json.size;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "isPublic", {
+        /**
+         * Indicate whether the Media is public or not.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._json.public;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "locationId", {
+        /**
+         * Get Media location ID
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.location_id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "orgUuid", {
+        /**
+         * Get Media org uuid.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.org_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "catalogUuid", {
+        /**
+         * Get Media catalog uuid.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.catalog_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "storageProfileUuid", {
+        /**
+         * Get Media storageProfile uuid.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.storage_profile_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "vdcUuid", {
+        /**
+         * Get Media vDc uuid.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.vdc_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "description", {
+        /**
+         * Get Media description
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.description;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "vcloudHref", {
+        /**
+         * Get Media vCloudHref.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.vcloud_href;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "createdDate", {
+        /**
+         * Get Media creation date.
+         * @returns {Date}
+         */
+        get: function () {
+            return new Date(this._json.created_date);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Media.prototype, "json", {
+        /**
+         * Gets the raw JSON object from the API.
+         * @returns {MediaJson} the JSON representation
+         */
+        get: function () {
+            return Object.assign({}, this._json);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * JSON format.
+     * @returns {string}
+     */
+    Media.prototype.toString = function () {
+        return JSON.stringify(this._json, undefined, 2);
+    };
+    return Media;
+}(entity_1.Entity));
+exports.Media = Media;
 
 
 /***/ }),
-/* 42 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var auth_provider_1 = __webpack_require__(9);
-var Keycloak = __webpack_require__(43);
+var _1 = __webpack_require__(3);
+var iland_1 = __webpack_require__(1);
+/**
+ * VappTemplate
+ */
+var VappTemplate = (function (_super) {
+    tslib_1.__extends(VappTemplate, _super);
+    function VappTemplate(_json) {
+        var _this = _super.call(this, _json) || this;
+        _this._json = _json;
+        return _this;
+    }
+    /**
+     * Get the VappTemplate from API.
+     * @param {string} uuid
+     * @returns {Promise<VappTemplate>} promise that resolves with the VappTemplate.
+     */
+    VappTemplate.getVappTemplate = function (uuid) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/vapp-template/" + uuid).then(function (response) {
+                        var json = response.data;
+                        return new VappTemplate(json);
+                    })];
+            });
+        });
+    };
+    Object.defineProperty(VappTemplate.prototype, "entityType", {
+        /**
+         * Get VappTemplate entity type.
+         * @returns {EntityType}
+         */
+        get: function () {
+            return 'VAPP_TEMPLATE';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "description", {
+        /**
+         * Get VappTemplate description
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.description;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "vcloudHref", {
+        /**
+         * Get VappTemplate vCloudHref.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.vcloud_href;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "status", {
+        /**
+         * Get VappTemplate status
+         * @returns {number}
+         */
+        get: function () {
+            return this._json.status;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "size", {
+        /**
+         * Get VappTemplate size.
+         * @returns {number}
+         */
+        get: function () {
+            return this._json.size;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "isCustomisable", {
+        /**
+         * Indicate whether the VappTemplate is customisable or not.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._json.customizable;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "isCustomizationRequired", {
+        /**
+         * Indicate whether the VappTemplate customization is required or not.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._json.customization_required;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "isGoldMaster", {
+        /**
+         * Indicate whether the VappTemplate is gold master or not.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._json.gold_master;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "isPublic", {
+        /**
+         * Indicate whether the VappTemplate is public or not.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._json.public;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "storageProfileUuid", {
+        /**
+         * Get VappTemplate storage profile uuid.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.storage_profile_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "vdcUuid", {
+        /**
+         * Get VappTemplate vDc uuid
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.vdc_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "locationId", {
+        /**
+         * Get VappTemplate location ID
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.location_id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "orgUuid", {
+        /**
+         * Get VappTemplate org uuid
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.org_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "catalogUuid", {
+        /**
+         * Get VappTemplate catalog uuid
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.catalog_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "createdDate", {
+        /**
+         * Get VappTemplate creation date
+         * @returns {Date}
+         */
+        get: function () {
+            return new Date(this._json.created_date);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "isExpired", {
+        /**
+         * Indicate whether the VappTemplate is expired or not.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._json.is_expired;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(VappTemplate.prototype, "json", {
+        /**
+         * Gets the raw JSON object from the API.
+         * @returns {VappTemplateJson} the API json object
+         */
+        get: function () {
+            return Object.assign({}, this._json);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * JSON format.
+     * @returns {string}
+     */
+    VappTemplate.prototype.toString = function () {
+        return JSON.stringify(this._json, undefined, 2);
+    };
+    /**
+     * Refreshes the VappTemplate data by retrieving it from the API again.
+     * @returns {Promise<VappTemplate>} promise that resolves with this object
+     */
+    VappTemplate.prototype.refresh = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/vapp-template/" + this.uuid).then(function (response) {
+                        _this._json = response.data;
+                        return _this;
+                    })];
+            });
+        });
+    };
+    return VappTemplate;
+}(_1.Entity));
+exports.VappTemplate = VappTemplate;
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+var entity_1 = __webpack_require__(2);
+var iland_1 = __webpack_require__(1);
+/**
+ * Catalog.
+ */
+var Catalog = (function (_super) {
+    tslib_1.__extends(Catalog, _super);
+    function Catalog(_json) {
+        var _this = _super.call(this, _json) || this;
+        _this._json = _json;
+        return _this;
+    }
+    /**
+     * Get the Catalog from API.
+     * @param {string} uuid
+     * @returns {Promise<Catalog>} promise that resolves with the Catalog
+     */
+    Catalog.getCatalog = function (uuid) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                // TODO: Once the API implement the public keyword in uuid, we should remove this.
+                // We make sure that we are using the original uuid not the overridden one...
+                uuid = uuid.replace('public:', '');
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/catalog/" + uuid).then(function (response) {
+                        var json = response.data;
+                        return new Catalog(json);
+                    })];
+            });
+        });
+    };
+    Object.defineProperty(Catalog.prototype, "originalUuid", {
+        get: function () {
+            return this._json.uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "uuid", {
+        get: function () {
+            return (this.isPublic && this.isShared) ? "public:" + this._json.uuid : this._json.uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "entityType", {
+        /**
+         * Get entity type for catalog.
+         * @returns {EntityType}
+         */
+        get: function () {
+            return 'CATALOG';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "locationId", {
+        /**
+         * Get location ID
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.location_id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "isShared", {
+        /**
+         * Indicate whether the catalog is shared or not.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._json.shared;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "isPublic", {
+        /**
+         * Indicate whether the catalog is public or not.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._json.public;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "version", {
+        /**
+         * Get the catalog version
+         * @returns {number}
+         */
+        get: function () {
+            return this._json.version;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "orgUuid", {
+        /**
+         * Get org uuid for catalog.
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.org_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "description", {
+        /**
+         * Get description for catalog
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.description;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "vcloudHref", {
+        /**
+         * Get vCloudHref for catalog
+         * @returns {string}
+         */
+        get: function () {
+            return this._json.vcloud_href;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "createdDate", {
+        /**
+         * Get the creation date
+         * @returns {Date}
+         */
+        get: function () {
+            return new Date(this._json.created_date);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Catalog.prototype, "json", {
+        /**
+         * Gets the raw JSON object from the API.
+         * @returns {CatalogJson} the JSON representation
+         */
+        get: function () {
+            return Object.assign({}, this._json);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * JSON format.
+     * @returns {string}
+     */
+    Catalog.prototype.toString = function () {
+        return JSON.stringify(this._json, undefined, 2);
+    };
+    /**
+     * Refreshes the Catalog data by retrieving it from the API again.
+     * @returns {Promise<Catalog>} promise that resolves with the Catalog
+     */
+    Catalog.prototype.refresh = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/catalog/" + this.originalUuid).then(function (response) {
+                        _this._json = response.data;
+                        return _this;
+                    })];
+            });
+        });
+    };
+    return Catalog;
+}(entity_1.Entity));
+exports.Catalog = Catalog;
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var permission_1 = __webpack_require__(34);
+/**
+ * PermissionsMap
+ */
+var PermissionsMap = (function () {
+    function PermissionsMap() {
+        this._permissions = new Map();
+        // ILAND_BACKUP_TENANT level permissions
+        this._permissions.set('VIEW_ILAND_BACKUP_TENANT', (new permission_1.Permission('VIEW_ILAND_BACKUP_TENANT', 'ILAND_BACKUP_TENANT', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_BACKUP_TENANT_STORAGE', (new permission_1.Permission('MANAGE_ILAND_BACKUP_TENANT_STORAGE', 'ILAND_BACKUP_TENANT', 'WRITE', true, false, null)));
+        // ILAND_BACKUP_LOCATION level permissions
+        this._permissions.set('VIEW_ILAND_BACKUP_LOCATION', (new permission_1.Permission('VIEW_ILAND_BACKUP_LOCATION', 'ILAND_BACKUP_LOCATION', 'READ', true, true, ['VIEW_ILAND_BACKUP_TENANT'])));
+        this._permissions.set('VIEW_ILAND_BACKUP_LOCATION_BILLING', (new permission_1.Permission('VIEW_ILAND_BACKUP_LOCATION_BILLING', 'ILAND_BACKUP_LOCATION', 'READ', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_BACKUP_DATA_CENTER_STORAGE', (new permission_1.Permission('MANAGE_ILAND_BACKUP_DATA_CENTER_STORAGE', 'ILAND_BACKUP_LOCATION', 'WRITE', true, false, ['VIEW_ILAND_BACKUP_TENANT'])));
+        // ILAND_CLOUD_VM level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VM', (new permission_1.Permission('VIEW_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'READ', true, true, null)));
+        this._permissions.set('VIEW_ILAND_CLOUD_VM_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VM_BILLING', 'ILAND_CLOUD_VM', 'READ', true, false, null)));
+        this._permissions.set('ACCESS_ILAND_CLOUD_VM_CONSOLE', (new permission_1.Permission('ACCESS_ILAND_CLOUD_VM_CONSOLE', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VM_POWER_STATE', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_POWER_STATE', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VM_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_CONFIGURATION', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VM_SNAPSHOTS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_SNAPSHOTS', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('COPY_MOVE_RESTORE_ILAND_CLOUD_VM', (new permission_1.Permission('COPY_MOVE_RESTORE_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_VM', (new permission_1.Permission('DELETE_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VAPP_NETWORK level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_NETWORK', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_NETWORK', 'ILAND_CLOUD_VAPP_NETWORK', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_NETWORK_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_NETWORK_CONFIGURATION', 'ILAND_CLOUD_VAPP_NETWORK', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_VAPP_NETWORK', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP_NETWORK', 'ILAND_CLOUD_VAPP_NETWORK', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VAPP level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VAPP', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'READ', true, true, ['VIEW_ILAND_CLOUD_VM', 'VIEW_ILAND_CLOUD_VAPP_NETWORK'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_BILLING', 'ILAND_CLOUD_VAPP', 'READ', true, false, ['VIEW_ILAND_CLOUD_VM_BILLING'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_POWER_STATE', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_POWER_STATE', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, ['MANAGE_ILAND_CLOUD_VM_POWER_STATE'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_CONFIGURATION', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_SNAPSHOTS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_SNAPSHOTS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, ['MANAGE_ILAND_CLOUD_VM_SNAPSHOTS'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_LEASES', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_LEASES', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('COPY_MOVE_DOWNLOAD_ILAND_CLOUD_VAPP', (new permission_1.Permission('COPY_MOVE_DOWNLOAD_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_VAPP', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VAPP_VMS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VAPP_VMS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VAPP_NETWORKS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VAPP_NETWORKS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_INTERNAL_NETWORK level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_INTERNAL_NETWORK', (new permission_1.Permission('VIEW_ILAND_CLOUD_INTERNAL_NETWORK', 'ILAND_CLOUD_INTERNAL_NETWORK', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_INTERNAL_NETWORK_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_INTERNAL_NETWORK_CONFIGURATION', 'ILAND_CLOUD_INTERNAL_NETWORK', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_INTERNAL_NETWORK', (new permission_1.Permission('DELETE_ILAND_CLOUD_INTERNAL_NETWORK', 'ILAND_CLOUD_INTERNAL_NETWORK', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_EDGE level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_EDGE', (new permission_1.Permission('VIEW_ILAND_CLOUD_EDGE', 'ILAND_CLOUD_EDGE', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_DHCP_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_DHCP_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_LOAD_BALANCER_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_LOAD_BALANCER_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_STATIC_ROUTING_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_STATIC_ROUTING_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_RATE_LIMIT_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_RATE_LIMIT_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_IPSEC_VPN_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_IPSEC_VPN_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_SSL_VPN_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_SSL_VPN_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_FIREWALL_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_FIREWALL_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_NAT_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_NAT_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VDC level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VDC', (new permission_1.Permission('VIEW_ILAND_CLOUD_VDC', 'ILAND_CLOUD_VDC', 'READ', true, true, ['VIEW_ILAND_CLOUD_VAPP', 'VIEW_ILAND_CLOUD_EDGE',
+            'VIEW_ILAND_CLOUD_INTERNAL_NETWORK'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_VDC_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VDC_BILLING', 'ILAND_CLOUD_VDC', 'READ', true, false, ['VIEW_ILAND_CLOUD_VAPP_BILLING'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VDC_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VDC_CONFIGURATION', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VDC_VAPPS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_VAPPS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VDC_CATALOG_ITEMS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_CATALOG_ITEMS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VDC_INTERNAL_NETWORKS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_INTERNAL_NETWORKS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VAPP_TEMPLATE level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_TEMPLATE_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_TEMPLATE_CONFIGURATION', 'ILAND_CLOUD_VAPP_TEMPLATE', 'WRITE', true, false, null)));
+        this._permissions.set('DOWNLOAD_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('DOWNLOAD_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'READ', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_MEDIA level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_MEDIA', (new permission_1.Permission('VIEW_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_MEDIA_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_MEDIA_CONFIGURATION', 'ILAND_CLOUD_MEDIA', 'WRITE', true, true, null)));
+        this._permissions.set('CLONE_DOWNLOAD_ILAND_CLOUD_MEDIA', (new permission_1.Permission('CLONE_DOWNLOAD_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'READ', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_MEDIA', (new permission_1.Permission('DELETE_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_CATALOG level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_CATALOG', (new permission_1.Permission('VIEW_ILAND_CLOUD_CATALOG', 'ILAND_CLOUD_CATALOG', 'READ', true, true, ['VIEW_ILAND_CLOUD_VAPP_TEMPLATE', 'VIEW_ILAND_CLOUD_MEDIA'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_CATALOG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_CATALOG_CONFIGURATION', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_CATALOG', (new permission_1.Permission('DELETE_ILAND_CLOUD_CATALOG', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_CATALOG_VAPP_TEMPLATES', (new permission_1.Permission('CREATE_ILAND_CLOUD_CATALOG_VAPP_TEMPLATES', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_CATALOG_MEDIA', (new permission_1.Permission('CREATE_ILAND_CLOUD_CATALOG_MEDIA', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VPG level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VPG', (new permission_1.Permission('VIEW_ILAND_CLOUD_VPG', 'ILAND_CLOUD_VPG', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VPG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VPG_CONFIGURATION', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
+        this._permissions.set('INITIATE_ILAND_CLOUD_VPG_TEST_FAILOVER', (new permission_1.Permission('INITIATE_ILAND_CLOUD_VPG_TEST_FAILOVER', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
+        this._permissions.set('INITIATE_ILAND_CLOUD_VPG_LIVE_FAILOVER', (new permission_1.Permission('INITIATE_ILAND_CLOUD_VPG_LIVE_FAILOVER', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_ORGANIZATION level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_ORG', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, true, ['VIEW_ILAND_CLOUD_VDC', 'VIEW_ILAND_CLOUD_CATALOG',
+            'VIEW_ILAND_CLOUD_VPG'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_ORG_SECURITY', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG_SECURITY', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, false, null)));
+        this._permissions.set('VIEW_ILAND_CLOUD_ORG_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG_BILLING', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, false, ['VIEW_ILAND_CLOUD_VDC_BILLING'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_CONFIGURATION', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_DNS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_DNS', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_ORG_CATALOGS', (new permission_1.Permission('CREATE_ILAND_CLOUD_ORG_CATALOGS', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_SECURITY', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_SECURITY', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, ['VIEW_ILAND_CLOUD_ORG_SECURITY'])));
+        // ILAND_CLOUD_LOCATION level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_LOCATION', (new permission_1.Permission('VIEW_ILAND_CLOUD_LOCATION', 'ILAND_CLOUD_LOCATION', 'READ', true, true, ['VIEW_ILAND_CLOUD_ORG'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_LOCATION_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_LOCATION_BILLING', 'ILAND_CLOUD_LOCATION', 'READ', true, false, ['VIEW_ILAND_CLOUD_ORG_BILLING'])));
+        // ILAND_BACKUP_PRODUCT level permissions
+        this._permissions.set('VIEW_ILAND_BACKUP', (new permission_1.Permission('VIEW_ILAND_BACKUP', 'ILAND_BACKUP_PRODUCT', 'READ', true, true, ['VIEW_ILAND_BACKUP_LOCATION'])));
+        this._permissions.set('VIEW_ILAND_BACKUP_BILLING', (new permission_1.Permission('VIEW_ILAND_BACKUP_BILLING', 'ILAND_BACKUP_PRODUCT', 'READ', true, false, ['VIEW_ILAND_BACKUP_LOCATION_BILLING'])));
+        // ILAND_CLOUD_PRODUCT level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD', (new permission_1.Permission('VIEW_ILAND_CLOUD', 'ILAND_CLOUD_PRODUCT', 'READ', true, true, ['VIEW_ILAND_CLOUD_LOCATION'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_BILLING', 'ILAND_CLOUD_PRODUCT', 'READ', true, false, ['VIEW_ILAND_CLOUD_LOCATION_BILLING'])));
+        // COMPANY level permissions
+        this._permissions.set('VIEW_COMPANY', (new permission_1.Permission('VIEW_COMPANY', 'COMPANY', 'READ', true, true, ['VIEW_ILAND_CLOUD', 'VIEW_ILAND_BACKUP'])));
+        this._permissions.set('VIEW_COMPANY_SUPPORT_TICKETS', (new permission_1.Permission('VIEW_COMPANY_SUPPORT_TICKETS', 'COMPANY', 'READ', true, false, null)));
+        this._permissions.set('VIEW_COMPANY_IAM', (new permission_1.Permission('VIEW_COMPANY_IAM', 'COMPANY', 'READ', true, false, null)));
+        this._permissions.set('MANAGE_COMPANY_IAM', (new permission_1.Permission('MANAGE_COMPANY_IAM', 'COMPANY', 'WRITE', false, false, ['VIEW_COMPANY_IAM'])));
+        this._permissions.set('MANAGE_COMPANY_SUPPORT_TICKETS', (new permission_1.Permission('MANAGE_COMPANY_SUPPORT_TICKETS', 'COMPANY', 'WRITE', true, false, ['VIEW_COMPANY_SUPPORT_TICKETS'])));
+    }
+    /**
+     * Get an instance of PermissionMap. Singleton implementation.
+     * @returns {PermissionsMap}
+     */
+    PermissionsMap.getInstance = function () {
+        if (!PermissionsMap.instance) {
+            PermissionsMap.instance = new PermissionsMap();
+        }
+        return PermissionsMap.instance;
+    };
+    Object.defineProperty(PermissionsMap.prototype, "permissions", {
+        /**
+         * Get the permissions map.
+         * @returns {Map<PermissionType, Permission>}
+         */
+        get: function () {
+            return this._permissions;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return PermissionsMap;
+}());
+exports.PermissionsMap = PermissionsMap;
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var index_1 = __webpack_require__(3);
+/**
+ * DomainPermissionsMap
+ */
+var DomainPermissionsMap = (function () {
+    function DomainPermissionsMap() {
+        this._domainPermissions = new Map();
+        var permissionMap = index_1.PermissionsMap.getInstance().permissions;
+        var self = this;
+        var tmp;
+        permissionMap.forEach(function (value) {
+            if (!self._domainPermissions.has(value.domain)) {
+                self._domainPermissions.set(value.domain, [value]);
+            }
+            else if (self._domainPermissions.has(value.domain)) {
+                tmp = self._domainPermissions.get(value.domain);
+                if (tmp) {
+                    self._domainPermissions.set(value.domain, tmp.concat([value]));
+                }
+            }
+        });
+    }
+    /**
+     * Get an instance of DomainPermissionsMap. Singleton implementation.
+     * @returns {DomainPermissionsMap}
+     */
+    DomainPermissionsMap.getInstance = function () {
+        if (!DomainPermissionsMap.instance) {
+            DomainPermissionsMap.instance = new DomainPermissionsMap();
+        }
+        return DomainPermissionsMap.instance;
+    };
+    Object.defineProperty(DomainPermissionsMap.prototype, "domainPermissions", {
+        /**
+         * Get the domains permissions map.
+         * @returns {Map<EntityDomainType, Array<Permission>>}
+         */
+        get: function () {
+            return this._domainPermissions;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return DomainPermissionsMap;
+}());
+exports.DomainPermissionsMap = DomainPermissionsMap;
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+var user_1 = __webpack_require__(7);
+var role_1 = __webpack_require__(8);
+var iland_1 = __webpack_require__(1);
+var service_1 = __webpack_require__(52);
+/**
+ * UserWithSecurity
+ */
+var UserWithSecurity = (function (_super) {
+    tslib_1.__extends(UserWithSecurity, _super);
+    function UserWithSecurity(_apiUser) {
+        var _this = _super.call(this, _apiUser) || this;
+        _this._inventory = [];
+        _this._rolesCompanyMap = new Map();
+        return _this;
+    }
+    Object.defineProperty(UserWithSecurity.prototype, "inventory", {
+        /**
+         * Get the user companyInventory list.
+         * @returns {Array<CompanyInventory> | undefined}
+         */
+        get: function () {
+            return this._inventory;
+        },
+        /**
+         * Set the inventory for user.
+         * @param {Array<CompanyInventory> | undefined} value
+         */
+        set: function (value) {
+            this._inventory = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(UserWithSecurity.prototype, "rolesCompanyMap", {
+        /**
+         * Get a map of user Role by company ID.
+         * @returns {Map<string, Role>}
+         */
+        get: function () {
+            return this._rolesCompanyMap;
+        },
+        /**
+         * Set the roles for user.
+         * @param {Map<string, Role>} value
+         */
+        set: function (value) {
+            this._rolesCompanyMap = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Gets a user by username.
+     * @param username the user's username
+     * @returns {Promise<User>}
+     */
+    UserWithSecurity.getUser = function (username) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + username).then(function (response) {
+                        var apiUser = response.data;
+                        return new UserWithSecurity(apiUser);
+                    })];
+            });
+        });
+    };
+    /**
+     * Gets the currently authenticated user.
+     * @returns {Promise<User>}
+     */
+    UserWithSecurity.getCurrentUser = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getAuthProvider().getAuthenticatedUsername().then(function (username) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+                        var _this = this;
+                        return tslib_1.__generator(this, function (_a) {
+                            if (username) {
+                                return [2 /*return*/, UserWithSecurity.getUser(username).then(function (userWithSecurity) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+                                        return tslib_1.__generator(this, function (_a) {
+                                            return [2 /*return*/, UserWithSecurity.setup(userWithSecurity)];
+                                        });
+                                    }); })];
+                            }
+                            else {
+                                return [2 /*return*/, new Promise(function (_, reject) {
+                                        reject();
+                                    })];
+                            }
+                            return [2 /*return*/];
+                        });
+                    }); })];
+            });
+        });
+    };
+    /**
+     * Get user with security from an existing user.
+     * @param {User} user
+     * @returns {Promise<UserWithSecurity>}
+     */
+    UserWithSecurity.getUserWithSecurity = function (user) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var userWithSecurity;
+            return tslib_1.__generator(this, function (_a) {
+                userWithSecurity = new UserWithSecurity(user.json);
+                return [2 /*return*/, UserWithSecurity.setup(userWithSecurity)];
+            });
+        });
+    };
+    /**
+     * Setup the userWithSecurity class. That will add the needed inventory and roles to the UserWithSecurity class.
+     * @param {UserWithSecurity} userWithSecurity
+     * @returns {Promise<UserWithSecurity>}
+     */
+    UserWithSecurity.setup = function (userWithSecurity) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var promises;
+            return tslib_1.__generator(this, function (_a) {
+                promises = [userWithSecurity.getInventory(), userWithSecurity.getRoles()];
+                return [2 /*return*/, Promise.all(promises).then(function (results) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+                        var roles, rolesCompanyMap, _i, roles_1, role;
+                        return tslib_1.__generator(this, function (_a) {
+                            userWithSecurity.inventory = results[0];
+                            roles = results[1];
+                            rolesCompanyMap = new Map();
+                            for (_i = 0, roles_1 = roles; _i < roles_1.length; _i++) {
+                                role = roles_1[_i];
+                                rolesCompanyMap.set(role.companyId, role);
+                            }
+                            userWithSecurity.rolesCompanyMap = rolesCompanyMap;
+                            return [2 /*return*/, userWithSecurity];
+                        });
+                    }); })];
+            });
+        });
+    };
+    /**
+     * Gets the user's role for a company
+     * @param {string} companyUuid
+     * @returns {Promise<Role>}
+     */
+    UserWithSecurity.prototype.getRoleFor = function (companyUuid) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/roles/" + companyUuid).then(function (response) {
+                        var role = response.data;
+                        return new role_1.Role(role);
+                    })];
+            });
+        });
+    };
+    /**
+     * Get a list of all user's roles.
+     * @returns {Promise<Array<Role>>}
+     */
+    UserWithSecurity.prototype.getRoles = function () {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            var self;
+            return tslib_1.__generator(this, function (_a) {
+                self = this;
+                return [2 /*return*/, this.getCompanies().then(function (companies) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+                        var roles, _i, companies_1, company;
+                        return tslib_1.__generator(this, function (_a) {
+                            roles = [];
+                            for (_i = 0, companies_1 = companies; _i < companies_1.length; _i++) {
+                                company = companies_1[_i];
+                                roles.push(self.getRoleFor(company.uuid));
+                            }
+                            return [2 /*return*/, Promise.all(roles)];
+                        });
+                    }); })];
+            });
+        });
+    };
+    /**
+     * Check whether or not a user is allowed to perform an action or not.
+     * @param {PermissionType} permissionType
+     * @param {string} entityUuid
+     * @returns {boolean}
+     */
+    UserWithSecurity.prototype.isPermittedTo = function (permissionType, entityUuid) {
+        return service_1.IamService.isUserPermitted(this, entityUuid, permissionType);
+    };
+    return UserWithSecurity;
+}(user_1.User));
+exports.UserWithSecurity = UserWithSecurity;
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+tslib_1.__exportStar(__webpack_require__(53), exports);
+tslib_1.__exportStar(__webpack_require__(36), exports);
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var model_1 = __webpack_require__(3);
+var permission_service_1 = __webpack_require__(36);
+/**
+ * IamService
+ */
+var IamService = (function () {
+    function IamService() {
+    }
+    /**
+     * Get the effective policy.
+     * @param {CompanyInventory} companyInventory
+     * @param {InventoryEntity} entity
+     * @param {Role} role
+     * @returns {Policy | null}
+     */
+    IamService.getEffectivePolicy = function (companyInventory, entity, role) {
+        var policyOptional = IamService.findFirstRelevantPolicy(companyInventory, entity, role);
+        var derivePolicy = null;
+        if (policyOptional) {
+            derivePolicy = IamService.deriveEffectivePolicyFromAncestor(companyInventory, policyOptional, entity);
+            if (!derivePolicy) {
+                derivePolicy = new model_1.PolicyBuilder(entity.uuid, entity.type, 'CUSTOM').build();
+            }
+        }
+        return derivePolicy;
+    };
+    /**
+     * Check whether or not a user is allowed to perform an action or not.
+     * @param {UserWithSecurity} user
+     * @param {string} entityUuid
+     * @param {PermissionType} permissionType
+     * @returns {boolean}
+     */
+    IamService.isUserPermitted = function (user, entityUuid, permissionType) {
+        var permission = permission_service_1.PermissionService.getInstance().permissions.get(permissionType);
+        if (permission !== undefined) {
+            if (user.userType === 'SYSTEM_ADMIN' ||
+                (user.userType === 'READ_ONLY_SYSTEM_ADMIN' && permission.accessType === 'READ') ||
+                IamService.isPubliclyAccessible(entityUuid, permissionType)) {
+                return true;
+            }
+            if (user.inventory) {
+                var entity = void 0;
+                for (var _i = 0, _a = user.inventory; _i < _a.length; _i++) {
+                    var companyInventory = _a[_i];
+                    entity = companyInventory.getEntityByUuid(entityUuid);
+                    if (entity) {
+                        var role = user.rolesCompanyMap.get(companyInventory.companyId);
+                        if (role === undefined) {
+                            return false;
+                        }
+                        var policy = IamService.getEffectivePolicy(companyInventory, entity, role);
+                        if (policy !== null) {
+                            return policy.permissions.indexOf(permissionType) >= 0 || policy.type === 'ADMIN' ||
+                                (policy.type === 'READ_ONLY' && permission.accessType === 'READ');
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    };
+    /**
+     * Find the relevant policy depending on company inventory and an entity.
+     * @param {CompanyInventory} companyInventory
+     * @param {InventoryEntity | undefined} entity
+     * @param {Role} role
+     * @returns {Policy | null}
+     */
+    IamService.findFirstRelevantPolicy = function (companyInventory, entity, role) {
+        if (entity === undefined) {
+            return null;
+        }
+        var policyOptional = role.getPolicy(entity.uuid);
+        if (policyOptional !== null) {
+            return policyOptional;
+        }
+        else if (entity.parentUuid !== null) {
+            return IamService.findFirstRelevantPolicy(companyInventory, companyInventory.getEntityByUuid(entity.parentUuid), role);
+        }
+        else {
+            return null;
+        }
+    };
+    /**
+     * Derive effective policy from an ancestor.
+     * @param {CompanyInventory} companyInventory
+     * @param {Policy} ancestorPolicy
+     * @param {InventoryEntity | undefined} target
+     * @returns {Policy | null}
+     */
+    IamService.deriveEffectivePolicyFromAncestor = function (companyInventory, ancestorPolicy, target) {
+        if (target === undefined) {
+            return null;
+        }
+        else if (ancestorPolicy.entityDomain === target.type) {
+            return ancestorPolicy;
+        }
+        var parentUuid = target.parentUuid;
+        if (parentUuid === null) {
+            return null;
+        }
+        var targetParent = companyInventory.getEntityByUuid(parentUuid);
+        var directParentPolicy = IamService.deriveEffectivePolicyFromAncestor(companyInventory, ancestorPolicy, targetParent);
+        if (directParentPolicy === null) {
+            return null;
+        }
+        switch (directParentPolicy.type) {
+            case 'ADMIN':
+                return new model_1.PolicyBuilder(target.uuid, target.type, 'ADMIN').build();
+            case 'READ_ONLY':
+                return new model_1.PolicyBuilder(target.uuid, target.type, 'READ_ONLY').build();
+            case 'CUSTOM':
+            default:
+                var builder = new model_1.PolicyBuilder(target.uuid, target.type, 'CUSTOM');
+                var permissions = permission_service_1.PermissionService.getInstance().getImpliedPermissions(directParentPolicy.permissions);
+                if (permissions !== null) {
+                    for (var _i = 0, permissions_1 = permissions; _i < permissions_1.length; _i++) {
+                        var p = permissions_1[_i];
+                        if (p.domain === target.type) {
+                            builder.addPermission(p.permissionType);
+                        }
+                    }
+                }
+                return builder.build();
+        }
+    };
+    /**
+     * Check whether or not an entity is accessible publicly.
+     * @param {string} entityUuid
+     * @param {PermissionType} permission
+     * @returns {boolean}
+     */
+    IamService.isPubliclyAccessible = function (entityUuid, permission) {
+        var permissionObject = permission_service_1.PermissionService.getInstance().permissions.get(permission);
+        if (permissionObject) {
+            // handle public catalogs, media, and templates
+            switch (permissionObject.domain) {
+                case 'ILAND_CLOUD_CATALOG':
+                    return (entityUuid.includes('public:') && permissionObject.accessType === 'READ');
+                case 'ILAND_CLOUD_MEDIA':
+                    return (entityUuid.includes('public:') && permissionObject.accessType === 'READ');
+                case 'ILAND_CLOUD_VAPP_TEMPLATE':
+                    return (entityUuid.includes('public:') && permissionObject.accessType === 'READ');
+            }
+        }
+        return false;
+    };
+    return IamService;
+}());
+exports.IamService = IamService;
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+tslib_1.__exportStar(__webpack_require__(13), exports);
+tslib_1.__exportStar(__webpack_require__(55), exports);
+tslib_1.__exportStar(__webpack_require__(57), exports);
+
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+var auth_provider_1 = __webpack_require__(13);
+var Keycloak = __webpack_require__(56);
 var IlandBrowserAuthProvider = (function () {
     function IlandBrowserAuthProvider(config) {
         var kcConfig = {
@@ -6248,7 +8056,7 @@ var IlandBrowserAuthProvider = (function () {
             resource: config.clientId,
             url: config.url ? config.url : auth_provider_1.DEFAULT_AUTH_URL,
             'public-client': true,
-            realm: 'iland-core'
+            realm: auth_provider_1.DEFAULT_REALM
         };
         this._keycloak = Keycloak(kcConfig);
     }
@@ -6328,22 +8136,22 @@ exports.IlandBrowserAuthProvider = IlandBrowserAuthProvider;
 
 
 /***/ }),
-/* 43 */
+/* 56 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_43__;
+module.exports = __WEBPACK_EXTERNAL_MODULE_56__;
 
 /***/ }),
-/* 44 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var auth_provider_1 = __webpack_require__(9);
-var axios_1 = __webpack_require__(11);
-var querystring = __webpack_require__(45);
+var auth_provider_1 = __webpack_require__(13);
+var axios_1 = __webpack_require__(15);
+var querystring = __webpack_require__(58);
 var TOKEN_REFRESH_THRESHOLD = 10;
 var IlandDirectGrantAuthProvider = (function () {
     function IlandDirectGrantAuthProvider(_config) {
@@ -6475,18 +8283,18 @@ exports.IlandDirectGrantAuthProvider = IlandDirectGrantAuthProvider;
 
 
 /***/ }),
-/* 45 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(46);
-exports.encode = exports.stringify = __webpack_require__(47);
+exports.decode = exports.parse = __webpack_require__(59);
+exports.encode = exports.stringify = __webpack_require__(60);
 
 
 /***/ }),
-/* 46 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6577,7 +8385,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 47 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
