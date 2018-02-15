@@ -11,10 +11,6 @@ Full TypeDoc reference is available [here](https://ilanddev.github.io/javascript
 
 # Usage
 
-```bower install --save git+https://github.com/ilanddev/javascript-sdk-bower```
-
-For iLand API v1:
-
 ```bower install --save git+https://github.com/ilanddev/javascript-sdk-bower#v1```
 
 
