@@ -7783,21 +7783,29 @@ var UserWithSecurity = (function (_super) {
             var _this = this;
             var promises;
             return tslib_1.__generator(this, function (_a) {
-                promises = [userWithSecurity.getInventory(), userWithSecurity.getRoles()];
-                return [2 /*return*/, Promise.all(promises).then(function (results) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
-                        var roles, rolesCompanyMap, _i, roles_1, role;
-                        return tslib_1.__generator(this, function (_a) {
-                            userWithSecurity.inventory = results[0];
-                            roles = results[1];
-                            rolesCompanyMap = new Map();
-                            for (_i = 0, roles_1 = roles; _i < roles_1.length; _i++) {
-                                role = roles_1[_i];
-                                rolesCompanyMap.set(role.companyId, role);
-                            }
-                            userWithSecurity.rolesCompanyMap = rolesCompanyMap;
-                            return [2 /*return*/, userWithSecurity];
-                        });
-                    }); })];
+                if (userWithSecurity.userType === 'CUSTOMER') {
+                    promises = [userWithSecurity.getInventory(), userWithSecurity.getRoles()];
+                    return [2 /*return*/, Promise.all(promises).then(function (results) { return tslib_1.__awaiter(_this, void 0, void 0, function () {
+                            var roles, rolesCompanyMap, _i, roles_1, role;
+                            return tslib_1.__generator(this, function (_a) {
+                                userWithSecurity.inventory = results[0];
+                                roles = results[1];
+                                rolesCompanyMap = new Map();
+                                for (_i = 0, roles_1 = roles; _i < roles_1.length; _i++) {
+                                    role = roles_1[_i];
+                                    rolesCompanyMap.set(role.companyId, role);
+                                }
+                                userWithSecurity.rolesCompanyMap = rolesCompanyMap;
+                                return [2 /*return*/, userWithSecurity];
+                            });
+                        }); })];
+                }
+                else {
+                    return [2 /*return*/, new Promise(function (resolve) {
+                            return resolve(userWithSecurity);
+                        })];
+                }
+                return [2 /*return*/];
             });
         });
     };
