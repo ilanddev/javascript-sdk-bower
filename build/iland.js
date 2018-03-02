@@ -7,7 +7,7 @@
 		exports["iland"] = factory(require("axios"), require("rxjs"), require("keycloak-js"));
 	else
 		root["iland"] = factory(root["axios"], root["rxjs"], root["Keycloak"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_40__, __WEBPACK_EXTERNAL_MODULE_56__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_41__, __WEBPACK_EXTERNAL_MODULE_56__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 37);
+/******/ 	return __webpack_require__(__webpack_require__.s = 38);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -390,7 +390,7 @@ tslib_1.__exportStar(__webpack_require__(32), exports);
 tslib_1.__exportStar(__webpack_require__(9), exports);
 tslib_1.__exportStar(__webpack_require__(19), exports);
 tslib_1.__exportStar(__webpack_require__(23), exports);
-tslib_1.__exportStar(__webpack_require__(41), exports);
+tslib_1.__exportStar(__webpack_require__(42), exports);
 tslib_1.__exportStar(__webpack_require__(22), exports);
 tslib_1.__exportStar(__webpack_require__(21), exports);
 tslib_1.__exportStar(__webpack_require__(11), exports);
@@ -398,22 +398,22 @@ tslib_1.__exportStar(__webpack_require__(33), exports);
 tslib_1.__exportStar(__webpack_require__(18), exports);
 tslib_1.__exportStar(__webpack_require__(12), exports);
 tslib_1.__exportStar(__webpack_require__(10), exports);
-tslib_1.__exportStar(__webpack_require__(42), exports);
 tslib_1.__exportStar(__webpack_require__(43), exports);
-tslib_1.__exportStar(__webpack_require__(27), exports);
 tslib_1.__exportStar(__webpack_require__(44), exports);
+tslib_1.__exportStar(__webpack_require__(27), exports);
 tslib_1.__exportStar(__webpack_require__(45), exports);
+tslib_1.__exportStar(__webpack_require__(46), exports);
 tslib_1.__exportStar(__webpack_require__(8), exports);
 tslib_1.__exportStar(__webpack_require__(28), exports);
 tslib_1.__exportStar(__webpack_require__(26), exports);
-tslib_1.__exportStar(__webpack_require__(46), exports);
 tslib_1.__exportStar(__webpack_require__(47), exports);
 tslib_1.__exportStar(__webpack_require__(48), exports);
-tslib_1.__exportStar(__webpack_require__(34), exports);
 tslib_1.__exportStar(__webpack_require__(49), exports);
+tslib_1.__exportStar(__webpack_require__(34), exports);
 tslib_1.__exportStar(__webpack_require__(50), exports);
-tslib_1.__exportStar(__webpack_require__(35), exports);
 tslib_1.__exportStar(__webpack_require__(51), exports);
+tslib_1.__exportStar(__webpack_require__(35), exports);
+tslib_1.__exportStar(__webpack_require__(52), exports);
 
 
 /***/ }),
@@ -1346,7 +1346,7 @@ var BasicConfiguration = (function () {
 }());
 exports.BasicConfiguration = BasicConfiguration;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(39)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40)))
 
 /***/ }),
 /* 6 */
@@ -1958,6 +1958,7 @@ var tslib_1 = __webpack_require__(0);
 var iland_1 = __webpack_require__(1);
 var company_inventory_1 = __webpack_require__(26);
 var company_1 = __webpack_require__(27);
+var role_1 = __webpack_require__(8);
 /**
  * User.
  */
@@ -2245,6 +2246,21 @@ var User = (function () {
                 return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/inventory").then(function (response) {
                         var userInventory = response.data;
                         return userInventory.inventory.map(function (it) { return new company_inventory_1.CompanyInventory(it); });
+                    })];
+            });
+        });
+    };
+    /**
+     * Gets the user's role for a company
+     * @param {string} companyUuid
+     * @returns {Promise<Role>}
+     */
+    User.prototype.getRole = function (companyUuid) {
+        return tslib_1.__awaiter(this, void 0, void 0, function () {
+            return tslib_1.__generator(this, function (_a) {
+                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/roles/" + companyUuid).then(function (response) {
+                        var role = response.data;
+                        return new role_1.Role(role);
                     })];
             });
         });
@@ -3009,7 +3025,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var axios_1 = __webpack_require__(15);
 var iland_1 = __webpack_require__(1);
-var api_error_1 = __webpack_require__(38);
+var api_error_1 = __webpack_require__(39);
 var DEFAULT_API_VERSION = 1.0;
 var ILAND_MIME_VND_PREFIX = 'vnd.ilandcloud.api';
 /**
@@ -3185,7 +3201,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_15__;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var rxjs_1 = __webpack_require__(40);
+var rxjs_1 = __webpack_require__(41);
 var iland_1 = __webpack_require__(1);
 var basic_configuration_1 = __webpack_require__(5);
 var TASK_CONFIG = {
@@ -5872,6 +5888,18 @@ exports.EntityDomain = EntityDomain;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+tslib_1.__exportStar(__webpack_require__(53), exports);
+tslib_1.__exportStar(__webpack_require__(37), exports);
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(3);
 /**
  * PermissionService
@@ -5973,7 +6001,7 @@ exports.PermissionService = PermissionService;
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5984,10 +6012,11 @@ tslib_1.__exportStar(__webpack_require__(1), exports);
 tslib_1.__exportStar(__webpack_require__(14), exports);
 tslib_1.__exportStar(__webpack_require__(3), exports);
 tslib_1.__exportStar(__webpack_require__(54), exports);
+tslib_1.__exportStar(__webpack_require__(36), exports);
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6050,7 +6079,7 @@ exports.ApiError = ApiError;
 
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -6240,13 +6269,13 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_40__;
+module.exports = __WEBPACK_EXTERNAL_MODULE_41__;
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6550,7 +6579,7 @@ exports.Org = Org;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6596,7 +6625,7 @@ exports.VmCpuUpdateRequest = VmCpuUpdateRequest;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6648,7 +6677,7 @@ exports.VmCreateSnapshotRequest = VmCreateSnapshotRequest;
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6703,7 +6732,7 @@ exports.UserCreationRequest = UserCreationRequest;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6820,7 +6849,7 @@ exports.RoleCreationRequestBuilder = RoleCreationRequestBuilder;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7025,7 +7054,7 @@ exports.Media = Media;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7274,7 +7303,7 @@ exports.VappTemplate = VappTemplate;
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7463,7 +7492,7 @@ exports.Catalog = Catalog;
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7602,7 +7631,7 @@ exports.PermissionsMap = PermissionsMap;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7657,7 +7686,7 @@ exports.DomainPermissionsMap = DomainPermissionsMap;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7665,9 +7694,8 @@ exports.DomainPermissionsMap = DomainPermissionsMap;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var user_1 = __webpack_require__(7);
-var role_1 = __webpack_require__(8);
 var iland_1 = __webpack_require__(1);
-var service_1 = __webpack_require__(52);
+var service_1 = __webpack_require__(36);
 /**
  * UserWithSecurity
  */
@@ -7810,21 +7838,6 @@ var UserWithSecurity = (function (_super) {
         });
     };
     /**
-     * Gets the user's role for a company
-     * @param {string} companyUuid
-     * @returns {Promise<Role>}
-     */
-    UserWithSecurity.prototype.getRoleFor = function (companyUuid) {
-        return tslib_1.__awaiter(this, void 0, void 0, function () {
-            return tslib_1.__generator(this, function (_a) {
-                return [2 /*return*/, iland_1.Iland.getHttp().get("/user/" + this.username + "/roles/" + companyUuid).then(function (response) {
-                        var role = response.data;
-                        return new role_1.Role(role);
-                    })];
-            });
-        });
-    };
-    /**
      * Get a list of all user's roles.
      * @returns {Promise<Array<Role>>}
      */
@@ -7840,7 +7853,7 @@ var UserWithSecurity = (function (_super) {
                             roles = [];
                             for (_i = 0, companies_1 = companies; _i < companies_1.length; _i++) {
                                 company = companies_1[_i];
-                                roles.push(self.getRoleFor(company.uuid));
+                                roles.push(self.getRole(company.uuid));
                             }
                             return [2 /*return*/, Promise.all(roles)];
                         });
@@ -7863,18 +7876,6 @@ exports.UserWithSecurity = UserWithSecurity;
 
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(0);
-tslib_1.__exportStar(__webpack_require__(53), exports);
-tslib_1.__exportStar(__webpack_require__(36), exports);
-
-
-/***/ }),
 /* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7882,7 +7883,7 @@ tslib_1.__exportStar(__webpack_require__(36), exports);
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var model_1 = __webpack_require__(3);
-var permission_service_1 = __webpack_require__(36);
+var permission_service_1 = __webpack_require__(37);
 /**
  * IamService
  */

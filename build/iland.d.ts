@@ -720,6 +720,12 @@ export class User {
             */
         getInventory(): Promise<Array<CompanyInventory>>;
         /**
+            * Gets the user's role for a company
+            * @param {string} companyUuid
+            * @returns {Promise<Role>}
+            */
+        getRole(companyUuid: string): Promise<Role>;
+        /**
             * Gets the user's list of companies.
             * @returns {Promise<Array<Company>>} user's list of companies
             */
@@ -2904,12 +2910,6 @@ export class UserWithSecurity extends User {
             */
         static setup(userWithSecurity: UserWithSecurity): Promise<UserWithSecurity>;
         /**
-            * Gets the user's role for a company
-            * @param {string} companyUuid
-            * @returns {Promise<Role>}
-            */
-        getRoleFor(companyUuid: string): Promise<Role>;
-        /**
             * Get a list of all user's roles.
             * @returns {Promise<Array<Role>>}
             */
@@ -2982,6 +2982,94 @@ export interface IlandDirectGrantAuthConfig {
     clientSecret: string;
     clientId: string;
     url?: string;
+}
+
+/**
+    * IamService
+    */
+export class IamService {
+        /**
+            * Get the effective policy.
+            * @param {CompanyInventory} companyInventory
+            * @param {InventoryEntity} entity
+            * @param {Role} role
+            * @returns {Policy | null}
+            */
+        static getEffectivePolicy(companyInventory: CompanyInventory, entity: InventoryEntity, role: Role): Policy | null;
+        /**
+            * Check whether or not a user is allowed to perform an action or not.
+            * @param {UserWithSecurity} user
+            * @param {string} entityUuid
+            * @param {PermissionType} permissionType
+            * @returns {boolean}
+            */
+        static isUserPermitted(user: UserWithSecurity, entityUuid: string, permissionType: PermissionType): boolean;
+        /**
+            * Find the relevant policy depending on company inventory and an entity.
+            * @param {CompanyInventory} companyInventory
+            * @param {InventoryEntity | undefined} entity
+            * @param {Role} role
+            * @returns {Policy | null}
+            */
+        static findFirstRelevantPolicy(companyInventory: CompanyInventory, entity: InventoryEntity | undefined, role: Role): Policy | null;
+        /**
+            * Derive effective policy from an ancestor.
+            * @param {CompanyInventory} companyInventory
+            * @param {Policy} ancestorPolicy
+            * @param {InventoryEntity | undefined} target
+            * @returns {Policy | null}
+            */
+        static deriveEffectivePolicyFromAncestor(companyInventory: CompanyInventory, ancestorPolicy: Policy, target: InventoryEntity | undefined): Policy | null;
+        /**
+            * Check whether or not an entity is accessible publicly.
+            * @param {string} entityUuid
+            * @param {PermissionType} permission
+            * @returns {boolean}
+            */
+        static isPubliclyAccessible(entityUuid: string, permission: PermissionType): boolean;
+}
+
+/**
+    * PermissionService
+    */
+export class PermissionService {
+        /**
+            * Map of all permission listed by their PermissionType.
+            */
+        permissions: Map<PermissionType, Permission>;
+        /**
+            * Map of all permissions listed by their EntityDomainType.
+            */
+        domainPermissions: Map<EntityDomainType, Array<Permission>>;
+        /**
+            * Get the instance of PermissionService. Singleton implementation.
+            * @returns {PermissionService}
+            */
+        static getInstance(): PermissionService;
+        /**
+            * Get implied permission for the current permission.
+            * @param {Array<PermissionType> | undefined} _impliedPermissions
+            * @returns {Array<Permission> | null}
+            */
+        getImpliedPermissions(_impliedPermissions: Array<PermissionType> | undefined): Array<Permission> | null;
+        /**
+            * Get all available permissions for an EntityDomainType.
+            * @param {EntityDomainType} domain
+            * @returns {Array<Permission> | undefined}
+            */
+        getAvailablePermissionsForDomain(domain: EntityDomainType): Array<Permission> | undefined;
+        /**
+            * Get all required permissions for an EntityDomainType.
+            * @param {EntityDomainType | undefined} domain
+            * @returns {Array<Permission> | undefined}
+            */
+        getRequiredPermissionsForDomain(domain: EntityDomainType | undefined): Array<Permission> | undefined;
+        /**
+            * Get all view permissions for an EntityDomainType.
+            * @param {EntityDomainType | undefined} domain
+            * @returns {Permission | undefined}
+            */
+        getViewPermissionForDomain(domain: EntityDomainType | undefined): Permission | undefined;
 }
 
 /**
