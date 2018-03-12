@@ -7,7 +7,7 @@
 		exports["iland"] = factory(require("axios"), require("rxjs"), require("keycloak-js"));
 	else
 		root["iland"] = factory(root["axios"], root["rxjs"], root["Keycloak"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_15__, __WEBPACK_EXTERNAL_MODULE_41__, __WEBPACK_EXTERNAL_MODULE_56__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_17__, __WEBPACK_EXTERNAL_MODULE_43__, __WEBPACK_EXTERNAL_MODULE_56__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,8 +264,8 @@ function __asyncValues(o) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var http_1 = __webpack_require__(14);
-var basic_configuration_1 = __webpack_require__(5);
+var http_1 = __webpack_require__(16);
+var basic_configuration_1 = __webpack_require__(4);
 var DEFAULT_API_URL = basic_configuration_1.BasicConfiguration.getApiUrl() + "/v1";
 var Iland = (function () {
     function Iland() {
@@ -374,68 +374,18 @@ exports.Entity = Entity;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-tslib_1.__exportStar(__webpack_require__(2), exports);
-tslib_1.__exportStar(__webpack_require__(16), exports);
-tslib_1.__exportStar(__webpack_require__(4), exports);
-tslib_1.__exportStar(__webpack_require__(7), exports);
-tslib_1.__exportStar(__webpack_require__(17), exports);
-tslib_1.__exportStar(__webpack_require__(20), exports);
-tslib_1.__exportStar(__webpack_require__(6), exports);
-tslib_1.__exportStar(__webpack_require__(25), exports);
-tslib_1.__exportStar(__webpack_require__(24), exports);
-tslib_1.__exportStar(__webpack_require__(29), exports);
-tslib_1.__exportStar(__webpack_require__(30), exports);
-tslib_1.__exportStar(__webpack_require__(31), exports);
-tslib_1.__exportStar(__webpack_require__(32), exports);
-tslib_1.__exportStar(__webpack_require__(9), exports);
-tslib_1.__exportStar(__webpack_require__(19), exports);
-tslib_1.__exportStar(__webpack_require__(23), exports);
-tslib_1.__exportStar(__webpack_require__(42), exports);
-tslib_1.__exportStar(__webpack_require__(22), exports);
-tslib_1.__exportStar(__webpack_require__(21), exports);
-tslib_1.__exportStar(__webpack_require__(11), exports);
-tslib_1.__exportStar(__webpack_require__(33), exports);
-tslib_1.__exportStar(__webpack_require__(18), exports);
-tslib_1.__exportStar(__webpack_require__(12), exports);
-tslib_1.__exportStar(__webpack_require__(10), exports);
-tslib_1.__exportStar(__webpack_require__(43), exports);
-tslib_1.__exportStar(__webpack_require__(44), exports);
-tslib_1.__exportStar(__webpack_require__(27), exports);
-tslib_1.__exportStar(__webpack_require__(45), exports);
-tslib_1.__exportStar(__webpack_require__(46), exports);
-tslib_1.__exportStar(__webpack_require__(8), exports);
-tslib_1.__exportStar(__webpack_require__(28), exports);
-tslib_1.__exportStar(__webpack_require__(26), exports);
-tslib_1.__exportStar(__webpack_require__(47), exports);
-tslib_1.__exportStar(__webpack_require__(48), exports);
-tslib_1.__exportStar(__webpack_require__(49), exports);
-tslib_1.__exportStar(__webpack_require__(34), exports);
-tslib_1.__exportStar(__webpack_require__(50), exports);
-tslib_1.__exportStar(__webpack_require__(51), exports);
-tslib_1.__exportStar(__webpack_require__(35), exports);
-tslib_1.__exportStar(__webpack_require__(52), exports);
-
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(0);
-var task_1 = __webpack_require__(16);
+var task_1 = __webpack_require__(19);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var vnic_1 = __webpack_require__(17);
-var virtual_disk_1 = __webpack_require__(18);
-var metadata_1 = __webpack_require__(19);
-var backup_restore_point_1 = __webpack_require__(20);
-var snapshot_1 = __webpack_require__(21);
-var screen_ticket_1 = __webpack_require__(22);
-var mks_screen_ticket_1 = __webpack_require__(23);
-var bill_1 = __webpack_require__(6);
-var billing_summary_1 = __webpack_require__(25);
+var vnic_1 = __webpack_require__(20);
+var virtual_disk_1 = __webpack_require__(21);
+var metadata_1 = __webpack_require__(22);
+var backup_restore_point_1 = __webpack_require__(23);
+var snapshot_1 = __webpack_require__(24);
+var screen_ticket_1 = __webpack_require__(25);
+var mks_screen_ticket_1 = __webpack_require__(26);
+var bill_1 = __webpack_require__(5);
+var billing_summary_1 = __webpack_require__(28);
 /**
  * Virtual Machine.
  */
@@ -1306,7 +1256,7 @@ exports.Vm = Vm;
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1346,16 +1296,16 @@ var BasicConfiguration = (function () {
 }());
 exports.BasicConfiguration = BasicConfiguration;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(42)))
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var bill_line_item_1 = __webpack_require__(24);
+var bill_line_item_1 = __webpack_require__(27);
 /**
  * Bill Ticket.
  */
@@ -1948,7 +1898,7 @@ exports.Bill = Bill;
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1956,9 +1906,9 @@ exports.Bill = Bill;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var iland_1 = __webpack_require__(1);
-var company_inventory_1 = __webpack_require__(26);
-var company_1 = __webpack_require__(27);
-var role_1 = __webpack_require__(8);
+var company_inventory_1 = __webpack_require__(29);
+var company_1 = __webpack_require__(30);
+var role_1 = __webpack_require__(7);
 /**
  * User.
  */
@@ -2285,13 +2235,13 @@ exports.User = User;
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var policy_1 = __webpack_require__(28);
+var policy_1 = __webpack_require__(8);
 /**
  * Role.
  */
@@ -2404,7 +2354,445 @@ exports.Role = Role;
 
 
 /***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var permission_service_1 = __webpack_require__(9);
+/**
+ * Policy.
+ */
+var Policy = (function () {
+    function Policy(_json) {
+        this._json = _json;
+    }
+    Object.defineProperty(Policy.prototype, "entityUuid", {
+        /**
+         * Gets the entity UUID associated with the policy.
+         * @returns {string} the entity UUID
+         */
+        get: function () {
+            return this._json.entity_uuid;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Policy.prototype, "entityDomain", {
+        /**
+         * Gets the entity domain of the policy.
+         * @returns {EntityDomainType} the entity domain
+         */
+        get: function () {
+            return this._json.domain;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Policy.prototype, "type", {
+        /**
+         * Gets the policy type.
+         * @returns {PolicyType} the policy type
+         */
+        get: function () {
+            return this._json.type;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Policy.prototype, "permissions", {
+        /**
+         * Gets the permissions assigned to the policy.
+         * @returns {Array<PermissionType>} the policy permissions
+         */
+        get: function () {
+            return this._json.permissions.slice();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * JSON format.
+     * @returns {string}
+     */
+    Policy.prototype.toString = function () {
+        return JSON.stringify(this._json, undefined, 2);
+    };
+    Object.defineProperty(Policy.prototype, "json", {
+        /**
+         * Gets the raw JSON object from the API.
+         * @returns {PolicyJson} the JSON representation
+         */
+        get: function () {
+            return Object.assign({}, this._json);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Indicate whether the policy has the specified permission.
+     * @param {PermissionType} permissionType
+     * @returns {boolean}
+     */
+    Policy.prototype.hasPermission = function (permissionType) {
+        return this.permissions.indexOf(permissionType) > -1;
+    };
+    return Policy;
+}());
+exports.Policy = Policy;
+/**
+ * Policy Builder.
+ */
+var PolicyBuilder = (function () {
+    /**
+     * Creates a new PolicyBuilder.
+     * @param {string} _entityUuid the UUID of the entity that the policy will apply to
+     * @param {EntityDomainType} _entityDomain the EntityDomain of the entity that the policy will apply to
+     * @param {PolicyType} _type the policy type
+     */
+    function PolicyBuilder(_entityUuid, _entityDomain, _type) {
+        this._entityUuid = _entityUuid;
+        this._entityDomain = _entityDomain;
+        this._type = _type;
+        this._permissions = [];
+    }
+    /**
+     * Set an array of permissions.
+     * @param {Array<PermissionType>} array
+     * @throws Error
+     */
+    PolicyBuilder.prototype.setPermissions = function (array) {
+        this._permissions = [];
+        if (array.length > 0) {
+            for (var _i = 0, array_1 = array; _i < array_1.length; _i++) {
+                var permission = array_1[_i];
+                try {
+                    this.addPermission(permission);
+                }
+                catch (err) {
+                    throw err;
+                }
+            }
+        }
+        return this;
+    };
+    /**
+     * Adds a permission.
+     * @param {PermissionType} permission the permission to add
+     * @returns {PolicyBuilder} the builder
+     * @throws Error
+     */
+    PolicyBuilder.prototype.addPermission = function (permission) {
+        var perm = permission_service_1.PermissionService.getPermission(permission);
+        if (perm) {
+            var domain = perm.domain;
+            if (domain !== this._entityDomain) {
+                throw new Error('Attempted to add permission=' + permission + ' in domain=' + domain +
+                    ' to policy in domain=' + this._entityDomain + '.');
+            }
+            if (this._type !== 'CUSTOM') {
+                throw new Error('Attempted to add permission to policy of type=' + this._type +
+                    '. Permissions may only be explicitly added to policies with type=CUSTOM');
+            }
+            if (perm && !perm.availableToCustomPolicy) {
+                throw new Error('Permission=' + permission + ' cannot be assigned to a custom policy.');
+            }
+            if (!this._permissions.some(function (it) { return it === permission; })) {
+                this._permissions.push(permission);
+            }
+        }
+        else {
+            throw new Error('Permission=' + permission + ' doesn\'t exist.');
+        }
+        return this;
+    };
+    /**
+     * Removes a permission.
+     * @param {PermissionType} permission the permission to remove
+     * @returns {PolicyBuilder} the builder
+     */
+    PolicyBuilder.prototype.removePermission = function (permission) {
+        var idx = this._permissions.findIndex(function (it) { return it === permission; });
+        if (idx >= 0) {
+            this._permissions.splice(idx, 1);
+        }
+        return this;
+    };
+    /**
+     * Builds the policy.
+     * @returns {Policy} the new policy
+     */
+    PolicyBuilder.prototype.build = function () {
+        return new Policy({
+            entity_uuid: this._entityUuid,
+            domain: this._entityDomain,
+            type: this._type,
+            permissions: this._permissions
+        });
+    };
+    return PolicyBuilder;
+}());
+exports.PolicyBuilder = PolicyBuilder;
+
+
+/***/ }),
 /* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var permission_map_1 = __webpack_require__(10);
+var domain_permission_map_1 = __webpack_require__(33);
+/**
+ * PermissionService
+ */
+var PermissionService = (function () {
+    function PermissionService() {
+        this.permissions = permission_map_1.PermissionsMap.getInstance().permissions;
+        this.domainPermissions = domain_permission_map_1.DomainPermissionsMap.getInstance().domainPermissions;
+    }
+    /**
+     * Get the instance of PermissionService. Singleton implementation.
+     * @returns {PermissionService}
+     */
+    PermissionService.getInstance = function () {
+        if (!PermissionService.instance) {
+            PermissionService.instance = new PermissionService();
+        }
+        return PermissionService.instance;
+    };
+    /**
+     * Get the decorated permission for the specified permission type.
+     * @param {PermissionType} permission
+     * @returns {Permission | undefined}
+     */
+    PermissionService.getPermission = function (permission) {
+        return permission_map_1.PermissionsMap.getInstance().permissions.get(permission);
+    };
+    /**
+     * Get implied permission for the current permission.
+     * @param {Array<PermissionType> | undefined} _impliedPermissions
+     * @returns {Array<Permission> | null}
+     */
+    PermissionService.prototype.getImpliedPermissions = function (_impliedPermissions) {
+        if (_impliedPermissions === undefined) {
+            return null;
+        }
+        var impliedPermissions = [];
+        var tmp;
+        for (var _i = 0, _impliedPermissions_1 = _impliedPermissions; _i < _impliedPermissions_1.length; _i++) {
+            var permission = _impliedPermissions_1[_i];
+            if (this.permissions) {
+                tmp = this.permissions.get(permission);
+                if (tmp) {
+                    impliedPermissions.push(tmp);
+                }
+            }
+        }
+        return impliedPermissions;
+    };
+    /**
+     * Get all available permissions for an EntityDomainType.
+     * @param {EntityDomainType} domain
+     * @returns {Array<Permission> | undefined}
+     */
+    PermissionService.prototype.getAvailablePermissionsForDomain = function (domain) {
+        return this.domainPermissions.get(domain);
+    };
+    /**
+     * Get all required permissions for an EntityDomainType.
+     * @param {EntityDomainType | undefined} domain
+     * @returns {Array<Permission> | undefined}
+     */
+    PermissionService.prototype.getRequiredPermissionsForDomain = function (domain) {
+        if (domain !== undefined) {
+            var permissionMap = this.domainPermissions.get(domain);
+            if (permissionMap) {
+                return permissionMap.filter(function (item) {
+                    return item.requiredForCustomPolicy;
+                });
+            }
+        }
+        return undefined;
+    };
+    /**
+     * Get all view permissions for an EntityDomainType.
+     * @param {EntityDomainType | undefined} domain
+     * @returns {Permission | undefined}
+     */
+    PermissionService.prototype.getViewPermissionForDomain = function (domain) {
+        if (domain !== undefined) {
+            var domainPermissions = this.getAvailablePermissionsForDomain(domain);
+            var permissions = void 0;
+            var permission = void 0;
+            if (domainPermissions) {
+                permissions = domainPermissions.filter(function (p) {
+                    return (p.permissionType === 'VIEW_COMPANY' || p.permissionType === 'VIEW_ILAND_CLOUD' ||
+                        p.permissionType === 'VIEW_ILAND_BACKUP' || p.permissionType === 'VIEW_ILAND_CLOUD_LOCATION' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_ORG' || p.permissionType === 'VIEW_ILAND_CLOUD_VPG' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_CATALOG' || p.permissionType === 'VIEW_ILAND_CLOUD_MEDIA' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_VAPP_TEMPLATE' || p.permissionType === 'VIEW_ILAND_CLOUD_VDC' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_EDGE' || p.permissionType === 'VIEW_ILAND_CLOUD_INTERNAL_NETWORK' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_VAPP' || p.permissionType === 'VIEW_ILAND_CLOUD_VAPP_NETWORK' ||
+                        p.permissionType === 'VIEW_ILAND_CLOUD_VM' || p.permissionType === 'VIEW_ILAND_BACKUP_LOCATION' ||
+                        p.permissionType === 'VIEW_ILAND_BACKUP_TENANT');
+                });
+                if (permissions) {
+                    permission = permissions[0];
+                }
+                return permission;
+            }
+        }
+        return undefined;
+    };
+    return PermissionService;
+}());
+exports.PermissionService = PermissionService;
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var permission_1 = __webpack_require__(31);
+/**
+ * PermissionsMap
+ */
+var PermissionsMap = (function () {
+    function PermissionsMap() {
+        this._permissions = new Map();
+        // ILAND_BACKUP_TENANT level permissions
+        this._permissions.set('VIEW_ILAND_BACKUP_TENANT', (new permission_1.Permission('VIEW_ILAND_BACKUP_TENANT', 'ILAND_BACKUP_TENANT', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_BACKUP_TENANT_STORAGE', (new permission_1.Permission('MANAGE_ILAND_BACKUP_TENANT_STORAGE', 'ILAND_BACKUP_TENANT', 'WRITE', true, false, null)));
+        // ILAND_BACKUP_LOCATION level permissions
+        this._permissions.set('VIEW_ILAND_BACKUP_LOCATION', (new permission_1.Permission('VIEW_ILAND_BACKUP_LOCATION', 'ILAND_BACKUP_LOCATION', 'READ', true, true, ['VIEW_ILAND_BACKUP_TENANT'])));
+        this._permissions.set('VIEW_ILAND_BACKUP_LOCATION_BILLING', (new permission_1.Permission('VIEW_ILAND_BACKUP_LOCATION_BILLING', 'ILAND_BACKUP_LOCATION', 'READ', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_BACKUP_DATA_CENTER_STORAGE', (new permission_1.Permission('MANAGE_ILAND_BACKUP_DATA_CENTER_STORAGE', 'ILAND_BACKUP_LOCATION', 'WRITE', true, false, ['VIEW_ILAND_BACKUP_TENANT'])));
+        // ILAND_CLOUD_VM level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VM', (new permission_1.Permission('VIEW_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'READ', true, true, null)));
+        this._permissions.set('VIEW_ILAND_CLOUD_VM_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VM_BILLING', 'ILAND_CLOUD_VM', 'READ', true, false, null)));
+        this._permissions.set('ACCESS_ILAND_CLOUD_VM_CONSOLE', (new permission_1.Permission('ACCESS_ILAND_CLOUD_VM_CONSOLE', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VM_POWER_STATE', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_POWER_STATE', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VM_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_CONFIGURATION', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VM_SNAPSHOTS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_SNAPSHOTS', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('COPY_MOVE_RESTORE_ILAND_CLOUD_VM', (new permission_1.Permission('COPY_MOVE_RESTORE_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_VM', (new permission_1.Permission('DELETE_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VAPP_NETWORK level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_NETWORK', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_NETWORK', 'ILAND_CLOUD_VAPP_NETWORK', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_NETWORK_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_NETWORK_CONFIGURATION', 'ILAND_CLOUD_VAPP_NETWORK', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_VAPP_NETWORK', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP_NETWORK', 'ILAND_CLOUD_VAPP_NETWORK', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VAPP level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VAPP', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'READ', true, true, ['VIEW_ILAND_CLOUD_VM', 'VIEW_ILAND_CLOUD_VAPP_NETWORK'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_BILLING', 'ILAND_CLOUD_VAPP', 'READ', true, false, ['VIEW_ILAND_CLOUD_VM_BILLING'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_POWER_STATE', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_POWER_STATE', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, ['MANAGE_ILAND_CLOUD_VM_POWER_STATE'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_CONFIGURATION', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_SNAPSHOTS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_SNAPSHOTS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, ['MANAGE_ILAND_CLOUD_VM_SNAPSHOTS'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_LEASES', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_LEASES', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('COPY_MOVE_DOWNLOAD_ILAND_CLOUD_VAPP', (new permission_1.Permission('COPY_MOVE_DOWNLOAD_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_VAPP', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VAPP_VMS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VAPP_VMS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VAPP_NETWORKS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VAPP_NETWORKS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_INTERNAL_NETWORK level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_INTERNAL_NETWORK', (new permission_1.Permission('VIEW_ILAND_CLOUD_INTERNAL_NETWORK', 'ILAND_CLOUD_INTERNAL_NETWORK', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_INTERNAL_NETWORK_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_INTERNAL_NETWORK_CONFIGURATION', 'ILAND_CLOUD_INTERNAL_NETWORK', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_INTERNAL_NETWORK', (new permission_1.Permission('DELETE_ILAND_CLOUD_INTERNAL_NETWORK', 'ILAND_CLOUD_INTERNAL_NETWORK', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_EDGE level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_EDGE', (new permission_1.Permission('VIEW_ILAND_CLOUD_EDGE', 'ILAND_CLOUD_EDGE', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_DHCP_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_DHCP_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_LOAD_BALANCER_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_LOAD_BALANCER_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_STATIC_ROUTING_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_STATIC_ROUTING_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_RATE_LIMIT_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_RATE_LIMIT_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_IPSEC_VPN_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_IPSEC_VPN_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_SSL_VPN_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_SSL_VPN_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_FIREWALL_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_FIREWALL_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_NAT_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_NAT_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VDC level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VDC', (new permission_1.Permission('VIEW_ILAND_CLOUD_VDC', 'ILAND_CLOUD_VDC', 'READ', true, true, ['VIEW_ILAND_CLOUD_VAPP', 'VIEW_ILAND_CLOUD_EDGE',
+            'VIEW_ILAND_CLOUD_INTERNAL_NETWORK'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_VDC_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VDC_BILLING', 'ILAND_CLOUD_VDC', 'READ', true, false, ['VIEW_ILAND_CLOUD_VAPP_BILLING'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VDC_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VDC_CONFIGURATION', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VDC_VAPPS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_VAPPS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VDC_CATALOG_ITEMS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_CATALOG_ITEMS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_VDC_INTERNAL_NETWORKS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_INTERNAL_NETWORKS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VAPP_TEMPLATE level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_TEMPLATE_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_TEMPLATE_CONFIGURATION', 'ILAND_CLOUD_VAPP_TEMPLATE', 'WRITE', true, false, null)));
+        this._permissions.set('DOWNLOAD_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('DOWNLOAD_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'READ', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_MEDIA level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_MEDIA', (new permission_1.Permission('VIEW_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_MEDIA_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_MEDIA_CONFIGURATION', 'ILAND_CLOUD_MEDIA', 'WRITE', true, true, null)));
+        this._permissions.set('CLONE_DOWNLOAD_ILAND_CLOUD_MEDIA', (new permission_1.Permission('CLONE_DOWNLOAD_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'READ', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_MEDIA', (new permission_1.Permission('DELETE_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_CATALOG level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_CATALOG', (new permission_1.Permission('VIEW_ILAND_CLOUD_CATALOG', 'ILAND_CLOUD_CATALOG', 'READ', true, true, ['VIEW_ILAND_CLOUD_VAPP_TEMPLATE', 'VIEW_ILAND_CLOUD_MEDIA'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_CATALOG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_CATALOG_CONFIGURATION', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
+        this._permissions.set('DELETE_ILAND_CLOUD_CATALOG', (new permission_1.Permission('DELETE_ILAND_CLOUD_CATALOG', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_CATALOG_VAPP_TEMPLATES', (new permission_1.Permission('CREATE_ILAND_CLOUD_CATALOG_VAPP_TEMPLATES', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_CATALOG_MEDIA', (new permission_1.Permission('CREATE_ILAND_CLOUD_CATALOG_MEDIA', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_VPG level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_VPG', (new permission_1.Permission('VIEW_ILAND_CLOUD_VPG', 'ILAND_CLOUD_VPG', 'READ', true, true, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_VPG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VPG_CONFIGURATION', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
+        this._permissions.set('INITIATE_ILAND_CLOUD_VPG_TEST_FAILOVER', (new permission_1.Permission('INITIATE_ILAND_CLOUD_VPG_TEST_FAILOVER', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
+        this._permissions.set('INITIATE_ILAND_CLOUD_VPG_LIVE_FAILOVER', (new permission_1.Permission('INITIATE_ILAND_CLOUD_VPG_LIVE_FAILOVER', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
+        // ILAND_CLOUD_ORGANIZATION level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_ORG', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, true, ['VIEW_ILAND_CLOUD_VDC', 'VIEW_ILAND_CLOUD_CATALOG',
+            'VIEW_ILAND_CLOUD_VPG'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_ORG_SECURITY', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG_SECURITY', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, false, null)));
+        this._permissions.set('VIEW_ILAND_CLOUD_ORG_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG_BILLING', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, false, ['VIEW_ILAND_CLOUD_VDC_BILLING'])));
+        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_CONFIGURATION', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_DNS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_DNS', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
+        this._permissions.set('CREATE_ILAND_CLOUD_ORG_CATALOGS', (new permission_1.Permission('CREATE_ILAND_CLOUD_ORG_CATALOGS', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
+        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_SECURITY', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_SECURITY', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, ['VIEW_ILAND_CLOUD_ORG_SECURITY'])));
+        // ILAND_CLOUD_LOCATION level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD_LOCATION', (new permission_1.Permission('VIEW_ILAND_CLOUD_LOCATION', 'ILAND_CLOUD_LOCATION', 'READ', true, true, ['VIEW_ILAND_CLOUD_ORG'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_LOCATION_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_LOCATION_BILLING', 'ILAND_CLOUD_LOCATION', 'READ', true, false, ['VIEW_ILAND_CLOUD_ORG_BILLING'])));
+        // ILAND_BACKUP_PRODUCT level permissions
+        this._permissions.set('VIEW_ILAND_BACKUP', (new permission_1.Permission('VIEW_ILAND_BACKUP', 'ILAND_BACKUP_PRODUCT', 'READ', true, true, ['VIEW_ILAND_BACKUP_LOCATION'])));
+        this._permissions.set('VIEW_ILAND_BACKUP_BILLING', (new permission_1.Permission('VIEW_ILAND_BACKUP_BILLING', 'ILAND_BACKUP_PRODUCT', 'READ', true, false, ['VIEW_ILAND_BACKUP_LOCATION_BILLING'])));
+        // ILAND_CLOUD_PRODUCT level permissions
+        this._permissions.set('VIEW_ILAND_CLOUD', (new permission_1.Permission('VIEW_ILAND_CLOUD', 'ILAND_CLOUD_PRODUCT', 'READ', true, true, ['VIEW_ILAND_CLOUD_LOCATION'])));
+        this._permissions.set('VIEW_ILAND_CLOUD_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_BILLING', 'ILAND_CLOUD_PRODUCT', 'READ', true, false, ['VIEW_ILAND_CLOUD_LOCATION_BILLING'])));
+        // COMPANY level permissions
+        this._permissions.set('VIEW_COMPANY', (new permission_1.Permission('VIEW_COMPANY', 'COMPANY', 'READ', true, true, ['VIEW_ILAND_CLOUD', 'VIEW_ILAND_BACKUP'])));
+        this._permissions.set('VIEW_COMPANY_SUPPORT_TICKETS', (new permission_1.Permission('VIEW_COMPANY_SUPPORT_TICKETS', 'COMPANY', 'READ', true, false, null)));
+        this._permissions.set('VIEW_COMPANY_IAM', (new permission_1.Permission('VIEW_COMPANY_IAM', 'COMPANY', 'READ', true, false, null)));
+        this._permissions.set('MANAGE_COMPANY_IAM', (new permission_1.Permission('MANAGE_COMPANY_IAM', 'COMPANY', 'WRITE', false, false, ['VIEW_COMPANY_IAM'])));
+        this._permissions.set('MANAGE_COMPANY_SUPPORT_TICKETS', (new permission_1.Permission('MANAGE_COMPANY_SUPPORT_TICKETS', 'COMPANY', 'WRITE', true, false, ['VIEW_COMPANY_SUPPORT_TICKETS'])));
+    }
+    /**
+     * Get an instance of PermissionMap. Singleton implementation.
+     * @returns {PermissionsMap}
+     */
+    PermissionsMap.getInstance = function () {
+        if (!PermissionsMap.instance) {
+            PermissionsMap.instance = new PermissionsMap();
+        }
+        return PermissionsMap.instance;
+    };
+    Object.defineProperty(PermissionsMap.prototype, "permissions", {
+        /**
+         * Get the permissions map.
+         * @returns {Map<PermissionType, Permission>}
+         */
+        get: function () {
+            return this._permissions;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return PermissionsMap;
+}());
+exports.PermissionsMap = PermissionsMap;
+
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2463,7 +2851,7 @@ exports.IpRange = IpRange;
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2471,7 +2859,7 @@ exports.IpRange = IpRange;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
-var ip_range_1 = __webpack_require__(9);
+var ip_range_1 = __webpack_require__(11);
 /**
  * Abstract Network.
  */
@@ -2638,7 +3026,7 @@ exports.AbstractNetwork = AbstractNetwork;
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2647,8 +3035,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var vm_1 = __webpack_require__(4);
-var vapp_network_1 = __webpack_require__(12);
+var vm_1 = __webpack_require__(3);
+var vapp_network_1 = __webpack_require__(14);
 /**
  * Virtual Application.
  */
@@ -2907,7 +3295,7 @@ exports.Vapp = Vapp;
 
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2915,7 +3303,7 @@ exports.Vapp = Vapp;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var iland_1 = __webpack_require__(1);
-var abstract_network_1 = __webpack_require__(10);
+var abstract_network_1 = __webpack_require__(12);
 /**
  * vApp Network.
  */
@@ -3004,28 +3392,28 @@ exports.VappNetwork = VappNetwork;
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var basic_configuration_1 = __webpack_require__(5);
+var basic_configuration_1 = __webpack_require__(4);
 exports.DEFAULT_AUTH_URL = basic_configuration_1.BasicConfiguration.getAuthorizationUrl() + "/auth";
 exports.DEFAULT_REALM = 'iland-core';
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var axios_1 = __webpack_require__(15);
+var axios_1 = __webpack_require__(17);
 var iland_1 = __webpack_require__(1);
-var api_error_1 = __webpack_require__(39);
+var api_error_1 = __webpack_require__(41);
 var DEFAULT_API_VERSION = 1.0;
 var ILAND_MIME_VND_PREFIX = 'vnd.ilandcloud.api';
 /**
@@ -3188,22 +3576,72 @@ exports.Http = Http;
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_15__;
+module.exports = __WEBPACK_EXTERNAL_MODULE_17__;
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var rxjs_1 = __webpack_require__(41);
+tslib_1.__exportStar(__webpack_require__(2), exports);
+tslib_1.__exportStar(__webpack_require__(19), exports);
+tslib_1.__exportStar(__webpack_require__(3), exports);
+tslib_1.__exportStar(__webpack_require__(6), exports);
+tslib_1.__exportStar(__webpack_require__(20), exports);
+tslib_1.__exportStar(__webpack_require__(23), exports);
+tslib_1.__exportStar(__webpack_require__(5), exports);
+tslib_1.__exportStar(__webpack_require__(28), exports);
+tslib_1.__exportStar(__webpack_require__(27), exports);
+tslib_1.__exportStar(__webpack_require__(34), exports);
+tslib_1.__exportStar(__webpack_require__(35), exports);
+tslib_1.__exportStar(__webpack_require__(36), exports);
+tslib_1.__exportStar(__webpack_require__(37), exports);
+tslib_1.__exportStar(__webpack_require__(11), exports);
+tslib_1.__exportStar(__webpack_require__(22), exports);
+tslib_1.__exportStar(__webpack_require__(26), exports);
+tslib_1.__exportStar(__webpack_require__(44), exports);
+tslib_1.__exportStar(__webpack_require__(25), exports);
+tslib_1.__exportStar(__webpack_require__(24), exports);
+tslib_1.__exportStar(__webpack_require__(13), exports);
+tslib_1.__exportStar(__webpack_require__(38), exports);
+tslib_1.__exportStar(__webpack_require__(21), exports);
+tslib_1.__exportStar(__webpack_require__(14), exports);
+tslib_1.__exportStar(__webpack_require__(12), exports);
+tslib_1.__exportStar(__webpack_require__(45), exports);
+tslib_1.__exportStar(__webpack_require__(46), exports);
+tslib_1.__exportStar(__webpack_require__(30), exports);
+tslib_1.__exportStar(__webpack_require__(47), exports);
+tslib_1.__exportStar(__webpack_require__(48), exports);
+tslib_1.__exportStar(__webpack_require__(7), exports);
+tslib_1.__exportStar(__webpack_require__(8), exports);
+tslib_1.__exportStar(__webpack_require__(29), exports);
+tslib_1.__exportStar(__webpack_require__(49), exports);
+tslib_1.__exportStar(__webpack_require__(50), exports);
+tslib_1.__exportStar(__webpack_require__(51), exports);
+tslib_1.__exportStar(__webpack_require__(31), exports);
+tslib_1.__exportStar(__webpack_require__(10), exports);
+tslib_1.__exportStar(__webpack_require__(33), exports);
+tslib_1.__exportStar(__webpack_require__(32), exports);
+tslib_1.__exportStar(__webpack_require__(52), exports);
+
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var tslib_1 = __webpack_require__(0);
+var rxjs_1 = __webpack_require__(43);
 var iland_1 = __webpack_require__(1);
-var basic_configuration_1 = __webpack_require__(5);
+var basic_configuration_1 = __webpack_require__(4);
 var TASK_CONFIG = {
     baseURL: basic_configuration_1.BasicConfiguration.getApiUrl() + "/ecs",
     headers: {
@@ -3572,7 +4010,7 @@ exports.Task = Task;
 
 
 /***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3708,7 +4146,7 @@ exports.Vnic = Vnic;
 
 
 /***/ }),
-/* 18 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3778,7 +4216,7 @@ exports.VirtualDisk = VirtualDisk;
 
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3859,7 +4297,7 @@ exports.Metadata = Metadata;
 
 
 /***/ }),
-/* 20 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3929,7 +4367,7 @@ exports.BackupRestorePoint = BackupRestorePoint;
 
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3999,7 +4437,7 @@ exports.Snapshot = Snapshot;
 
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4080,7 +4518,7 @@ exports.ScreenTicket = ScreenTicket;
 
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4161,7 +4599,7 @@ exports.MksScreenTicket = MksScreenTicket;
 
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4242,13 +4680,13 @@ exports.BillLineItem = BillLineItem;
 
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var bill_1 = __webpack_require__(6);
+var bill_1 = __webpack_require__(5);
 /**
  * Billing Summary.
  */
@@ -4335,7 +4773,7 @@ exports.BillingSummary = BillingSummary;
 
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4484,7 +4922,7 @@ exports.CompanyInventory = CompanyInventory;
 
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4493,8 +4931,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var role_1 = __webpack_require__(8);
-var user_1 = __webpack_require__(7);
+var role_1 = __webpack_require__(7);
+var user_1 = __webpack_require__(6);
 /**
  * Company.
  */
@@ -4715,142 +5153,261 @@ exports.Company = Company;
 
 
 /***/ }),
-/* 28 */
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var entity_domain_1 = __webpack_require__(32);
+/**
+ * Permission
+ */
+var Permission = (function () {
+    function Permission(_permissionType, _domain, _accessType, _availableToCustomPolicy, _requiredForCustomPolicy, _impliedPermissions) {
+        this._permissionType = _permissionType;
+        this._domain = _domain;
+        this._accessType = _accessType;
+        this._availableToCustomPolicy = _availableToCustomPolicy;
+        this._requiredForCustomPolicy = _requiredForCustomPolicy;
+        this._impliedPermissions = _impliedPermissions;
+        this._entityDomain = new entity_domain_1.EntityDomain(_domain);
+    }
+    Object.defineProperty(Permission.prototype, "domain", {
+        /**
+         * Get the EntityDomainType for a permission.
+         * @returns {EntityDomainType}
+         */
+        get: function () {
+            return this._domain;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "permissionType", {
+        /**
+         * Get the PermissionType for a permission.
+         * @returns {PermissionType}
+         */
+        get: function () {
+            return this._permissionType;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "accessType", {
+        /**
+         * Get the AccessType for a permission.
+         * @returns {AccessType}
+         */
+        get: function () {
+            return this._accessType;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "availableToCustomPolicy", {
+        /**
+         * Check whether or not this permission is available to custom policy.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._availableToCustomPolicy;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "requiredForCustomPolicy", {
+        /**
+         * Check whether or not a permission is required for custom policy.
+         * @returns {boolean}
+         */
+        get: function () {
+            return this._requiredForCustomPolicy;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Permission.prototype, "impliedPermissions", {
+        /**
+         * Get the implied permissions.
+         * @returns {Array<PermissionType> | null}
+         */
+        get: function () {
+            return this._impliedPermissions;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    /**
+     * Get the string representation of a permission. Which is the PermissionType.
+     * @returns {string}
+     */
+    Permission.prototype.toString = function () {
+        return this._permissionType.toString();
+    };
+    /**
+     * Get the entity domain class for this permission.
+     * @returns {EntityDomain}
+     */
+    Permission.prototype.getDomain = function () {
+        return this._entityDomain;
+    };
+    return Permission;
+}());
+exports.Permission = Permission;
+
+
+/***/ }),
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
- * Policy.
+ * EntityDomain
  */
-var Policy = (function () {
-    function Policy(_json) {
-        this._json = _json;
+var EntityDomain = (function () {
+    function EntityDomain(entityDomainType) {
+        this._entityDomainType = entityDomainType;
+        switch (entityDomainType) {
+            case 'COMPANY':
+                this._parent = null;
+                break;
+            case 'ILAND_CLOUD_PRODUCT':
+                this._parent = 'COMPANY';
+                break;
+            case 'ILAND_BACKUP_PRODUCT':
+                this._parent = 'COMPANY';
+                break;
+            case 'ILAND_CLOUD_LOCATION':
+                this._parent = 'ILAND_BACKUP_PRODUCT';
+                break;
+            case 'ILAND_CLOUD_ORGANIZATION':
+                this._parent = 'ILAND_CLOUD_LOCATION';
+                break;
+            case 'ILAND_CLOUD_VPG':
+                this._parent = 'ILAND_CLOUD_ORGANIZATION';
+                break;
+            case 'ILAND_CLOUD_CATALOG':
+                this._parent = 'ILAND_CLOUD_ORGANIZATION';
+                break;
+            case 'ILAND_CLOUD_MEDIA':
+                this._parent = 'ILAND_CLOUD_CATALOG';
+                break;
+            case 'ILAND_CLOUD_VAPP_TEMPLATE':
+                this._parent = 'ILAND_CLOUD_CATALOG';
+                break;
+            case 'ILAND_CLOUD_VDC':
+                this._parent = 'ILAND_CLOUD_ORGANIZATION';
+                break;
+            case 'ILAND_CLOUD_EDGE':
+                this._parent = 'ILAND_CLOUD_VDC';
+                break;
+            case 'ILAND_CLOUD_INTERNAL_NETWORK':
+                this._parent = 'ILAND_CLOUD_VDC';
+                break;
+            case 'ILAND_CLOUD_VAPP':
+                this._parent = 'ILAND_CLOUD_VDC';
+                break;
+            case 'ILAND_CLOUD_VAPP_NETWORK':
+                this._parent = 'ILAND_CLOUD_VAPP';
+                break;
+            case 'ILAND_CLOUD_VM':
+                this._parent = 'ILAND_CLOUD_VAPP';
+                break;
+            case 'ILAND_BACKUP_LOCATION':
+                this._parent = 'ILAND_BACKUP_PRODUCT';
+                break;
+            case 'ILAND_BACKUP_TENANT':
+                this._parent = 'ILAND_BACKUP_LOCATION';
+                break;
+        }
     }
-    Object.defineProperty(Policy.prototype, "entityUuid", {
-        /**
-         * Gets the entity UUID associated with the policy.
-         * @returns {string} the entity UUID
-         */
-        get: function () {
-            return this._json.entity_uuid;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Policy.prototype, "entityDomain", {
-        /**
-         * Gets the entity domain of the policy.
-         * @returns {EntityDomainType} the entity domain
-         */
-        get: function () {
-            return this._json.domain;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Policy.prototype, "type", {
-        /**
-         * Gets the policy type.
-         * @returns {PolicyType} the policy type
-         */
-        get: function () {
-            return this._json.type;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Policy.prototype, "permissions", {
-        /**
-         * Gets the permissions assigned to the policy.
-         * @returns {Array<PermissionType>} the policy permissions
-         */
-        get: function () {
-            return this._json.permissions.slice();
-        },
-        enumerable: true,
-        configurable: true
-    });
     /**
-     * JSON format.
+     * Return the string representation of this class. Which is an EntityDomainType
      * @returns {string}
      */
-    Policy.prototype.toString = function () {
-        return JSON.stringify(this._json, undefined, 2);
+    EntityDomain.prototype.toString = function () {
+        return this._entityDomainType.toString();
     };
-    Object.defineProperty(Policy.prototype, "json", {
+    Object.defineProperty(EntityDomain.prototype, "parent", {
         /**
-         * Gets the raw JSON object from the API.
-         * @returns {PolicyJson} the JSON representation
+         * Get the parent entityDomain.
+         * @returns {EntityDomain | null}
          */
         get: function () {
-            return Object.assign({}, this._json);
+            if (this._parent !== null) {
+                return new EntityDomain(this._parent);
+            }
+            return null;
         },
         enumerable: true,
         configurable: true
     });
-    return Policy;
+    return EntityDomain;
 }());
-exports.Policy = Policy;
-/**
- * Policy Builder.
- */
-var PolicyBuilder = (function () {
-    /**
-     * Creates a new PolicyBuilder.
-     * @param {string} _entityUuid the UUID of the entity that the policy will apply to
-     * @param {EntityDomainType} _entityDomain the EntityDomain of the entity that the policy will apply to
-     * @param {PolicyType} _type the policy type
-     */
-    function PolicyBuilder(_entityUuid, _entityDomain, _type) {
-        this._entityUuid = _entityUuid;
-        this._entityDomain = _entityDomain;
-        this._type = _type;
-        this._permissions = [];
-    }
-    /**
-     * Adds a permission.
-     * @param {PermissionType} permission the permission to add
-     * @returns {PolicyBuilder} the builder
-     */
-    PolicyBuilder.prototype.addPermission = function (permission) {
-        if (!this._permissions.some(function (it) { return it === permission; })) {
-            this._permissions.push(permission);
-        }
-        return this;
-    };
-    /**
-     * Removes a permission.
-     * @param {PermissionType} permission the permission to remove
-     * @returns {PolicyBuilder} the builder
-     */
-    PolicyBuilder.prototype.removePermission = function (permission) {
-        var idx = this._permissions.findIndex(function (it) { return it === permission; });
-        if (idx >= 0) {
-            this._permissions.splice(idx, 1);
-        }
-        return this;
-    };
-    /**
-     * Builds the policy.
-     * @returns {Policy} the new policy
-     */
-    PolicyBuilder.prototype.build = function () {
-        return new Policy({
-            entity_uuid: this._entityUuid,
-            domain: this._entityDomain,
-            type: this._type,
-            permissions: this._permissions
-        });
-    };
-    return PolicyBuilder;
-}());
-exports.PolicyBuilder = PolicyBuilder;
+exports.EntityDomain = EntityDomain;
 
 
 /***/ }),
-/* 29 */
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var permission_map_1 = __webpack_require__(10);
+/**
+ * DomainPermissionsMap
+ */
+var DomainPermissionsMap = (function () {
+    function DomainPermissionsMap() {
+        this._domainPermissions = new Map();
+        var permissionMap = permission_map_1.PermissionsMap.getInstance().permissions;
+        var self = this;
+        var tmp;
+        permissionMap.forEach(function (value) {
+            if (!self._domainPermissions.has(value.domain)) {
+                self._domainPermissions.set(value.domain, [value]);
+            }
+            else if (self._domainPermissions.has(value.domain)) {
+                tmp = self._domainPermissions.get(value.domain);
+                if (tmp) {
+                    self._domainPermissions.set(value.domain, tmp.concat([value]));
+                }
+            }
+        });
+    }
+    /**
+     * Get an instance of DomainPermissionsMap. Singleton implementation.
+     * @returns {DomainPermissionsMap}
+     */
+    DomainPermissionsMap.getInstance = function () {
+        if (!DomainPermissionsMap.instance) {
+            DomainPermissionsMap.instance = new DomainPermissionsMap();
+        }
+        return DomainPermissionsMap.instance;
+    };
+    Object.defineProperty(DomainPermissionsMap.prototype, "domainPermissions", {
+        /**
+         * Get the domains permissions map.
+         * @returns {Map<EntityDomainType, Array<Permission>>}
+         */
+        get: function () {
+            return this._domainPermissions;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return DomainPermissionsMap;
+}());
+exports.DomainPermissionsMap = DomainPermissionsMap;
+
+
+/***/ }),
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4859,7 +5416,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var edge_interface_1 = __webpack_require__(30);
+var edge_interface_1 = __webpack_require__(35);
 /**
  * Edge Gateway.
  */
@@ -5052,13 +5609,13 @@ exports.Edge = Edge;
 
 
 /***/ }),
-/* 30 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var edge_subnet_participation_1 = __webpack_require__(31);
+var edge_subnet_participation_1 = __webpack_require__(36);
 /**
  * Edge Gateway Interface.
  */
@@ -5200,13 +5757,13 @@ exports.EdgeInterface = EdgeInterface;
 
 
 /***/ }),
-/* 31 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ip_range_1 = __webpack_require__(9);
+var ip_range_1 = __webpack_require__(11);
 /**
  * Edge Gateway Subnet Participation.
  */
@@ -5282,7 +5839,7 @@ exports.EdgeSubnetParticipation = EdgeSubnetParticipation;
 
 
 /***/ }),
-/* 32 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5290,7 +5847,7 @@ exports.EdgeSubnetParticipation = EdgeSubnetParticipation;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var iland_1 = __webpack_require__(1);
-var abstract_network_1 = __webpack_require__(10);
+var abstract_network_1 = __webpack_require__(12);
 /**
  * Internal Network.
  */
@@ -5375,7 +5932,7 @@ exports.InternalNetwork = InternalNetwork;
 
 
 /***/ }),
-/* 33 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5384,8 +5941,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var vm_1 = __webpack_require__(4);
-var vapp_1 = __webpack_require__(11);
+var vm_1 = __webpack_require__(3);
+var vapp_1 = __webpack_require__(13);
 /**
  * Virtual Data Center.
  */
@@ -5683,206 +6240,7 @@ exports.Vdc = Vdc;
 
 
 /***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var entity_domain_1 = __webpack_require__(35);
-/**
- * Permission
- */
-var Permission = (function () {
-    function Permission(_permissionType, _domain, _accessType, _availableToCustomPolicy, _requiredForCustomPolicy, _impliedPermissions) {
-        this._permissionType = _permissionType;
-        this._domain = _domain;
-        this._accessType = _accessType;
-        this._availableToCustomPolicy = _availableToCustomPolicy;
-        this._requiredForCustomPolicy = _requiredForCustomPolicy;
-        this._impliedPermissions = _impliedPermissions;
-        this._entityDomain = new entity_domain_1.EntityDomain(_domain);
-    }
-    Object.defineProperty(Permission.prototype, "domain", {
-        /**
-         * Get the EntityDomainType for a permission.
-         * @returns {EntityDomainType}
-         */
-        get: function () {
-            return this._domain;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Permission.prototype, "permissionType", {
-        /**
-         * Get the PermissionType for a permission.
-         * @returns {PermissionType}
-         */
-        get: function () {
-            return this._permissionType;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Permission.prototype, "accessType", {
-        /**
-         * Get the AccessType for a permission.
-         * @returns {AccessType}
-         */
-        get: function () {
-            return this._accessType;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Permission.prototype, "availableToCustomPolicy", {
-        /**
-         * Check whether or not this permission is available to custom policy.
-         * @returns {boolean}
-         */
-        get: function () {
-            return this._availableToCustomPolicy;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Permission.prototype, "requiredForCustomPolicy", {
-        /**
-         * Check whether or not a permission is required for custom policy.
-         * @returns {boolean}
-         */
-        get: function () {
-            return this._requiredForCustomPolicy;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(Permission.prototype, "impliedPermissions", {
-        /**
-         * Get the implied permissions.
-         * @returns {Array<PermissionType> | null}
-         */
-        get: function () {
-            return this._impliedPermissions;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * Get the string representation of a permission. Which is the PermissionType.
-     * @returns {string}
-     */
-    Permission.prototype.toString = function () {
-        return this._permissionType.toString();
-    };
-    /**
-     * Get the entity domain class for this permission.
-     * @returns {EntityDomain}
-     */
-    Permission.prototype.getDomain = function () {
-        return this._entityDomain;
-    };
-    return Permission;
-}());
-exports.Permission = Permission;
-
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * EntityDomain
- */
-var EntityDomain = (function () {
-    function EntityDomain(entityDomainType) {
-        this._entityDomainType = entityDomainType;
-        switch (entityDomainType) {
-            case 'COMPANY':
-                this._parent = null;
-                break;
-            case 'ILAND_CLOUD_PRODUCT':
-                this._parent = 'COMPANY';
-                break;
-            case 'ILAND_BACKUP_PRODUCT':
-                this._parent = 'COMPANY';
-                break;
-            case 'ILAND_CLOUD_LOCATION':
-                this._parent = 'ILAND_BACKUP_PRODUCT';
-                break;
-            case 'ILAND_CLOUD_ORGANIZATION':
-                this._parent = 'ILAND_CLOUD_LOCATION';
-                break;
-            case 'ILAND_CLOUD_VPG':
-                this._parent = 'ILAND_CLOUD_ORGANIZATION';
-                break;
-            case 'ILAND_CLOUD_CATALOG':
-                this._parent = 'ILAND_CLOUD_ORGANIZATION';
-                break;
-            case 'ILAND_CLOUD_MEDIA':
-                this._parent = 'ILAND_CLOUD_CATALOG';
-                break;
-            case 'ILAND_CLOUD_VAPP_TEMPLATE':
-                this._parent = 'ILAND_CLOUD_CATALOG';
-                break;
-            case 'ILAND_CLOUD_VDC':
-                this._parent = 'ILAND_CLOUD_ORGANIZATION';
-                break;
-            case 'ILAND_CLOUD_EDGE':
-                this._parent = 'ILAND_CLOUD_VDC';
-                break;
-            case 'ILAND_CLOUD_INTERNAL_NETWORK':
-                this._parent = 'ILAND_CLOUD_VDC';
-                break;
-            case 'ILAND_CLOUD_VAPP':
-                this._parent = 'ILAND_CLOUD_VDC';
-                break;
-            case 'ILAND_CLOUD_VAPP_NETWORK':
-                this._parent = 'ILAND_CLOUD_VAPP';
-                break;
-            case 'ILAND_CLOUD_VM':
-                this._parent = 'ILAND_CLOUD_VAPP';
-                break;
-            case 'ILAND_BACKUP_LOCATION':
-                this._parent = 'ILAND_BACKUP_PRODUCT';
-                break;
-            case 'ILAND_BACKUP_TENANT':
-                this._parent = 'ILAND_BACKUP_LOCATION';
-                break;
-        }
-    }
-    /**
-     * Return the string representation of this class. Which is an EntityDomainType
-     * @returns {string}
-     */
-    EntityDomain.prototype.toString = function () {
-        return this._entityDomainType.toString();
-    };
-    Object.defineProperty(EntityDomain.prototype, "parent", {
-        /**
-         * Get the parent entityDomain.
-         * @returns {EntityDomain | null}
-         */
-        get: function () {
-            if (this._parent !== null) {
-                return new EntityDomain(this._parent);
-            }
-            return null;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return EntityDomain;
-}());
-exports.EntityDomain = EntityDomain;
-
-
-/***/ }),
-/* 36 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5890,118 +6248,11 @@ exports.EntityDomain = EntityDomain;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 tslib_1.__exportStar(__webpack_require__(53), exports);
-tslib_1.__exportStar(__webpack_require__(37), exports);
+tslib_1.__exportStar(__webpack_require__(9), exports);
 
 
 /***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(3);
-/**
- * PermissionService
- */
-var PermissionService = (function () {
-    function PermissionService() {
-        this.permissions = model_1.PermissionsMap.getInstance().permissions;
-        this.domainPermissions = model_1.DomainPermissionsMap.getInstance().domainPermissions;
-    }
-    /**
-     * Get the instance of PermissionService. Singleton implementation.
-     * @returns {PermissionService}
-     */
-    PermissionService.getInstance = function () {
-        if (!PermissionService.instance) {
-            PermissionService.instance = new PermissionService();
-        }
-        return PermissionService.instance;
-    };
-    /**
-     * Get implied permission for the current permission.
-     * @param {Array<PermissionType> | undefined} _impliedPermissions
-     * @returns {Array<Permission> | null}
-     */
-    PermissionService.prototype.getImpliedPermissions = function (_impliedPermissions) {
-        if (_impliedPermissions === undefined) {
-            return null;
-        }
-        var impliedPermissions = [];
-        var tmp;
-        for (var _i = 0, _impliedPermissions_1 = _impliedPermissions; _i < _impliedPermissions_1.length; _i++) {
-            var permission = _impliedPermissions_1[_i];
-            if (this.permissions) {
-                tmp = this.permissions.get(permission);
-                if (tmp) {
-                    impliedPermissions.push(tmp);
-                }
-            }
-        }
-        return impliedPermissions;
-    };
-    /**
-     * Get all available permissions for an EntityDomainType.
-     * @param {EntityDomainType} domain
-     * @returns {Array<Permission> | undefined}
-     */
-    PermissionService.prototype.getAvailablePermissionsForDomain = function (domain) {
-        return this.domainPermissions.get(domain);
-    };
-    /**
-     * Get all required permissions for an EntityDomainType.
-     * @param {EntityDomainType | undefined} domain
-     * @returns {Array<Permission> | undefined}
-     */
-    PermissionService.prototype.getRequiredPermissionsForDomain = function (domain) {
-        if (domain !== undefined) {
-            var permissionMap = this.domainPermissions.get(domain);
-            if (permissionMap) {
-                return permissionMap.filter(function (item) {
-                    return item.requiredForCustomPolicy;
-                });
-            }
-        }
-        return undefined;
-    };
-    /**
-     * Get all view permissions for an EntityDomainType.
-     * @param {EntityDomainType | undefined} domain
-     * @returns {Permission | undefined}
-     */
-    PermissionService.prototype.getViewPermissionForDomain = function (domain) {
-        if (domain !== undefined) {
-            var domainPermissions = this.getAvailablePermissionsForDomain(domain);
-            var permissions = void 0;
-            var permission = void 0;
-            if (domainPermissions) {
-                permissions = domainPermissions.filter(function (p) {
-                    return (p.permissionType === 'VIEW_COMPANY' || p.permissionType === 'VIEW_ILAND_CLOUD' ||
-                        p.permissionType === 'VIEW_ILAND_BACKUP' || p.permissionType === 'VIEW_ILAND_CLOUD_LOCATION' ||
-                        p.permissionType === 'VIEW_ILAND_CLOUD_ORG' || p.permissionType === 'VIEW_ILAND_CLOUD_VPG' ||
-                        p.permissionType === 'VIEW_ILAND_CLOUD_CATALOG' || p.permissionType === 'VIEW_ILAND_CLOUD_MEDIA' ||
-                        p.permissionType === 'VIEW_ILAND_CLOUD_VAPP_TEMPLATE' || p.permissionType === 'VIEW_ILAND_CLOUD_VDC' ||
-                        p.permissionType === 'VIEW_ILAND_CLOUD_EDGE' || p.permissionType === 'VIEW_ILAND_CLOUD_INTERNAL_NETWORK' ||
-                        p.permissionType === 'VIEW_ILAND_CLOUD_VAPP' || p.permissionType === 'VIEW_ILAND_CLOUD_VAPP_NETWORK' ||
-                        p.permissionType === 'VIEW_ILAND_CLOUD_VM' || p.permissionType === 'VIEW_ILAND_BACKUP_LOCATION' ||
-                        p.permissionType === 'VIEW_ILAND_BACKUP_TENANT');
-                });
-                if (permissions) {
-                    permission = permissions[0];
-                }
-                return permission;
-            }
-        }
-        return undefined;
-    };
-    return PermissionService;
-}());
-exports.PermissionService = PermissionService;
-
-
-/***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6009,14 +6260,14 @@ exports.PermissionService = PermissionService;
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 tslib_1.__exportStar(__webpack_require__(1), exports);
-tslib_1.__exportStar(__webpack_require__(14), exports);
-tslib_1.__exportStar(__webpack_require__(3), exports);
+tslib_1.__exportStar(__webpack_require__(16), exports);
+tslib_1.__exportStar(__webpack_require__(18), exports);
 tslib_1.__exportStar(__webpack_require__(54), exports);
-tslib_1.__exportStar(__webpack_require__(36), exports);
+tslib_1.__exportStar(__webpack_require__(39), exports);
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6079,7 +6330,7 @@ exports.ApiError = ApiError;
 
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -6269,13 +6520,13 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE_41__;
+module.exports = __WEBPACK_EXTERNAL_MODULE_43__;
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6284,12 +6535,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
 var entity_1 = __webpack_require__(2);
 var iland_1 = __webpack_require__(1);
-var vm_1 = __webpack_require__(4);
-var vapp_1 = __webpack_require__(11);
-var vdc_1 = __webpack_require__(33);
-var edge_1 = __webpack_require__(29);
-var internal_network_1 = __webpack_require__(32);
-var vapp_network_1 = __webpack_require__(12);
+var vm_1 = __webpack_require__(3);
+var vapp_1 = __webpack_require__(13);
+var vdc_1 = __webpack_require__(38);
+var edge_1 = __webpack_require__(34);
+var internal_network_1 = __webpack_require__(37);
+var vapp_network_1 = __webpack_require__(14);
 /**
  * IaaS Organization.
  */
@@ -6579,7 +6830,7 @@ exports.Org = Org;
 
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6625,7 +6876,7 @@ exports.VmCpuUpdateRequest = VmCpuUpdateRequest;
 
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6677,7 +6928,7 @@ exports.VmCreateSnapshotRequest = VmCreateSnapshotRequest;
 
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6732,7 +6983,7 @@ exports.UserCreationRequest = UserCreationRequest;
 
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6777,6 +7028,20 @@ var RoleCreationRequest = (function () {
      */
     RoleCreationRequest.prototype.toString = function () {
         return JSON.stringify(this.json, undefined, 2);
+    };
+    /**
+     * Return the policy for the specified uuid.
+     * @param {string} entityUuid
+     * @returns {Policy | null}
+     */
+    RoleCreationRequest.prototype.getPolicy = function (entityUuid) {
+        for (var _i = 0, _a = this.policies; _i < _a.length; _i++) {
+            var p = _a[_i];
+            if (p.entityUuid === entityUuid) {
+                return p;
+            }
+        }
+        return null;
     };
     return RoleCreationRequest;
 }());
@@ -6849,7 +7114,7 @@ exports.RoleCreationRequestBuilder = RoleCreationRequestBuilder;
 
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7054,14 +7319,14 @@ exports.Media = Media;
 
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var _1 = __webpack_require__(3);
+var _1 = __webpack_require__(18);
 var iland_1 = __webpack_require__(1);
 /**
  * VappTemplate
@@ -7303,7 +7568,7 @@ exports.VappTemplate = VappTemplate;
 
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7492,200 +7757,6 @@ exports.Catalog = Catalog;
 
 
 /***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var permission_1 = __webpack_require__(34);
-/**
- * PermissionsMap
- */
-var PermissionsMap = (function () {
-    function PermissionsMap() {
-        this._permissions = new Map();
-        // ILAND_BACKUP_TENANT level permissions
-        this._permissions.set('VIEW_ILAND_BACKUP_TENANT', (new permission_1.Permission('VIEW_ILAND_BACKUP_TENANT', 'ILAND_BACKUP_TENANT', 'READ', true, true, null)));
-        this._permissions.set('MANAGE_ILAND_BACKUP_TENANT_STORAGE', (new permission_1.Permission('MANAGE_ILAND_BACKUP_TENANT_STORAGE', 'ILAND_BACKUP_TENANT', 'WRITE', true, false, null)));
-        // ILAND_BACKUP_LOCATION level permissions
-        this._permissions.set('VIEW_ILAND_BACKUP_LOCATION', (new permission_1.Permission('VIEW_ILAND_BACKUP_LOCATION', 'ILAND_BACKUP_LOCATION', 'READ', true, true, ['VIEW_ILAND_BACKUP_TENANT'])));
-        this._permissions.set('VIEW_ILAND_BACKUP_LOCATION_BILLING', (new permission_1.Permission('VIEW_ILAND_BACKUP_LOCATION_BILLING', 'ILAND_BACKUP_LOCATION', 'READ', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_BACKUP_DATA_CENTER_STORAGE', (new permission_1.Permission('MANAGE_ILAND_BACKUP_DATA_CENTER_STORAGE', 'ILAND_BACKUP_LOCATION', 'WRITE', true, false, ['VIEW_ILAND_BACKUP_TENANT'])));
-        // ILAND_CLOUD_VM level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_VM', (new permission_1.Permission('VIEW_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'READ', true, true, null)));
-        this._permissions.set('VIEW_ILAND_CLOUD_VM_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VM_BILLING', 'ILAND_CLOUD_VM', 'READ', true, false, null)));
-        this._permissions.set('ACCESS_ILAND_CLOUD_VM_CONSOLE', (new permission_1.Permission('ACCESS_ILAND_CLOUD_VM_CONSOLE', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VM_POWER_STATE', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_POWER_STATE', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VM_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_CONFIGURATION', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VM_SNAPSHOTS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VM_SNAPSHOTS', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
-        this._permissions.set('COPY_MOVE_RESTORE_ILAND_CLOUD_VM', (new permission_1.Permission('COPY_MOVE_RESTORE_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
-        this._permissions.set('DELETE_ILAND_CLOUD_VM', (new permission_1.Permission('DELETE_ILAND_CLOUD_VM', 'ILAND_CLOUD_VM', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_VAPP_NETWORK level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_NETWORK', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_NETWORK', 'ILAND_CLOUD_VAPP_NETWORK', 'READ', true, true, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_NETWORK_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_NETWORK_CONFIGURATION', 'ILAND_CLOUD_VAPP_NETWORK', 'WRITE', true, false, null)));
-        this._permissions.set('DELETE_ILAND_CLOUD_VAPP_NETWORK', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP_NETWORK', 'ILAND_CLOUD_VAPP_NETWORK', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_VAPP level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_VAPP', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'READ', true, true, ['VIEW_ILAND_CLOUD_VM', 'VIEW_ILAND_CLOUD_VAPP_NETWORK'])));
-        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_BILLING', 'ILAND_CLOUD_VAPP', 'READ', true, false, ['VIEW_ILAND_CLOUD_VM_BILLING'])));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_POWER_STATE', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_POWER_STATE', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, ['MANAGE_ILAND_CLOUD_VM_POWER_STATE'])));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_CONFIGURATION', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_SNAPSHOTS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_SNAPSHOTS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, ['MANAGE_ILAND_CLOUD_VM_SNAPSHOTS'])));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_LEASES', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_LEASES', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
-        this._permissions.set('COPY_MOVE_DOWNLOAD_ILAND_CLOUD_VAPP', (new permission_1.Permission('COPY_MOVE_DOWNLOAD_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
-        this._permissions.set('DELETE_ILAND_CLOUD_VAPP', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
-        this._permissions.set('CREATE_ILAND_CLOUD_VAPP_VMS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VAPP_VMS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
-        this._permissions.set('CREATE_ILAND_CLOUD_VAPP_NETWORKS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VAPP_NETWORKS', 'ILAND_CLOUD_VAPP', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_INTERNAL_NETWORK level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_INTERNAL_NETWORK', (new permission_1.Permission('VIEW_ILAND_CLOUD_INTERNAL_NETWORK', 'ILAND_CLOUD_INTERNAL_NETWORK', 'READ', true, true, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_INTERNAL_NETWORK_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_INTERNAL_NETWORK_CONFIGURATION', 'ILAND_CLOUD_INTERNAL_NETWORK', 'WRITE', true, false, null)));
-        this._permissions.set('DELETE_ILAND_CLOUD_INTERNAL_NETWORK', (new permission_1.Permission('DELETE_ILAND_CLOUD_INTERNAL_NETWORK', 'ILAND_CLOUD_INTERNAL_NETWORK', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_EDGE level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_EDGE', (new permission_1.Permission('VIEW_ILAND_CLOUD_EDGE', 'ILAND_CLOUD_EDGE', 'READ', true, true, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_DHCP_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_DHCP_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_LOAD_BALANCER_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_LOAD_BALANCER_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_STATIC_ROUTING_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_STATIC_ROUTING_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_RATE_LIMIT_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_RATE_LIMIT_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_IPSEC_VPN_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_IPSEC_VPN_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_SSL_VPN_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_SSL_VPN_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_FIREWALL_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_FIREWALL_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_EDGE_NAT_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_EDGE_NAT_CONFIGURATION', 'ILAND_CLOUD_EDGE', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_VDC level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_VDC', (new permission_1.Permission('VIEW_ILAND_CLOUD_VDC', 'ILAND_CLOUD_VDC', 'READ', true, true, ['VIEW_ILAND_CLOUD_VAPP', 'VIEW_ILAND_CLOUD_EDGE',
-            'VIEW_ILAND_CLOUD_INTERNAL_NETWORK'])));
-        this._permissions.set('VIEW_ILAND_CLOUD_VDC_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_VDC_BILLING', 'ILAND_CLOUD_VDC', 'READ', true, false, ['VIEW_ILAND_CLOUD_VAPP_BILLING'])));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VDC_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VDC_CONFIGURATION', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
-        this._permissions.set('CREATE_ILAND_CLOUD_VDC_VAPPS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_VAPPS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
-        this._permissions.set('CREATE_ILAND_CLOUD_VDC_CATALOG_ITEMS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_CATALOG_ITEMS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
-        this._permissions.set('CREATE_ILAND_CLOUD_VDC_INTERNAL_NETWORKS', (new permission_1.Permission('CREATE_ILAND_CLOUD_VDC_INTERNAL_NETWORKS', 'ILAND_CLOUD_VDC', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_VAPP_TEMPLATE level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('VIEW_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'READ', true, true, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VAPP_TEMPLATE_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VAPP_TEMPLATE_CONFIGURATION', 'ILAND_CLOUD_VAPP_TEMPLATE', 'WRITE', true, false, null)));
-        this._permissions.set('DOWNLOAD_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('DOWNLOAD_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'READ', true, false, null)));
-        this._permissions.set('DELETE_ILAND_CLOUD_VAPP_TEMPLATE', (new permission_1.Permission('DELETE_ILAND_CLOUD_VAPP_TEMPLATE', 'ILAND_CLOUD_VAPP_TEMPLATE', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_MEDIA level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_MEDIA', (new permission_1.Permission('VIEW_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'READ', true, true, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_MEDIA_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_MEDIA_CONFIGURATION', 'ILAND_CLOUD_MEDIA', 'WRITE', true, true, null)));
-        this._permissions.set('CLONE_DOWNLOAD_ILAND_CLOUD_MEDIA', (new permission_1.Permission('CLONE_DOWNLOAD_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'READ', true, false, null)));
-        this._permissions.set('DELETE_ILAND_CLOUD_MEDIA', (new permission_1.Permission('DELETE_ILAND_CLOUD_MEDIA', 'ILAND_CLOUD_MEDIA', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_CATALOG level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_CATALOG', (new permission_1.Permission('VIEW_ILAND_CLOUD_CATALOG', 'ILAND_CLOUD_CATALOG', 'READ', true, true, ['VIEW_ILAND_CLOUD_VAPP_TEMPLATE', 'VIEW_ILAND_CLOUD_MEDIA'])));
-        this._permissions.set('MANAGE_ILAND_CLOUD_CATALOG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_CATALOG_CONFIGURATION', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
-        this._permissions.set('DELETE_ILAND_CLOUD_CATALOG', (new permission_1.Permission('DELETE_ILAND_CLOUD_CATALOG', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
-        this._permissions.set('CREATE_ILAND_CLOUD_CATALOG_VAPP_TEMPLATES', (new permission_1.Permission('CREATE_ILAND_CLOUD_CATALOG_VAPP_TEMPLATES', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
-        this._permissions.set('CREATE_ILAND_CLOUD_CATALOG_MEDIA', (new permission_1.Permission('CREATE_ILAND_CLOUD_CATALOG_MEDIA', 'ILAND_CLOUD_CATALOG', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_VPG level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_VPG', (new permission_1.Permission('VIEW_ILAND_CLOUD_VPG', 'ILAND_CLOUD_VPG', 'READ', true, true, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_VPG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_VPG_CONFIGURATION', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
-        this._permissions.set('INITIATE_ILAND_CLOUD_VPG_TEST_FAILOVER', (new permission_1.Permission('INITIATE_ILAND_CLOUD_VPG_TEST_FAILOVER', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
-        this._permissions.set('INITIATE_ILAND_CLOUD_VPG_LIVE_FAILOVER', (new permission_1.Permission('INITIATE_ILAND_CLOUD_VPG_LIVE_FAILOVER', 'ILAND_CLOUD_VPG', 'WRITE', true, false, null)));
-        // ILAND_CLOUD_ORGANIZATION level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_ORG', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, true, ['VIEW_ILAND_CLOUD_VDC', 'VIEW_ILAND_CLOUD_CATALOG',
-            'VIEW_ILAND_CLOUD_VPG'])));
-        this._permissions.set('VIEW_ILAND_CLOUD_ORG_SECURITY', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG_SECURITY', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, false, null)));
-        this._permissions.set('VIEW_ILAND_CLOUD_ORG_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_ORG_BILLING', 'ILAND_CLOUD_ORGANIZATION', 'READ', true, false, ['VIEW_ILAND_CLOUD_VDC_BILLING'])));
-        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_CONFIGURATION', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_CONFIGURATION', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_DNS', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_DNS', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
-        this._permissions.set('CREATE_ILAND_CLOUD_ORG_CATALOGS', (new permission_1.Permission('CREATE_ILAND_CLOUD_ORG_CATALOGS', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, null)));
-        this._permissions.set('MANAGE_ILAND_CLOUD_ORG_SECURITY', (new permission_1.Permission('MANAGE_ILAND_CLOUD_ORG_SECURITY', 'ILAND_CLOUD_ORGANIZATION', 'WRITE', true, false, ['VIEW_ILAND_CLOUD_ORG_SECURITY'])));
-        // ILAND_CLOUD_LOCATION level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD_LOCATION', (new permission_1.Permission('VIEW_ILAND_CLOUD_LOCATION', 'ILAND_CLOUD_LOCATION', 'READ', true, true, ['VIEW_ILAND_CLOUD_ORG'])));
-        this._permissions.set('VIEW_ILAND_CLOUD_LOCATION_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_LOCATION_BILLING', 'ILAND_CLOUD_LOCATION', 'READ', true, false, ['VIEW_ILAND_CLOUD_ORG_BILLING'])));
-        // ILAND_BACKUP_PRODUCT level permissions
-        this._permissions.set('VIEW_ILAND_BACKUP', (new permission_1.Permission('VIEW_ILAND_BACKUP', 'ILAND_BACKUP_PRODUCT', 'READ', true, true, ['VIEW_ILAND_BACKUP_LOCATION'])));
-        this._permissions.set('VIEW_ILAND_BACKUP_BILLING', (new permission_1.Permission('VIEW_ILAND_BACKUP_BILLING', 'ILAND_BACKUP_PRODUCT', 'READ', true, false, ['VIEW_ILAND_BACKUP_LOCATION_BILLING'])));
-        // ILAND_CLOUD_PRODUCT level permissions
-        this._permissions.set('VIEW_ILAND_CLOUD', (new permission_1.Permission('VIEW_ILAND_CLOUD', 'ILAND_CLOUD_PRODUCT', 'READ', true, true, ['VIEW_ILAND_CLOUD_LOCATION'])));
-        this._permissions.set('VIEW_ILAND_CLOUD_BILLING', (new permission_1.Permission('VIEW_ILAND_CLOUD_BILLING', 'ILAND_CLOUD_PRODUCT', 'READ', true, false, ['VIEW_ILAND_CLOUD_LOCATION_BILLING'])));
-        // COMPANY level permissions
-        this._permissions.set('VIEW_COMPANY', (new permission_1.Permission('VIEW_COMPANY', 'COMPANY', 'READ', true, true, ['VIEW_ILAND_CLOUD', 'VIEW_ILAND_BACKUP'])));
-        this._permissions.set('VIEW_COMPANY_SUPPORT_TICKETS', (new permission_1.Permission('VIEW_COMPANY_SUPPORT_TICKETS', 'COMPANY', 'READ', true, false, null)));
-        this._permissions.set('VIEW_COMPANY_IAM', (new permission_1.Permission('VIEW_COMPANY_IAM', 'COMPANY', 'READ', true, false, null)));
-        this._permissions.set('MANAGE_COMPANY_IAM', (new permission_1.Permission('MANAGE_COMPANY_IAM', 'COMPANY', 'WRITE', false, false, ['VIEW_COMPANY_IAM'])));
-        this._permissions.set('MANAGE_COMPANY_SUPPORT_TICKETS', (new permission_1.Permission('MANAGE_COMPANY_SUPPORT_TICKETS', 'COMPANY', 'WRITE', true, false, ['VIEW_COMPANY_SUPPORT_TICKETS'])));
-    }
-    /**
-     * Get an instance of PermissionMap. Singleton implementation.
-     * @returns {PermissionsMap}
-     */
-    PermissionsMap.getInstance = function () {
-        if (!PermissionsMap.instance) {
-            PermissionsMap.instance = new PermissionsMap();
-        }
-        return PermissionsMap.instance;
-    };
-    Object.defineProperty(PermissionsMap.prototype, "permissions", {
-        /**
-         * Get the permissions map.
-         * @returns {Map<PermissionType, Permission>}
-         */
-        get: function () {
-            return this._permissions;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return PermissionsMap;
-}());
-exports.PermissionsMap = PermissionsMap;
-
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = __webpack_require__(3);
-/**
- * DomainPermissionsMap
- */
-var DomainPermissionsMap = (function () {
-    function DomainPermissionsMap() {
-        this._domainPermissions = new Map();
-        var permissionMap = index_1.PermissionsMap.getInstance().permissions;
-        var self = this;
-        var tmp;
-        permissionMap.forEach(function (value) {
-            if (!self._domainPermissions.has(value.domain)) {
-                self._domainPermissions.set(value.domain, [value]);
-            }
-            else if (self._domainPermissions.has(value.domain)) {
-                tmp = self._domainPermissions.get(value.domain);
-                if (tmp) {
-                    self._domainPermissions.set(value.domain, tmp.concat([value]));
-                }
-            }
-        });
-    }
-    /**
-     * Get an instance of DomainPermissionsMap. Singleton implementation.
-     * @returns {DomainPermissionsMap}
-     */
-    DomainPermissionsMap.getInstance = function () {
-        if (!DomainPermissionsMap.instance) {
-            DomainPermissionsMap.instance = new DomainPermissionsMap();
-        }
-        return DomainPermissionsMap.instance;
-    };
-    Object.defineProperty(DomainPermissionsMap.prototype, "domainPermissions", {
-        /**
-         * Get the domains permissions map.
-         * @returns {Map<EntityDomainType, Array<Permission>>}
-         */
-        get: function () {
-            return this._domainPermissions;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return DomainPermissionsMap;
-}());
-exports.DomainPermissionsMap = DomainPermissionsMap;
-
-
-/***/ }),
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7693,9 +7764,9 @@ exports.DomainPermissionsMap = DomainPermissionsMap;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var user_1 = __webpack_require__(7);
+var user_1 = __webpack_require__(6);
 var iland_1 = __webpack_require__(1);
-var service_1 = __webpack_require__(36);
+var service_1 = __webpack_require__(39);
 /**
  * UserWithSecurity
  */
@@ -7882,32 +7953,14 @@ exports.UserWithSecurity = UserWithSecurity;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var model_1 = __webpack_require__(3);
-var permission_service_1 = __webpack_require__(37);
+var permission_service_1 = __webpack_require__(9);
+var policy_1 = __webpack_require__(8);
 /**
  * IamService
  */
 var IamService = (function () {
     function IamService() {
     }
-    /**
-     * Get the effective policy.
-     * @param {CompanyInventory} companyInventory
-     * @param {InventoryEntity} entity
-     * @param {Role} role
-     * @returns {Policy | null}
-     */
-    IamService.getEffectivePolicy = function (companyInventory, entity, role) {
-        var policyOptional = IamService.findFirstRelevantPolicy(companyInventory, entity, role);
-        var derivePolicy = null;
-        if (policyOptional) {
-            derivePolicy = IamService.deriveEffectivePolicyFromAncestor(companyInventory, policyOptional, entity);
-            if (!derivePolicy) {
-                derivePolicy = new model_1.PolicyBuilder(entity.uuid, entity.type, 'CUSTOM').build();
-            }
-        }
-        return derivePolicy;
-    };
     /**
      * Check whether or not a user is allowed to perform an action or not.
      * @param {UserWithSecurity} user
@@ -7945,28 +7998,6 @@ var IamService = (function () {
         return false;
     };
     /**
-     * Find the relevant policy depending on company inventory and an entity.
-     * @param {CompanyInventory} companyInventory
-     * @param {InventoryEntity | undefined} entity
-     * @param {Role} role
-     * @returns {Policy | null}
-     */
-    IamService.findFirstRelevantPolicy = function (companyInventory, entity, role) {
-        if (entity === undefined) {
-            return null;
-        }
-        var policyOptional = role.getPolicy(entity.uuid);
-        if (policyOptional !== null) {
-            return policyOptional;
-        }
-        else if (entity.parentUuid !== null) {
-            return IamService.findFirstRelevantPolicy(companyInventory, companyInventory.getEntityByUuid(entity.parentUuid), role);
-        }
-        else {
-            return null;
-        }
-    };
-    /**
      * Derive effective policy from an ancestor.
      * @param {CompanyInventory} companyInventory
      * @param {Policy} ancestorPolicy
@@ -7991,12 +8022,12 @@ var IamService = (function () {
         }
         switch (directParentPolicy.type) {
             case 'ADMIN':
-                return new model_1.PolicyBuilder(target.uuid, target.type, 'ADMIN').build();
+                return new policy_1.PolicyBuilder(target.uuid, target.type, 'ADMIN').build();
             case 'READ_ONLY':
-                return new model_1.PolicyBuilder(target.uuid, target.type, 'READ_ONLY').build();
+                return new policy_1.PolicyBuilder(target.uuid, target.type, 'READ_ONLY').build();
             case 'CUSTOM':
             default:
-                var builder = new model_1.PolicyBuilder(target.uuid, target.type, 'CUSTOM');
+                var builder = new policy_1.PolicyBuilder(target.uuid, target.type, 'CUSTOM');
                 var permissions = permission_service_1.PermissionService.getInstance().getImpliedPermissions(directParentPolicy.permissions);
                 if (permissions !== null) {
                     for (var _i = 0, permissions_1 = permissions; _i < permissions_1.length; _i++) {
@@ -8030,6 +8061,137 @@ var IamService = (function () {
         }
         return false;
     };
+    /**
+     * Validate a role creation request.
+     * @param {RoleCreationRequest} roleCreationRequest
+     * @param {CompanyInventory} companyInventory
+     * @returns {Array<Error>}
+     */
+    IamService.validateRole = function (roleCreationRequest, companyInventory) {
+        var errors = [];
+        if (roleCreationRequest.policies.length === 0) {
+            errors.push((new Error('A role must have at least one policy.')));
+        }
+        for (var _i = 0, _a = roleCreationRequest.policies; _i < _a.length; _i++) {
+            var policy = _a[_i];
+            var entityOptional = companyInventory.getEntityByUuid(policy.entityUuid);
+            if (entityOptional === undefined) {
+                errors.push((new Error('Entity ' + policy.entityUuid + ' not found in this company.')));
+            }
+            else {
+                if (policy.entityDomain !== entityOptional.type) {
+                    errors.push((new Error('Policy for entity ' + entityOptional.name + ' has domain type ' +
+                        policy.entityDomain + ' but entity is actually of type ' + entityOptional.type)));
+                }
+                if (policy.type === 'CUSTOM') {
+                    if (policy.permissions.length === 0) {
+                        errors.push((new Error('Custom policies must contain at least one permission.')));
+                    }
+                    var availablePermissions = permission_service_1.PermissionService.getInstance().getAvailablePermissionsForDomain(policy.entityDomain);
+                    if (availablePermissions) {
+                        // if this is a custom policy, verify that it has all permissions that
+                        // are required for a custom policy and that it doesn't have any
+                        // permissions that are not available to a custom policy
+                        for (var _b = 0, availablePermissions_1 = availablePermissions; _b < availablePermissions_1.length; _b++) {
+                            var domainPermission = availablePermissions_1[_b];
+                            if (domainPermission.requiredForCustomPolicy && !policy.hasPermission(domainPermission.permissionType)) {
+                                errors.push((new Error('Custom policy doesn\'t have the required permission.')));
+                            }
+                            else if (!domainPermission.availableToCustomPolicy &&
+                                policy.hasPermission(domainPermission.permissionType)) {
+                                errors.push((new Error('Custom policy is not allowed to have the specified permission.')));
+                            }
+                        }
+                    }
+                }
+                if (entityOptional.parentUuid !== null) {
+                    var parentEntity = companyInventory.getEntityByUuid(entityOptional.parentUuid);
+                    if (parentEntity) {
+                        var effectiveParentPolicy = this.getEffectivePolicy(companyInventory, parentEntity, roleCreationRequest);
+                        if (effectiveParentPolicy) {
+                            var perm = void 0;
+                            var impliedPerm = void 0;
+                            for (var _c = 0, _d = effectiveParentPolicy.permissions; _c < _d.length; _c++) {
+                                var parentPermission = _d[_c];
+                                perm = permission_service_1.PermissionService.getPermission(parentPermission);
+                                if (perm && perm.impliedPermissions) {
+                                    for (var _e = 0, _f = perm.impliedPermissions; _e < _f.length; _e++) {
+                                        var impliedPermission = _f[_e];
+                                        impliedPerm = permission_service_1.PermissionService.getPermission(impliedPermission);
+                                        if (impliedPerm && impliedPerm.domain === policy.entityDomain &&
+                                            !policy.hasPermission(impliedPermission)) {
+                                            // the policy must have this permission, otherwise it violates an
+                                            // implication of higher-level policies
+                                            errors.push((new Error('Policy must contain permission=' + impliedPermission +
+                                                ' since it is implied by a higher level permission.')));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                // verify that the policies has all permissions that are implied by its
+                // own permissions on the same domain
+                for (var _g = 0, _h = policy.permissions; _g < _h.length; _g++) {
+                    var permission = _h[_g];
+                    var perm = permission_service_1.PermissionService.getPermission(permission);
+                    if (perm && perm.impliedPermissions) {
+                        for (var _j = 0, _k = perm.impliedPermissions; _j < _k.length; _j++) {
+                            var impliedPermission = _k[_j];
+                            var implPerm = permission_service_1.PermissionService.getPermission(impliedPermission);
+                            if (implPerm && implPerm.domain === policy.entityDomain && !policy.hasPermission(impliedPermission)) {
+                                // the policy must have this permission, otherwise it violates an implication of higher-level policies
+                                errors.push((new Error('Policy must contain permission=' + impliedPermission +
+                                    ' since it has permission=' + permission + '.')));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return errors;
+    };
+    /**
+     * Get the effective policy.
+     * @param {CompanyInventory} companyInventory
+     * @param {InventoryEntity} entity
+     * @param {Role} role
+     * @returns {Policy | null}
+     */
+    IamService.getEffectivePolicy = function (companyInventory, entity, role) {
+        var policyOptional = IamService.findFirstRelevantPolicy(companyInventory, entity, role);
+        var derivePolicy = null;
+        if (policyOptional) {
+            derivePolicy = IamService.deriveEffectivePolicyFromAncestor(companyInventory, policyOptional, entity);
+            if (!derivePolicy) {
+                derivePolicy = new policy_1.PolicyBuilder(entity.uuid, entity.type, 'CUSTOM').build();
+            }
+        }
+        return derivePolicy;
+    };
+    /**
+     * Find the relevant policy depending on company inventory and an entity.
+     * @param {CompanyInventory} companyInventory
+     * @param {InventoryEntity | undefined} entity
+     * @param {Role} role
+     * @returns {Policy | null}
+     */
+    IamService.findFirstRelevantPolicy = function (companyInventory, entity, role) {
+        if (entity === undefined) {
+            return null;
+        }
+        var policyOptional = role.getPolicy(entity.uuid);
+        if (policyOptional !== null) {
+            return policyOptional;
+        }
+        else if (entity.parentUuid !== null) {
+            return IamService.findFirstRelevantPolicy(companyInventory, companyInventory.getEntityByUuid(entity.parentUuid), role);
+        }
+        else {
+            return null;
+        }
+    };
     return IamService;
 }());
 exports.IamService = IamService;
@@ -8043,7 +8205,7 @@ exports.IamService = IamService;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-tslib_1.__exportStar(__webpack_require__(13), exports);
+tslib_1.__exportStar(__webpack_require__(15), exports);
 tslib_1.__exportStar(__webpack_require__(55), exports);
 tslib_1.__exportStar(__webpack_require__(57), exports);
 
@@ -8056,7 +8218,7 @@ tslib_1.__exportStar(__webpack_require__(57), exports);
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var auth_provider_1 = __webpack_require__(13);
+var auth_provider_1 = __webpack_require__(15);
 var Keycloak = __webpack_require__(56);
 var IlandBrowserAuthProvider = (function () {
     function IlandBrowserAuthProvider(config) {
@@ -8158,8 +8320,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_56__;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var tslib_1 = __webpack_require__(0);
-var auth_provider_1 = __webpack_require__(13);
-var axios_1 = __webpack_require__(15);
+var auth_provider_1 = __webpack_require__(15);
+var axios_1 = __webpack_require__(17);
 var querystring = __webpack_require__(58);
 var TOKEN_REFRESH_THRESHOLD = 10;
 var IlandDirectGrantAuthProvider = (function () {

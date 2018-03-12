@@ -2277,6 +2277,12 @@ export class RoleCreationRequest {
             * @returns {string}
             */
         toString(): string;
+        /**
+            * Return the policy for the specified uuid.
+            * @param {string} entityUuid
+            * @returns {Policy | null}
+            */
+        getPolicy(entityUuid: string): Policy | null;
 }
 /**
     * Role Creation Request Builder.
@@ -2407,6 +2413,12 @@ export class Policy {
             * @returns {PolicyJson} the JSON representation
             */
         readonly json: PolicyJson;
+        /**
+            * Indicate whether the policy has the specified permission.
+            * @param {PermissionType} permissionType
+            * @returns {boolean}
+            */
+        hasPermission(permissionType: PermissionType): boolean;
 }
 /**
     * Policy Builder.
@@ -2420,9 +2432,16 @@ export class PolicyBuilder {
             */
         constructor(_entityUuid: string, _entityDomain: EntityDomainType, _type: PolicyType);
         /**
+            * Set an array of permissions.
+            * @param {Array<PermissionType>} array
+            * @throws Error
+            */
+        setPermissions(array: Array<PermissionType>): PolicyBuilder;
+        /**
             * Adds a permission.
             * @param {PermissionType} permission the permission to add
             * @returns {PolicyBuilder} the builder
+            * @throws Error
             */
         addPermission(permission: PermissionType): PolicyBuilder;
         /**
@@ -2989,14 +3008,6 @@ export interface IlandDirectGrantAuthConfig {
     */
 export class IamService {
         /**
-            * Get the effective policy.
-            * @param {CompanyInventory} companyInventory
-            * @param {InventoryEntity} entity
-            * @param {Role} role
-            * @returns {Policy | null}
-            */
-        static getEffectivePolicy(companyInventory: CompanyInventory, entity: InventoryEntity, role: Role): Policy | null;
-        /**
             * Check whether or not a user is allowed to perform an action or not.
             * @param {UserWithSecurity} user
             * @param {string} entityUuid
@@ -3004,14 +3015,6 @@ export class IamService {
             * @returns {boolean}
             */
         static isUserPermitted(user: UserWithSecurity, entityUuid: string, permissionType: PermissionType): boolean;
-        /**
-            * Find the relevant policy depending on company inventory and an entity.
-            * @param {CompanyInventory} companyInventory
-            * @param {InventoryEntity | undefined} entity
-            * @param {Role} role
-            * @returns {Policy | null}
-            */
-        static findFirstRelevantPolicy(companyInventory: CompanyInventory, entity: InventoryEntity | undefined, role: Role): Policy | null;
         /**
             * Derive effective policy from an ancestor.
             * @param {CompanyInventory} companyInventory
@@ -3027,6 +3030,13 @@ export class IamService {
             * @returns {boolean}
             */
         static isPubliclyAccessible(entityUuid: string, permission: PermissionType): boolean;
+        /**
+            * Validate a role creation request.
+            * @param {RoleCreationRequest} roleCreationRequest
+            * @param {CompanyInventory} companyInventory
+            * @returns {Array<Error>}
+            */
+        static validateRole(roleCreationRequest: RoleCreationRequest, companyInventory: CompanyInventory): Error[];
 }
 
 /**
@@ -3046,6 +3056,12 @@ export class PermissionService {
             * @returns {PermissionService}
             */
         static getInstance(): PermissionService;
+        /**
+            * Get the decorated permission for the specified permission type.
+            * @param {PermissionType} permission
+            * @returns {Permission | undefined}
+            */
+        static getPermission(permission: PermissionType): Permission | undefined;
         /**
             * Get implied permission for the current permission.
             * @param {Array<PermissionType> | undefined} _impliedPermissions
